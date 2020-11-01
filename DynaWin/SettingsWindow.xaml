@@ -8,7 +8,7 @@
         x:Class="DynaWin.SettingsWindow"
         mc:Ignorable="d"
         Title="DynaWin Configurator" Height="800" Width="1200" ui:WindowHelper.UseModernWindowStyle="True" 
-        Icon="pack://siteoforigin:,,,/Resources/icon.ico" MinHeight="450" MinWidth="800" Closing="Window_Closing" Loaded="Window_Loaded">
+        Icon="pack://siteoforigin:,,,/Resources/icon.ico" MinHeight="450" MinWidth="1000" Closing="Window_Closing" Loaded="Window_Loaded">
     <Grid>
         <ui:NavigationView IsBackEnabled="False" IsSettingsVisible="True" IsBackButtonVisible="Collapsed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,0" PaneDisplayMode="Auto" x:Name="NavigationView" SelectionChanged="NavigationView_SelectionChanged" ItemInvoked="NavigationView_ItemInvoked" >
             <ui:NavigationView.MenuItems>
@@ -50,7 +50,7 @@
                     <Grid>
                         <Label Content="Dynamic Theme" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22"/>
                         <Label Content="Enable Dynamic Theme" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" FontSize="14"/>
-                        <TextBlock Text="Automatically switch between light theme and dark theme. When enabled, Dynamic Theme will change both the system theme and the app theme. " HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" FontSize="13" TextWrapping="Wrap"/>
+                        <Label Content="Automatically switch between light theme and dark theme. When enabled, Dynamic Theme will change both the system theme and the app theme. " HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" FontSize="13" />
                         <ui:ToggleSwitch x:Name="ThemeToggle" VerticalAlignment="Top" Margin="10,106,0,0" Toggled="ThemeToggle_Toggled" />
 
                         <Grid Margin="0,143,0,0" x:Name="ThemeGrid">

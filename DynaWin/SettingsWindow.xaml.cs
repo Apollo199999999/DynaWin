@@ -28,7 +28,7 @@ namespace DynaWin
 
     public partial class SettingsWindow : Window
     {
-
+        
         public SettingsWindow()
         {
             InitializeComponent();
@@ -199,8 +199,7 @@ namespace DynaWin
             //save toggle
             SaveToggleState(System.IO.Path.Combine(DataBingWallpaperRootDir, "state.txt"), 
                 BingToggle);
-
-
+           
             //hide this window
             this.Hide();
         }

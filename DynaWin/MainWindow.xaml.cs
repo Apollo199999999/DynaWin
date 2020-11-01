@@ -17,6 +17,7 @@ using static DynaWin.PublicVariables;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Threading;
+using System.Windows.Threading;
 
 namespace DynaWin
 {
@@ -28,6 +29,11 @@ namespace DynaWin
         private static Mutex _mutex = null;
 
         System.Windows.Forms.NotifyIcon ni = new System.Windows.Forms.NotifyIcon();
+
+        SettingsWindow settingsWindow = new SettingsWindow();
+
+        //create a timer to update theme and wallpaper
+        DispatcherTimer UpdaterTimer = new DispatcherTimer();
 
         //only allow one instance of this application to run
         public MainWindow()
@@ -148,6 +154,13 @@ namespace DynaWin
 
             }
 
+            //event handler for settings window closing
+            settingsWindow.Closing += SettingsWindow_Closing;
+
+            //set updater timer interval to about 1 minute and start the timer
+            UpdaterTimer.Interval = TimeSpan.FromSeconds(60);
+            UpdaterTimer.Tick += UpdaterTimer_Tick;
+            UpdaterTimer.Start();
 
             //minimize this window
             this.WindowState = WindowState.Minimized;
@@ -191,7 +204,82 @@ namespace DynaWin
             //------------------------------------------------------------------------------------------
         }
 
-        SettingsWindow settingsWindow = new SettingsWindow();
+        private void SettingsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //start the timer again
+            UpdaterTimer.Start();
+            //call the event handler
+            UpdaterTimer_Tick(null, null);
+        }
+
+        //function to get the current time so I don't have to repeat myself
+        public string GetCurrentTime()
+        {
+            DateTime now = DateTime.Now;
+            string currentTime = now.ToString("h:mm tt");
+            currentTime = currentTime.ToUpper(); //This is to make sure that the AM and PM is upper case
+           
+            return currentTime;
+        }
+
+
+        private void UpdaterTimer_Tick(object sender, EventArgs e)
+        {
+            /*check which items are enabled, and if they are enabled, check if the current time
+             matches the set time in the text file*/
+           
+            //next, check if the features are enabled
+            string DynamicWallpaperState = File.ReadLines(
+                System.IO.Path.Combine(DataDynamicWallpaperRootDir, "state.txt")).First();
+
+            string DynamicThemeState = File.ReadLines(
+                System.IO.Path.Combine(DataDynamicThemeRootDir, "state.txt")).First();
+
+            string BingWallpaperState = File.ReadLines(
+                System.IO.Path.Combine(DataBingWallpaperRootDir, "state.txt")).First();
+
+            if (DynamicWallpaperState == "enabled")
+            {
+                //Dynamic Wallpaper is enabled
+            }
+
+            if (DynamicThemeState == "enabled")
+            {
+                //Dynamic Theme is enabled
+
+                /*check if either of the timings in the light theme and dark theme settings file
+                match the current time*/
+                
+                string LightThemeTime = File.ReadLines(
+                System.IO.Path.Combine(DataDynamicThemeRootDir, "lightthemesettings.txt")).First();
+
+                LightThemeTime = LightThemeTime.ToUpper(); //This is to make sure that the AM and PM is upper case
+
+                string DarkThemeTime = File.ReadLines(
+                System.IO.Path.Combine(DataDynamicThemeRootDir, "darkthemesettings.txt")).First();
+
+                DarkThemeTime = DarkThemeTime.ToUpper(); //This is to make sure that the AM and PM is upper case
+
+                if (LightThemeTime == GetCurrentTime())
+                {
+                    //enable light theme
+                    System.Diagnostics.Process.Start("notepad.exe");
+                }
+                else if (DarkThemeTime == GetCurrentTime())
+                {
+                    //enable dark theme
+                    System.Diagnostics.Process.Start("cmd.exe");
+                }
+
+            }
+
+            if (BingWallpaperState == "enabled")
+            {
+                //Bing Wallpaper is enabled
+            }
+        }
+
+        
 
         private void QuitDynaWin_Click(object sender, EventArgs e)
         {
@@ -213,12 +301,18 @@ namespace DynaWin
             
             if (SettingsWindowInstances == 0)
             {
+                //temp stop the timer
+                UpdaterTimer.Stop();
                 //show the window
                 settingsWindow.Show();
 
                 //and set the settingswindowinstances to 1 so that 
                 //another instance of settings window cannot open
-                SettingsWindowInstances = 1;             
+                SettingsWindowInstances = 1;
+
+                //call the event handler
+                UpdaterTimer_Tick(null, null);
+
             }
             else
             {
@@ -242,12 +336,17 @@ namespace DynaWin
 
                 if (SettingsWindowInstances == 0)
                 {
+                    //temp stop the timer
+                    UpdaterTimer.Stop();
                     //show the window
                     settingsWindow.Show();
 
                     //and set the settingswindowinstances to 1 so that 
                     //another instance of settings window cannot open
                     SettingsWindowInstances = 1;
+
+                    //call the event handler
+                    UpdaterTimer_Tick(null, null);
                 }
                 else
                 {
