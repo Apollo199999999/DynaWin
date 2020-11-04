@@ -18,6 +18,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Threading;
 using System.Windows.Threading;
+using Microsoft.Win32;
 
 namespace DynaWin
 {
@@ -222,9 +223,35 @@ namespace DynaWin
             return currentTime;
         }
 
+        //function to change the system theme
+        public void ChangeSystemTheme(bool lightTheme)
+        {
+            if (lightTheme == true)
+            {
+               Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", 
+                    "AppsUseLightTheme", "1", RegistryValueKind.DWord);
+
+                Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+                   "SystemUsesLightTheme", "1", RegistryValueKind.DWord);
+
+            }
+            else if (lightTheme == false)
+            {
+
+                Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+                    "AppsUseLightTheme", "0", RegistryValueKind.DWord);
+
+                Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+                   "SystemUsesLightTheme", "0", RegistryValueKind.DWord);
+            }
+            
+        }
 
         private void UpdaterTimer_Tick(object sender, EventArgs e)
         {
+            //get the current time
+            string currentTime = GetCurrentTime();
+
             /*check which items are enabled, and if they are enabled, check if the current time
              matches the set time in the text file*/
            
@@ -260,15 +287,15 @@ namespace DynaWin
 
                 DarkThemeTime = DarkThemeTime.ToUpper(); //This is to make sure that the AM and PM is upper case
 
-                if (LightThemeTime == GetCurrentTime())
+                if (LightThemeTime == currentTime)
                 {
                     //enable light theme
-                    System.Diagnostics.Process.Start("notepad.exe");
+                    ChangeSystemTheme(true);
                 }
-                else if (DarkThemeTime == GetCurrentTime())
+                else if (DarkThemeTime == currentTime)
                 {
                     //enable dark theme
-                    System.Diagnostics.Process.Start("cmd.exe");
+                    ChangeSystemTheme(false);
                 }
 
             }

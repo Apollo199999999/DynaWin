@@ -21,12 +21,15 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\zh-Hant\ModernWpf.resource
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\System.ValueTuple.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\MainWindow.g.cs
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\SettingsWindow.g.cs
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\TimePicker.g.cs
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\App.g.cs
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin_MarkupCompile.cache
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin_MarkupCompile.lref
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\App.baml
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\MainWindow.baml
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\SettingsWindow.baml
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\TimePicker.baml
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.g.resources
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.Properties.Resources.resources
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csproj.GenerateResource.cache
@@ -34,7 +37,4 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csproj.CoreCompile
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csproj.CopyComplete
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.exe
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.pdb
-C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\TimePicker.g.cs
-C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\TimePicker.baml
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csprojAssemblyReference.cache

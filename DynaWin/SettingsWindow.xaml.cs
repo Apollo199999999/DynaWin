@@ -17,6 +17,7 @@ using static DynaWin.PublicVariables;
 using System.Runtime.InteropServices;
 using System.IO;
 using ModernWpf.Controls;
+using Microsoft.Win32;
 
 namespace DynaWin
 {
@@ -303,5 +304,7 @@ namespace DynaWin
             }
 
         }
+
+       
     }
 }
