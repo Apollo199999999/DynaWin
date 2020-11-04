@@ -50,7 +50,7 @@
                     <Grid>
                         <Label Content="Dynamic Theme" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22"/>
                         <Label Content="Enable Dynamic Theme" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" FontSize="14"/>
-                        <Label Content="Automatically switch between light theme and dark theme. When enabled, Dynamic Theme will change only the system theme. " HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" FontSize="13" />
+                        <Label Content="Automatically switch between light theme and dark theme. When enabled, Dynamic Theme will change both the system theme and the app theme." HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" FontSize="13" />
                         <ui:ToggleSwitch x:Name="ThemeToggle" VerticalAlignment="Top" Margin="10,106,0,0" Toggled="ThemeToggle_Toggled" />
                         
                         <Grid Margin="0,143,0,0" x:Name="ThemeGrid">
