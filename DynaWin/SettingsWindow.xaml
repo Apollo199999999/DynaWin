@@ -36,16 +36,11 @@
                     <Grid>
                         <Label Content="Dynamic Wallpaper" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22"/>
                         <Label Content="Enable Dynamic Wallpaper" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" FontSize="14"/>
-                        <Label Content="Automatically switch your desktop wallpaper at regular intervals, from sunrise to sunset" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" FontSize="13"/>
+                        <Label Content="Automatically switch your desktop wallpaper at specified timings" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" FontSize="13"/>
                         <ui:ToggleSwitch x:Name="WallpaperToggle" VerticalAlignment="Top" Margin="10,106,0,0" Toggled="WallpaperToggle_Toggled" Width="85" />
 
                         <Grid Margin="0,143,0,0" x:Name="WallpaperGrid">
-                            <Label Content="Set Sunrise time:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                            <Label Content="Set Sunset time:" HorizontalAlignment="Left" Margin="275,10,0,0" VerticalAlignment="Top"/>
-                            <local:TimePicker HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="215" x:Name="SunriseTimePicker"/>
-                            <local:TimePicker HorizontalAlignment="Left" Margin="275,34,0,0" VerticalAlignment="Top" Width="215" x:Name="SunsetTimePicker"/>
-                            <ListBox x:Name="WallpapersListBox" HorizontalAlignment="Left" Height="480" Margin="10,112,0,0" VerticalAlignment="Top" Width="1169"/>
-                            <Label Content="Wallpapers:" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
+                            <Button Content="Test"/>
                         </Grid>
                         <TextBlock x:Name="DynamicWallpaperDisableLabel" Text="Dynamic Wallpaper cannot be turned on when using Daily Bing Image as Desktop Wallpaper." HorizontalAlignment="Left" Margin="100,113,0,0" VerticalAlignment="Top" Foreground="#FFCB3124" TextWrapping="Wrap"/>
                     </Grid>
@@ -57,7 +52,7 @@
                         <Label Content="Enable Dynamic Theme" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" FontSize="14"/>
                         <Label Content="Automatically switch between light theme and dark theme. When enabled, Dynamic Theme will change both the system theme and the app theme." HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" FontSize="13" />
                         <ui:ToggleSwitch x:Name="ThemeToggle" VerticalAlignment="Top" Margin="10,106,0,0" Toggled="ThemeToggle_Toggled" />
-
+                        
                         <Grid Margin="0,143,0,0" x:Name="ThemeGrid">
                             <local:TimePicker x:Name="LightThemeTimePicker" Margin="10,34,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <Label Content="Switch to Light Theme at:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>

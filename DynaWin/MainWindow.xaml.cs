@@ -155,43 +155,6 @@ namespace DynaWin
 
             }
 
-            /*Check if the settings file for Dynamic Wallpaper exists
-             If not, create one.*/
-
-            if (!File.Exists(System.IO.Path.Combine(DataDynamicWallpaperRootDir, "sunrisetime.txt")))
-            {
-                //create a text file
-                var file = File.CreateText(System.IO.Path.Combine(DataDynamicWallpaperRootDir, "sunrisetime.txt"));
-
-                //close the text document
-                file.Close();
-
-                //write a default time (8:00 AM) in the text document
-                using (StreamWriter writer = new StreamWriter
-                    (System.IO.Path.Combine(DataDynamicWallpaperRootDir, "sunrisetime.txt")))
-                {
-                    writer.WriteLine("7:00 AM");
-                }
-
-            }
-
-            if (!File.Exists(System.IO.Path.Combine(DataDynamicWallpaperRootDir, "sunsettime.txt")))
-            {
-                //create a text file
-                var file = File.CreateText(System.IO.Path.Combine(DataDynamicWallpaperRootDir, "sunsettime.txt"));
-
-                //close the text document
-                file.Close();
-
-                //write a default time (8:00 AM) in the text document
-                using (StreamWriter writer = new StreamWriter
-                    (System.IO.Path.Combine(DataDynamicWallpaperRootDir, "sunsettime.txt")))
-                {
-                    writer.WriteLine("7:00 PM");
-                }
-
-            }
-
             //event handler for settings window closing
             settingsWindow.Closing += SettingsWindow_Closing;
 

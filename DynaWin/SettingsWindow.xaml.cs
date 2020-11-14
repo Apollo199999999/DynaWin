@@ -189,15 +189,6 @@ namespace DynaWin
             SaveTimePickerTimeToTextFile(DarkThemeTimePicker,
                 System.IO.Path.Combine(DataDynamicThemeRootDir, "darkthemesettings.txt"));
 
-            //Save the selected time in the text file
-            SaveTimePickerTimeToTextFile(SunriseTimePicker,
-                System.IO.Path.Combine(DataDynamicWallpaperRootDir, "sunrisetime.txt"));
-
-            //Save the selected time in the text file
-            SaveTimePickerTimeToTextFile(SunsetTimePicker,
-                System.IO.Path.Combine(DataDynamicWallpaperRootDir, "sunsettime.txt"));
-
-
             //save the toggle state
             SaveToggleState(System.IO.Path.Combine(DataDynamicWallpaperRootDir, "state.txt"), 
                 WallpaperToggle);
@@ -209,7 +200,7 @@ namespace DynaWin
             //save toggle
             SaveToggleState(System.IO.Path.Combine(DataBingWallpaperRootDir, "state.txt"), 
                 BingToggle);
-
+           
             //hide this window
             this.Hide();
         }
@@ -246,12 +237,6 @@ namespace DynaWin
 
             LoadTimePickerTimeFromTextFile(DarkThemeTimePicker,
                System.IO.Path.Combine(DataDynamicThemeRootDir, "darkthemesettings.txt"));
-
-            LoadTimePickerTimeFromTextFile(SunriseTimePicker,
-               System.IO.Path.Combine(DataDynamicWallpaperRootDir, "sunrisetime.txt"));
-
-            LoadTimePickerTimeFromTextFile(SunsetTimePicker,
-               System.IO.Path.Combine(DataDynamicWallpaperRootDir, "sunsettime.txt"));
         }
 
         private void WallpaperToggle_Toggled(object sender, RoutedEventArgs e)
