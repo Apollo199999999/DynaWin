@@ -213,7 +213,7 @@ namespace DynaWin
             //create and init context menu and menu items-------------------------------------------------
             System.Windows.Forms.ContextMenu TrayMenu = new System.Windows.Forms.ContextMenu();
 
-            System.Windows.Forms.MenuItem OpenDynaWin = new System.Windows.Forms.MenuItem("Open DynaWin");
+            System.Windows.Forms.MenuItem OpenDynaWin = new System.Windows.Forms.MenuItem("DynaWin Settings");
             System.Windows.Forms.MenuItem QuitDynaWin = new System.Windows.Forms.MenuItem("Quit DynaWin");
 
             //add the items

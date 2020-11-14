@@ -46,6 +46,8 @@ namespace DynaWin
             BingWallpaperDisableLabel.Visibility = Visibility.Hidden;
             DynamicWallpaperDisableLabel.Visibility = Visibility.Hidden;
 
+            //add test item
+            WallpapersListView.Items.Add("this is a test");
         }
 
         //function for loading toggle state 
