@@ -23,8 +23,6 @@ namespace DynaWin
         public static string DataDynamicThemeRootDir = Environment.GetFolderPath
             (Environment.SpecialFolder.ApplicationData) + "\\DynaWin\\DynamicTheme\\";
 
-        public static string DataBingWallpaperRootDir = Environment.GetFolderPath
-            (Environment.SpecialFolder.ApplicationData) + "\\DynaWin\\BingWallpaper\\";
 
 
 
