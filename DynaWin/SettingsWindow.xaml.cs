@@ -42,10 +42,72 @@ namespace DynaWin
             s.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
             NavigationFrame.ItemContainerStyle = s;
 
+            //make the wallpapertabcontrol header not visible
+            Style s1 = new Style();
+            s1.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+            WallpaperTabControl.ItemContainerStyle = s1;
+
             //hide the two disabling labels first
             BingWallpaperDisableLabel.Visibility = Visibility.Hidden;
             DynamicWallpaperDisableLabel.Visibility = Visibility.Hidden;
 
+        }
+
+        //function for loading the selected radio button (for dynamic wallpaper)
+        public void LoadRadioButtonState()
+        {
+            string SelectedRadioButton = File.ReadLines
+                (System.IO.Path.Combine(DataDynamicWallpaperRootDir, "wallpaperswitch.txt")).First();
+
+            //check the selected radio button
+            if (SelectedRadioButton == "time")
+            {
+                //select the time radio button
+                TimeRadButton.IsChecked = true;
+            }
+            else if (SelectedRadioButton == "theme")
+            {
+                //select the theme radio button
+                ThemeRadButton.IsChecked = true;
+            }
+            else if (SelectedRadioButton == "battery")
+            {
+                //select the battery radio button
+                BatteryRadButton.IsChecked = true;
+            }
+        }
+
+        //function for saving the selected radio button (for dynamic wallpaper)
+        public void SaveRadioButtonState()
+        {
+            //delete wallpaperswitch.txt
+            File.Delete(System.IO.Path.Combine(DataDynamicWallpaperRootDir,
+                "wallpaperswitch.txt"));
+
+            //create a new one
+            var file = File.CreateText(System.IO.Path.Combine(DataDynamicWallpaperRootDir, "wallpaperswitch.txt"));
+
+            //close the text document
+            file.Close();
+
+            //write a default time (8:00 AM) in the text document
+            using (StreamWriter writer = new StreamWriter
+                (System.IO.Path.Combine(DataDynamicWallpaperRootDir, "wallpaperswitch.txt")))
+            {
+                //check which radiobutton is checked
+                if (TimeRadButton.IsChecked == true)
+                {
+                    writer.WriteLine("time");
+                }
+                else if (ThemeRadButton.IsChecked == true)
+                {
+                    writer.WriteLine("theme");
+                }
+                else if (BatteryRadButton.IsChecked == true)
+                {
+                    writer.WriteLine("battery");
+                }
+            }
         }
 
         //function for loading toggle state 
@@ -200,6 +262,9 @@ namespace DynaWin
             //save toggle
             SaveToggleState(System.IO.Path.Combine(DataBingWallpaperRootDir, "state.txt"), 
                 BingToggle);
+
+            //save the radio button state
+            SaveRadioButtonState();
            
             //hide this window
             this.Hide();
@@ -230,6 +295,9 @@ namespace DynaWin
             LoadToggleState(DynamicWallpaperToggleState, WallpaperToggle);
             LoadToggleState(DynamicThemeToggleState, ThemeToggle);
             LoadToggleState(BingWallpaperToggleState, BingToggle);
+
+            //load the radio button state
+            LoadRadioButtonState();
 
             //set the time of the time picker
             LoadTimePickerTimeFromTextFile(LightThemeTimePicker,
@@ -305,6 +373,6 @@ namespace DynaWin
 
         }
 
-       
+        
     }
 }

@@ -155,6 +155,24 @@ namespace DynaWin
 
             }
 
+            //Like above, check if the wallpaperswitch text file exists. If not, create one.
+            if (!File.Exists(System.IO.Path.Combine(DataDynamicWallpaperRootDir, "wallpaperswitch.txt")))
+            {
+                //create a text file
+                var file = File.CreateText(System.IO.Path.Combine(DataDynamicWallpaperRootDir, "wallpaperswitch.txt"));
+
+                //close the text document
+                file.Close();
+
+                //write a default time (8:00 AM) in the text document
+                using (StreamWriter writer = new StreamWriter
+                    (System.IO.Path.Combine(DataDynamicWallpaperRootDir, "wallpaperswitch.txt")))
+                {
+                    writer.WriteLine("time");
+                }
+
+            }
+
             //event handler for settings window closing
             settingsWindow.Closing += SettingsWindow_Closing;
 
@@ -176,7 +194,7 @@ namespace DynaWin
             //create and init context menu and menu items-------------------------------------------------
             System.Windows.Forms.ContextMenu TrayMenu = new System.Windows.Forms.ContextMenu();
 
-            System.Windows.Forms.MenuItem OpenDynaWin = new System.Windows.Forms.MenuItem("Open DynaWin");
+            System.Windows.Forms.MenuItem OpenDynaWin = new System.Windows.Forms.MenuItem("DynaWin Settings");
             System.Windows.Forms.MenuItem QuitDynaWin = new System.Windows.Forms.MenuItem("Quit DynaWin");
 
             //add the items
@@ -264,6 +282,7 @@ namespace DynaWin
 
             string BingWallpaperState = File.ReadLines(
                 System.IO.Path.Combine(DataBingWallpaperRootDir, "state.txt")).First();
+
 
             if (DynamicWallpaperState == "enabled")
             {
