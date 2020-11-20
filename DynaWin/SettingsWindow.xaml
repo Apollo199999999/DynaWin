@@ -7,11 +7,15 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         x:Class="DynaWin.SettingsWindow"
         mc:Ignorable="d"
-        Title="DynaWin Settings" Height="800" Width="1200" ui:WindowHelper.UseModernWindowStyle="True" 
-        Icon="pack://siteoforigin:,,,/Resources/icon.ico" MinHeight="800" MinWidth="1000" Closing="Window_Closing" Loaded="Window_Loaded">
+        Title="DynaWin Settings" Height="653.5" Width="1006" ui:WindowHelper.UseModernWindowStyle="True" 
+        Icon="pack://siteoforigin:,,,/Resources/icon.ico" Closing="Window_Closing" Loaded="Window_Loaded" ResizeMode="CanMinimize">
     <Grid>
-       
-
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Background.jpg" x:Name="GridBackground"/>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Source="pack://siteoforigin:,,,/Resources/icon with text.png" x:Name="LogoHeader"/>
+        <Label Content="Dynamic Theme:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ListBox x:Name="DynamicThemeListBox" Height="220" Margin="10,118,10,0" Width="980" VerticalAlignment="Top" Background="Transparent" />
 
 
     </Grid>

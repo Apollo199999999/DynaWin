@@ -33,8 +33,44 @@ namespace DynaWin
         public SettingsWindow()
         {
             InitializeComponent();
+            DynamicThemeListBox.Items.Add("Test");
+            DynamicThemeListBox.Items.Add("Testfvkhsfblvjkfbvljfs");
+            DynamicThemeListBox.Items.Add("Testvasdlkvjaspdkjsdkl;vjasdvlk;jasd;v");
 
-            
+            //create a timer to update theme
+            DispatcherTimer ThemeUpdater = new DispatcherTimer();
+            ThemeUpdater.Interval = TimeSpan.FromMilliseconds(100);
+            ThemeUpdater.Tick += ThemeUpdater_Tick;
+            ThemeUpdater.Start();
+
+        }
+
+        private void ThemeUpdater_Tick(object sender, EventArgs e)
+        {
+            //check if light theme or dark theme
+            bool is_light_mode = true;
+            try
+            {
+                var v = Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme", "1");
+                if (v != null && v.ToString() == "0")
+                    is_light_mode = false;
+            }
+            catch { }
+
+            if (is_light_mode == true)
+            {
+                //Windows is in light mode
+                //change the grid bg image and the logoheader image
+                LogoHeader.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/icon with text Dark.png"));
+                GridBackground.ImageSource = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/Background.jpg"));
+            }
+            else if (is_light_mode == false)
+            {
+                //Windows is in dark mode
+                //change the grid bg image and the logoheader image
+                LogoHeader.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/icon with text.png"));
+                GridBackground.ImageSource = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/BackgroundDark.jpg"));
+            }
 
         }
 
