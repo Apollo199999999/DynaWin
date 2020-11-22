@@ -1,4 +1,8 @@
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\icon.ico
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\Background.jpg
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\icon with text.png
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\BackgroundDark.jpg
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\icon with text Dark.png
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\DynaWin.exe.config
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\DynaWin.exe
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\DynaWin.pdb
@@ -19,6 +23,7 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\tr\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\zh-Hans\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\zh-Hant\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\System.ValueTuple.dll
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csprojAssemblyReference.cache
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\MainWindow.g.cs
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\SettingsWindow.g.cs
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\TimePicker.g.cs
@@ -36,8 +41,7 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csproj.CoreCompile
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csproj.CopyComplete
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.exe
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.pdb
-C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csprojAssemblyReference.cache
-C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\Background.jpg
-C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\icon with text.png
-C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\BackgroundDark.jpg
-C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\icon with text Dark.png
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\AddDynamicThemeTask.g.cs
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\AddDynamicWallpaperTask.g.cs
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\AddDynamicThemeTask.baml
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\AddDynamicWallpaperTask.baml

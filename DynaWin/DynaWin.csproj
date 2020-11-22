@@ -66,6 +66,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddDynamicThemeTask.xaml.cs">
+      <DependentUpon>AddDynamicThemeTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddDynamicWallpaperTask.xaml.cs">
+      <DependentUpon>AddDynamicWallpaperTask.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PublicVariables.cs" />
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
@@ -73,6 +79,14 @@
     <Compile Include="TimePicker.xaml.cs">
       <DependentUpon>TimePicker.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddDynamicThemeTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddDynamicWallpaperTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

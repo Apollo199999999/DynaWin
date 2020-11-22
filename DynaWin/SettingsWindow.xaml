@@ -15,7 +15,25 @@
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Source="pack://siteoforigin:,,,/Resources/icon with text.png" x:Name="LogoHeader"/>
         <Label Content="Dynamic Theme:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ListBox x:Name="DynamicThemeListBox" Height="220" Margin="10,118,10,0" Width="980" VerticalAlignment="Top" Background="Transparent" />
+        <Label Content="Dynamic Wallpaper:" HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" FontSize="14"/>
+
+        <ListBox x:Name="DynamicThemeListBox" Height="232" Margin="10,119,10,0" Width="980" VerticalAlignment="Top" Background="#33808080" SelectionChanged="DynamicThemeListBox_SelectionChanged" >
+            <ListBox.Items>
+                <Grid Height="30" Width ="500" x:Name="AddDynamicThemeTaskBtn" >
+                    <Label Content="&#xE710;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold"/>
+                    <Label Content="Create a new Dynamic Theme task" Margin="31,0,0,0" HorizontalAlignment="Left"  VerticalContentAlignment="Center"/>
+                </Grid>
+            </ListBox.Items>
+        </ListBox>
+
+        <ListBox x:Name="DynamicWallpaperListBox" Height="232" Margin="10,389,10,0" Width="980" VerticalAlignment="Top" Background="#33808080" SelectionChanged="DynamicWallpaperListBox_SelectionChanged">
+            <ListBox.Items>
+                <Grid Height="30" Width="500" x:Name="AddDynamicWallpaperTaskBtn" >
+                    <Label Content="&#xE710;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold"/>
+                    <Label Content="Create a new Dynamic Wallpaper task" Margin="31,0,0,0" HorizontalAlignment="Left"  VerticalContentAlignment="Center"/>
+                </Grid>
+            </ListBox.Items>
+        </ListBox>
 
 
     </Grid>

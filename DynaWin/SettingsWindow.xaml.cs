@@ -93,5 +93,35 @@ namespace DynaWin
             //hide this window
             this.Hide();
         }
+
+        private void DynamicThemeListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //check if the selected item is add dynamic theme task btn
+            if (DynamicThemeListBox.SelectedItem == AddDynamicThemeTaskBtn)
+            {
+                //show the add dynamic theme task window
+                AddDynamicThemeTask addDynamicThemeTask = new AddDynamicThemeTask();
+                addDynamicThemeTask.Owner = this;
+                addDynamicThemeTask.ShowDialog();
+
+                //deselect all items from the listbox
+                DynamicThemeListBox.UnselectAll();
+            }
+        }
+
+        private void DynamicWallpaperListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //check if the selected item is add dynamic wallpaper task btn
+            if (DynamicWallpaperListBox.SelectedItem == AddDynamicWallpaperTaskBtn)
+            {
+                //show the add dynamic theme task window
+                AddDynamicWallpaperTask addDynamicWallpaperTask = new AddDynamicWallpaperTask();
+                addDynamicWallpaperTask.Owner = this;
+                addDynamicWallpaperTask.ShowDialog();
+
+                //deselect all items from the listbox
+                DynamicWallpaperListBox.UnselectAll();
+            }
+        }
     }
 }
