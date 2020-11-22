@@ -46,6 +46,14 @@ namespace DynaWin {
     /// </summary>
     public partial class AddDynamicThemeTask : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
+        
+        #line 12 "..\..\AddDynamicThemeTask.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label TitleLabel;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -74,6 +82,12 @@ namespace DynaWin {
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
         void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target) {
+            switch (connectionId)
+            {
+            case 1:
+            this.TitleLabel = ((System.Windows.Controls.Label)(target));
+            return;
+            }
             this._contentLoaded = true;
         }
     }

@@ -9,6 +9,7 @@
         Title="Create new Dynamic Theme Task" Height="450" Width="800" ResizeMode="NoResize" 
         ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" >
     <Grid>
-        
+        <Label x:Name="TitleLabel" Content="Create a new Dynamic Theme task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+
     </Grid>
 </Window>
