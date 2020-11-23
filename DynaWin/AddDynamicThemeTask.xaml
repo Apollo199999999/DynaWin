@@ -6,10 +6,51 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:local="clr-namespace:DynaWin"
         mc:Ignorable="d"
-        Title="Create new Dynamic Theme Task" Height="450" Width="800" ResizeMode="NoResize" 
+        Title="Create new Dynamic Theme Task" Height="840" Width="600" ResizeMode="NoResize" 
         ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" >
     <Grid>
         <Label x:Name="TitleLabel" Content="Create a new Dynamic Theme task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Name of Dynamic Theme task" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Height="32" Margin="10,93,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="574" x:Name="TaskNameTextBox"/>
+        <Label Content="Actions:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBlock Text="Add the actions that you want this task to do. (e.g switching the system theme to light or dark at a specified time.) 
+The first one has already been added for you." HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" TextWrapping="Wrap"/>
+        <Button Content="Save and Exit" HorizontalAlignment="Right" Margin="0,755,10,0" VerticalAlignment="Top" Width="140" Height="37" Style="{StaticResource AccentButtonStyle}"/>
+        <Button x:Name="AddActionBtn" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="140" Height="37" Click="AddActionBtn_Click">
+            <Button.Content>
+                <Grid Width="130">
+                    <Image Source="pack://siteoforigin:,,,/Resources/AddIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
+                    <Label Content="Add an Action" Margin="30,0,10,0" VerticalContentAlignment="Center"/>
+                </Grid>
+            </Button.Content>
+        </Button>
+
+        <ListBox x:Name="ActionsListBox" Height="475" Margin="10,270,10,0" VerticalAlignment="Top" Width="574">
+            <ListBox.Items>
+                <Grid Height="150" Width="560">
+                    <Label Content="Dynamic Theme Action:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label Content="Trigger this action at:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,31,0,0"/>
+                    <local:TimePicker Margin="140,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="DefaultTriggerTimePicker"/>
+                    <Label Content="When this action is triggered:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,70,0,0" FontWeight="Bold"/>
+                    <Label Content="Change the" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,111,0,0"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="86,105,0,0" VerticalAlignment="Top" Width="203" Height="32">
+                        <ComboBox.Items>
+                            <ComboBoxItem Content="Default Windows Mode"/>
+                            <ComboBoxItem Content="Default app mode"/>
+                        </ComboBox.Items>
+                    </ComboBox>
+
+                    <Label Content="to" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="302,111,0,0"/>
+                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="338,105,0,0" Height="32" Width="136" >
+                        <ComboBox.Items>
+                            <ComboBoxItem Content="Light Theme"/>
+                            <ComboBoxItem Content="Dark Theme"/>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </Grid>
+
+            </ListBox.Items>
+        </ListBox>
 
     </Grid>
 </Window>
