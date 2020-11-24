@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using static DynaWin.PublicVariables;
 
 namespace DynaWin
 {
@@ -22,7 +24,6 @@ namespace DynaWin
         public AddDynamicThemeTask()
         {
             InitializeComponent();
-            DefaultTriggerTimePicker.SetTimeAsString("8:00 AM");
         }
 
         //create a function to add action
@@ -80,11 +81,13 @@ namespace DynaWin
             //add items to the combo box
             ComboBoxItem SystemThemeItem = new ComboBoxItem();
             ComboBoxItem AppsThemeItem = new ComboBoxItem();
-            SystemThemeItem.Content = "Default Windows Mode";
+            SystemThemeItem.Content = "Default Windows mode";
             AppsThemeItem.Content = "Default app mode";
 
             SystemOrAppThemePicker.Items.Add(SystemThemeItem);
             SystemOrAppThemePicker.Items.Add(AppsThemeItem);
+            //set the default selected item
+            SystemOrAppThemePicker.SelectedItem = SystemThemeItem;
 
             //create a label that says "to"
             Label label5 = new Label();
@@ -109,6 +112,8 @@ namespace DynaWin
 
             LightDarkThemePicker.Items.Add(LightThemeItem);
             LightDarkThemePicker.Items.Add(DarkThemeItem);
+            //set the default selected item
+            LightDarkThemePicker.SelectedItem = LightThemeItem;
 
             //add everything to the grid
             ActionItem.Children.Add(label1);
@@ -122,11 +127,153 @@ namespace DynaWin
 
             //add the grid to the actionlistbox
             ActionsListBox.Items.Add(ActionItem);
+
+            //make the action item the selected item
+            ActionsListBox.SelectedItem = ActionItem;
         }
 
         private void AddActionBtn_Click(object sender, RoutedEventArgs e)
         {
+            //add an action
             AddAction();
+        } 
+
+        private void RemoveActionBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //remove the selected item in the actionslistbox
+            ActionsListBox.Items.Remove(ActionsListBox.SelectedItem);
+        }
+
+        private void ActionsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //check if an item is selected in the actionslistbox
+            if (ActionsListBox.SelectedItem != null)
+            {
+                //an item is selected
+
+                /*check if it is the first item. If it is the first item, 
+                 * disable the remove action button. Also change the tooltip text*/
+
+                if (ActionsListBox.SelectedIndex != 0)
+                {
+                    /*it is not the first item, change the tooltip text to "Remove an Action" and 
+                    enable the remove action button*/
+                    RemoveActionBtnToolTip.Content = "Remove an Action";
+                    RemoveActionBtn.IsEnabled = true;
+
+                }
+                else if (ActionsListBox.SelectedIndex == 0)
+                {
+                    /*the selected item is the first item. Disable the remove action button and 
+                    change the tooltip text to "You cannot remove the first action"*/
+                    RemoveActionBtnToolTip.Content = "You cannot remove the first action";
+                    RemoveActionBtn.IsEnabled = false;
+
+                }
+
+            }
+            else
+            {
+                //disable the remove action button and with the tooltip text as "No action selected to remove"
+                RemoveActionBtnToolTip.Content = "There is no selected action to remove";
+                RemoveActionBtn.IsEnabled = false;
+            }
+            
+        }
+
+        private void ActionsListBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            //add a item in the action listbox by default
+            AddAction();
+        }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckifTaskNameExists(DataDynamicThemeRootDir, TaskNameTextBox.Text) == true)
+            {
+                /*another task of the same name exists. This task cannot be created unless the name is changed. 
+                Show the user an error message.*/
+
+                MessageBox.Show("Another Dynamic Theme task of the same name already exists, " +
+                    "hence, this task cannot be saved. You should try renaming this task before you try again.", "Error " +
+                    "while saving task", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (CheckifTaskNameExists(DataDynamicThemeRootDir, TaskNameTextBox.Text) == false)
+            {
+                //only save data if the name filed is entered
+                if (string.IsNullOrEmpty(TaskNameTextBox.Text) == false && string.IsNullOrWhiteSpace(TaskNameTextBox.Text) == false)
+                {
+                    //create a folder in the datadynamicrootdir with the folder name being the task name
+                    string TaskDir = System.IO.Path.Combine(DataDynamicThemeRootDir, TaskNameTextBox.Text);
+
+                    Directory.CreateDirectory(TaskDir);
+
+                    //WARNING: THE FOLLOWING SAVING DATA CODE IS NOT VERY EFFICIENT, BUT I DON'T HAVE ANY OTHER METHOD
+                    //iterate through the items in actionslistbox, and save the data
+                    int i = 1;
+
+                    foreach (Grid ActionItem in ActionsListBox.Items)
+                    {
+                        string dataTextPath = System.IO.Path.Combine(TaskDir, i.ToString() + ".txt");
+
+                        //create a text file to store data
+                        var DataText = File.Create(dataTextPath);
+                        DataText.Close();
+
+                        StreamWriter sw = new StreamWriter(dataTextPath);
+
+                        foreach (Control control in ActionItem.Children)
+                        {
+                            if (control is TimePicker)
+                            {
+                                TimePicker timePicker = control as TimePicker;
+                                //save the time
+                                sw.WriteLine("time;" + timePicker.GetSelectedTime());
+                            }
+                            else if (control is ComboBox)
+                            {
+                                ComboBox comboBox = control as ComboBox;
+
+                                ComboBoxItem SelectedItem = comboBox.SelectedItem as ComboBoxItem;
+
+                                //save combobox selected item
+                                if (SelectedItem.Content.ToString() == "Light Theme")
+                                {
+                                    sw.WriteLine("theme;light");
+                                }
+                                else if (SelectedItem.Content.ToString() == "Dark Theme")
+                                {
+                                    sw.WriteLine("theme;dark");
+                                }
+                                else if (SelectedItem.Content.ToString() == "Default Windows mode")
+                                {
+                                    sw.WriteLine("mode;windows");
+                                }
+                                else if (SelectedItem.Content.ToString() == "Default app mode")
+                                {
+                                    sw.WriteLine("mode;apps");
+                                }
+                            }
+                        }
+
+                       
+                        //close the data text file
+                        sw.Close();
+
+                        i++;
+                    }
+
+                    this.Close();
+                }
+                else
+                {
+                    //the name field is empty
+                    MessageBox.Show("Please enter a name for this Dynamic Theme task and try again.",
+                        "Error while creating task", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+
+            }
         }
     }
 }
