@@ -33,20 +33,18 @@ namespace DynaWin
         public SettingsWindow()
         {
             InitializeComponent();
-            DynamicThemeListBox.Items.Add("Test");
-            DynamicThemeListBox.Items.Add("Testfvkhsfblvjkfbvljfs");
-            DynamicThemeListBox.Items.Add("Testvasdlkvjaspdkjsdkl;vjasdvlk;jasd;v");
-
+         
             //create a timer to update theme
-            DispatcherTimer ThemeUpdater = new DispatcherTimer();
-            ThemeUpdater.Interval = TimeSpan.FromMilliseconds(100);
-            ThemeUpdater.Tick += ThemeUpdater_Tick;
-            ThemeUpdater.Start();
+            DispatcherTimer Updater = new DispatcherTimer();
+            Updater.Interval = TimeSpan.FromMilliseconds(100);
+            Updater.Tick += Updater_Tick;
+            Updater.Start();
 
         }
 
-        private void ThemeUpdater_Tick(object sender, EventArgs e)
+        private void Updater_Tick(object sender, EventArgs e)
         {
+            //THIS PART IS TO UPDATE THE THEME OF THE APP
             //check if light theme or dark theme
             bool is_light_mode = true;
             try
@@ -71,12 +69,91 @@ namespace DynaWin
                 LogoHeader.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/icon with text.png"));
                 GridBackground.ImageSource = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/BackgroundDark.jpg"));
             }
+            //-------------------------------------------------------------------------------------------------
 
+        }
+
+        //Create a function to update the task listbox in settingswindow
+        public void UpdateTaskListBox(ListBox listBox, int DynamicThemeOrDynamicDesktop)
+        {
+            //clear listbox items EXCEPT the first one
+            var listBoxFirstItem = listBox.Items[0];
+            listBox.Items.Clear();
+            listBox.Items.Add(listBoxFirstItem);
+
+            //string to store directory where all the tasks are located
+            string TaskDirectories;
+
+            //check where the tasks are stored
+            if (DynamicThemeOrDynamicDesktop == 0)
+            {
+                TaskDirectories = DataDynamicThemeRootDir;
+            }
+            else
+            {
+                
+                TaskDirectories = DataDynamicWallpaperRootDir;
+            }
+
+            //iterate through directories in TaskDirectory, getting the name of the tasks
+            foreach (string TaskDirectory in Directory.GetDirectories(TaskDirectories))
+            {
+                //create a grid, populate it with controls, and add it to the listbox
+                Grid TaskGrid = new Grid();
+                //I have no idea why you need to minus 30, i do this so that the button fits ok
+                TaskGrid.Width = listBox.Width - 30;
+                TaskGrid.Height = 30;
+
+                //Create an Image control and display the dynamicthemetaskicon or dynamicwallpapertaskicon
+                System.Windows.Controls.Image icon = new System.Windows.Controls.Image();
+
+                //display the correct icon
+                if (DynamicThemeOrDynamicDesktop == 0)
+                {
+                    //display the dynamic theme icon
+                    icon.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/DynamicThemeTaskIcon.png"));
+                }
+                else
+                {
+                    //display the dynamicwallpapericon
+                    icon.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/DynamicWallpaperTaskIcon.png"));
+                }
+
+                icon.Height = 23;
+                icon.Width = 23;
+                icon.HorizontalAlignment = HorizontalAlignment.Left;
+
+                //create a Label
+                Label label1 = new Label();
+                label1.Content = new DirectoryInfo(TaskDirectory).Name;
+                label1.HorizontalAlignment = HorizontalAlignment.Left;
+                label1.VerticalAlignment = VerticalAlignment.Center;
+                label1.FontSize = 14;
+                label1.FontWeight = FontWeights.Bold;
+                label1.Margin = new Thickness(30, 0, 0, 0);
+                label1.HorizontalContentAlignment = HorizontalAlignment.Center;
+
+                //create an edit button
+                Button MoreBtn = new Button();
+                MoreBtn.Content = "\xE712";
+                MoreBtn.HorizontalAlignment = HorizontalAlignment.Right;
+                MoreBtn.VerticalAlignment = VerticalAlignment.Center;
+                MoreBtn.FontFamily = new System.Windows.Media.FontFamily("Segoe MDL2 Assets");
+                MoreBtn.FontSize = 14;
+
+                TaskGrid.Children.Add(icon);
+                TaskGrid.Children.Add(label1);
+                TaskGrid.Children.Add(MoreBtn);
+
+                listBox.Items.Add(TaskGrid);
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            //update the task listbox
+            UpdateTaskListBox(DynamicThemeListBox, 0);
+            UpdateTaskListBox(DynamicWallpaperListBox, 1);
         }
 
 

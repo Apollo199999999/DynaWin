@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices;
 using System.IO;
 
 namespace DynaWin
@@ -24,6 +19,8 @@ namespace DynaWin
         public static string DataDynamicThemeRootDir = Environment.GetFolderPath
             (Environment.SpecialFolder.ApplicationData) + "\\DynaWin\\DynamicTheme\\";
 
+
+
         //function to see if a second task with the same name exists
         public static bool CheckifTaskNameExists(string targetDirectory, string TaskName)
         {
@@ -37,7 +34,7 @@ namespace DynaWin
             {
                 string directoryName = new DirectoryInfo(directory).Name;
 
-                if(TaskName == directoryName)
+                if (TaskName == directoryName)
                 {
                     return true;
                 }
@@ -49,6 +46,9 @@ namespace DynaWin
 
             return false;
         }
+
+
+
 
     }
 }

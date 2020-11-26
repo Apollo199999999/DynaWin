@@ -275,5 +275,20 @@ namespace DynaWin
 
             }
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(SettingsWindow))
+                {
+                    var settingsWindow = window as SettingsWindow;
+
+                    //call the update task function
+                    settingsWindow.UpdateTaskListBox(settingsWindow.DynamicThemeListBox, 0);
+
+                }
+            }
+        }
     }
 }

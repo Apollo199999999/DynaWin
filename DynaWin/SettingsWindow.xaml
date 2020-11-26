@@ -8,16 +8,17 @@
         x:Class="DynaWin.SettingsWindow"
         mc:Ignorable="d"
         Title="DynaWin Settings" Height="653.5" Width="1006" ui:WindowHelper.UseModernWindowStyle="True" 
-        Icon="pack://siteoforigin:,,,/Resources/icon.ico" Closing="Window_Closing" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+        Icon="pack://siteoforigin:,,,/Resources/icon.ico" Closing="Window_Closing" Loaded="Window_Loaded" ResizeMode="CanMinimize" x:FieldModifier="public" x:Name="Window">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Background.jpg" x:Name="GridBackground"/>
         </Grid.Background>
+        
         <Image HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Source="pack://siteoforigin:,,,/Resources/icon with text.png" x:Name="LogoHeader"/>
         <Label Content="Dynamic Theme:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Dynamic Wallpaper:" HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" FontSize="14"/>
 
-        <ListBox x:Name="DynamicThemeListBox" Height="232" Margin="10,119,10,0" Width="980" VerticalAlignment="Top" Background="#33808080" SelectionChanged="DynamicThemeListBox_SelectionChanged" >
+        <ListBox x:Name="DynamicThemeListBox" Height="232" Margin="10,119,10,0" Width="980" VerticalAlignment="Top" Background="#33808080" SelectionChanged="DynamicThemeListBox_SelectionChanged" x:FieldModifier="public">
             <ListBox.Items>
                 <Grid Height="30" Width ="500" x:Name="AddDynamicThemeTaskBtn">
                     <Image Height="23" Width="23" HorizontalAlignment="Left" Source="pack://siteoforigin:,,,/Resources/AddIcon.png" />
@@ -26,7 +27,7 @@
             </ListBox.Items>
         </ListBox>
 
-        <ListBox x:Name="DynamicWallpaperListBox" Height="232" Margin="10,389,10,0" Width="980" VerticalAlignment="Top" Background="#33808080" SelectionChanged="DynamicWallpaperListBox_SelectionChanged">
+        <ListBox x:Name="DynamicWallpaperListBox" Height="232" Margin="10,389,10,0" Width="980" VerticalAlignment="Top" Background="#33808080" SelectionChanged="DynamicWallpaperListBox_SelectionChanged" x:FieldModifier="public">
             <ListBox.Items>
                 <Grid Height="30" Width="500" x:Name="AddDynamicWallpaperTaskBtn">
                     <Image Height="23" Width="23" HorizontalAlignment="Left" Source="pack://siteoforigin:,,,/Resources/AddIcon.png" />

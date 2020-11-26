@@ -46,5 +46,6 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\AddDynamicWallpaperTask.g.
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\AddDynamicThemeTask.baml
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\AddDynamicWallpaperTask.baml
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\AddIcon.png
-C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\DeleteIcon.png
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\DynamicThemeTaskIcon.png
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\DynamicWallpaperTaskIcon.png
