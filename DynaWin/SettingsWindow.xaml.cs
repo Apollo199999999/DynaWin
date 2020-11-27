@@ -91,7 +91,6 @@ namespace DynaWin
             }
             else
             {
-                
                 TaskDirectories = DataDynamicWallpaperRootDir;
             }
 
@@ -133,13 +132,14 @@ namespace DynaWin
                 label1.Margin = new Thickness(30, 0, 0, 0);
                 label1.HorizontalContentAlignment = HorizontalAlignment.Center;
 
-                //create an edit button
+                //create a more button
                 Button MoreBtn = new Button();
                 MoreBtn.Content = "\xE712";
                 MoreBtn.HorizontalAlignment = HorizontalAlignment.Right;
                 MoreBtn.VerticalAlignment = VerticalAlignment.Center;
                 MoreBtn.FontFamily = new System.Windows.Media.FontFamily("Segoe MDL2 Assets");
                 MoreBtn.FontSize = 14;
+                MoreBtn.Click += MoreBtn_Click;
 
                 TaskGrid.Children.Add(icon);
                 TaskGrid.Children.Add(label1);
@@ -147,6 +147,50 @@ namespace DynaWin
 
                 listBox.Items.Add(TaskGrid);
             }
+        }
+
+        private void MoreBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //init the sender as button
+            var MoreBtn = sender as Button;
+
+            //create a context menu
+            ContextMenu MenuFlyout = new ContextMenu();
+
+
+            //create menu items
+            MenuItem RemoveItem = new MenuItem();
+            RemoveItem.Header = "Delete this task";
+
+            //create the image that will act as the icon for the context menu icon
+            System.Windows.Controls.Image RemoveImage = new System.Windows.Controls.Image();
+            RemoveImage.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/TrashIcon.png"));
+            
+            //set the icon
+            RemoveItem.Icon = RemoveImage;
+
+
+            //second menu item for editing the task
+            MenuItem EditItem = new MenuItem();
+            EditItem.Header = "Edit this task";
+
+            //create the image that will act as the icon for the context menu icon
+            System.Windows.Controls.Image EditImage = new System.Windows.Controls.Image();
+            EditImage.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/EditIcon.png"));
+
+            //set the icon
+            EditItem.Icon = EditImage;
+
+
+            //add the items to the context menu
+            MenuFlyout.Items.Add(RemoveItem);
+            MenuFlyout.Items.Add(EditItem);
+
+            //show the context menu
+            MoreBtn.ContextMenu = MenuFlyout;
+            MenuFlyout.PlacementTarget = MoreBtn;
+            MenuFlyout.IsOpen = true;
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

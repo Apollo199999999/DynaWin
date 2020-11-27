@@ -49,3 +49,5 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\AddIcon.png
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\DeleteIcon.png
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\DynamicThemeTaskIcon.png
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\DynamicWallpaperTaskIcon.png
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\TrashIcon.png
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\EditIcon.png

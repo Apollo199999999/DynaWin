@@ -290,5 +290,21 @@ namespace DynaWin
                 }
             }
         }
+
+        private void TaskNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //only allow normal characters to be inputted. Do not allow special characters.
+            //remove all illegal characters from the textbox text
+            TaskNameTextBox.Text = TaskNameTextBox.Text.Replace("/", "");
+            TaskNameTextBox.Text = TaskNameTextBox.Text.Replace(@"\", "");
+            TaskNameTextBox.Text = TaskNameTextBox.Text.Replace(":", "");
+            TaskNameTextBox.Text = TaskNameTextBox.Text.Replace("*", "");
+            TaskNameTextBox.Text = TaskNameTextBox.Text.Replace("?", "");
+            TaskNameTextBox.Text = TaskNameTextBox.Text.Replace("\"", "");
+            TaskNameTextBox.Text = TaskNameTextBox.Text.Replace("<", "");
+            TaskNameTextBox.Text = TaskNameTextBox.Text.Replace(">", "");
+            TaskNameTextBox.Text = TaskNameTextBox.Text.Replace("|", "");
+            TaskNameTextBox.Text = TaskNameTextBox.Text.Replace(".", "");
+        }
     }
 }

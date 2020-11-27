@@ -10,17 +10,17 @@
         ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Closing="Window_Closing" >
     <Grid>
         <Label x:Name="TitleLabel" Content="Dynamic Theme task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <Label Content="Name of Dynamic Theme task" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Height="32" Margin="10,93,10,0" VerticalAlignment="Top" Width="574" x:Name="TaskNameTextBox" TextWrapping="NoWrap" MaxLines="1"/>
+        <Label Content="Name of Dynamic Theme task (the name cannot contain illegal characters)" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox Height="32" Margin="10,93,10,0" VerticalAlignment="Top" Width="574" x:Name="TaskNameTextBox" TextWrapping="NoWrap" MaxLines="1" TextChanged="TaskNameTextBox_TextChanged"/>
         <Label Content="Actions:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <TextBlock Text="Add or remove the actions that you want this task to do. (e.g switching the system theme to light or dark at a specified time.)  The first one has already been added for you." HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" TextWrapping="Wrap"/>
         
         <Button x:Name="SaveBtn" Content="Save and Exit" HorizontalAlignment="Right" Margin="0,715,10,0" VerticalAlignment="Top" Width="140" Height="37" Style="{StaticResource AccentButtonStyle}" Click="SaveBtn_Click"/>
         
-        <Button x:Name="AddActionBtn" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="140" Height="37" 
+        <Button x:Name="AddActionBtn" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="155" Height="37" 
                 Click="AddActionBtn_Click" ToolTipService.InitialShowDelay="0">
             <Button.Content>
-                <Grid Width="130">
+                <Grid Width="145">
                     <Image Source="pack://siteoforigin:,,,/Resources/AddIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
                     <Label Content="Add an Action" Margin="30,0,10,0" VerticalContentAlignment="Center"/>
                 </Grid>
@@ -31,7 +31,7 @@
             </Button.ToolTip>
         </Button>
 
-        <Button x:Name="RemoveActionBtn" HorizontalAlignment="Left" Margin="170,224,0,0" VerticalAlignment="Top" Width="170" 
+        <Button x:Name="RemoveActionBtn" HorizontalAlignment="Left" Margin="185,224,0,0" VerticalAlignment="Top" Width="170" 
                 Height="37" Click="RemoveActionBtn_Click" ToolTipService.InitialShowDelay="0" ToolTipService.ShowOnDisabled="True">
             <Button.Content>
                 <Grid Width="160">
