@@ -129,33 +129,94 @@ namespace DynaWin
         }
 
         //function to change the system theme
-        public void ChangeSystemTheme(bool lightTheme)
+        public void ChangeSystemTheme(string theme, string mode)
         {
-            if (lightTheme == true)
+            //check the theme
+            if (theme == "light")
             {
-               Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", 
-                    "AppsUseLightTheme", "1", RegistryValueKind.DWord);
+                //the theme is light
+                if (mode == "apps")
+                {
+                    //the mode is apps, change the app theme
+                    Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+                   "AppsUseLightTheme", "1", RegistryValueKind.DWord);
 
-                Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
-                   "SystemUsesLightTheme", "1", RegistryValueKind.DWord);
+                }
+                else if (mode == "windows")
+                {
+                    //the mode is windows, change the system theme
+                    Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+                       "SystemUsesLightTheme", "1", RegistryValueKind.DWord);
+                }
 
             }
-            else if (lightTheme == false)
+            //check the theme
+            else if (theme == "dark")
             {
+                //the theme is light
+                if (mode == "apps")
+                {
+                    //the mode is apps, change the app theme
+                    Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+                   "AppsUseLightTheme", "0", RegistryValueKind.DWord);
 
-                Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
-                    "AppsUseLightTheme", "0", RegistryValueKind.DWord);
+                }
+                else if (mode == "windows")
+                {
+                    //the mode is windows, change the system theme
+                    Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+                       "SystemUsesLightTheme", "0", RegistryValueKind.DWord);
+                }
 
-                Microsoft.Win32.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
-                   "SystemUsesLightTheme", "0", RegistryValueKind.DWord);
             }
-            
+
         }
 
         private void UpdaterTimer_Tick(object sender, EventArgs e)
         {
             //get the current time
             string currentTime = GetCurrentTime();
+
+            //iterate through tasks in Dynamic Theme, and then iterate through the actions of the tasks
+            foreach (string TaskDirectory in Directory.GetDirectories(DataDynamicThemeRootDir))
+            {
+                foreach (string TaskAction in Directory.GetFiles(TaskDirectory, "*.txt"))
+                {
+                    //variables to store data from the text file
+                    string time = "";
+                    string mode = "";
+                    string theme = "";
+
+                    //iterate through lines in the taskaction text file.
+                    string[] lines = File.ReadAllLines(TaskAction);
+                    foreach (string line in lines)
+                    {
+                        if (line.Contains("time;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the time variable
+                            time = line.Substring(line.IndexOf(';') + 1);
+                        }
+                        else if (line.Contains("mode;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the mode variable
+                            mode = line.Substring(line.IndexOf(';') + 1);
+                        }
+                        else if (line.Contains("theme;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the theme variable
+                            theme = line.Substring(line.IndexOf(';') + 1);
+                        }
+                    }
+
+                    //check if time matches the current time
+                    if (time == currentTime)
+                    {
+                        ChangeSystemTheme(theme, mode);
+                    }
+                }
+            }
+
+            //TODO: Implement checking procedures for Dynamic wallpaper here
 
         }
 
@@ -181,8 +242,6 @@ namespace DynaWin
             
             if (SettingsWindowInstances == 0)
             {
-                //temp stop the timer
-                UpdaterTimer.Stop();
                 //show the window
                 settingsWindow.Show();
 
@@ -216,8 +275,6 @@ namespace DynaWin
 
                 if (SettingsWindowInstances == 0)
                 {
-                    //temp stop the timer
-                    UpdaterTimer.Stop();
                     //show the window
                     settingsWindow.Show();
 

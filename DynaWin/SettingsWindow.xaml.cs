@@ -234,7 +234,7 @@ namespace DynaWin
 
                 foreach (string TaskAction in TaskActions)
                 {
-                    //vraibles for the add action arguments
+                    //variables for the add action arguments
                     string time = "";
                     string mode = "";
                     string theme = "";
