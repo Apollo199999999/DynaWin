@@ -6,10 +6,10 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:local="clr-namespace:DynaWin"
         mc:Ignorable="d"
-        Title="Create new Dynamic Theme Task" Height="800" Width="600" ResizeMode="NoResize" 
-        ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Closing="Window_Closing" >
+        Title="New Dynamic Theme Task" Height="800" Width="600" ResizeMode="NoResize" 
+        ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Closing="Window_Closing" Topmost="True" >
     <Grid>
-        <Label x:Name="TitleLabel" Content="Dynamic Theme task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label x:Name="TitleLabel" Content="New Dynamic Theme task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <Label Content="Name of Dynamic Theme task (the name cannot contain illegal characters)" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Height="32" Margin="10,93,10,0" VerticalAlignment="Top" Width="574" x:Name="TaskNameTextBox" TextWrapping="NoWrap" MaxLines="1" TextChanged="TaskNameTextBox_TextChanged"/>
         <Label Content="Actions:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>

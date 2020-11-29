@@ -202,12 +202,92 @@ namespace DynaWin
 
         private void EditItem_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            //cast the sender as MenuItem
+            MenuItem EditItem = sender as MenuItem;
+
+            //get the context menu that the menu item belongs to
+            ContextMenu MenuFlyout = EditItem.Parent as ContextMenu;
+
+            //get the source control of the context menu
+            Button MoreBtn = MenuFlyout.PlacementTarget as Button;
+
+            //get the tag of the button (that's where the directory of the task is stored)
+            string TaskDirectory = MoreBtn.Tag.ToString();
+
+            //check if the directory belongs to dynamic theme or dynamic wallpaper
+            if (Directory.GetParent(TaskDirectory).Name == "DynamicTheme")
+            {
+                //The task is a dynamic theme task
+
+                //init a new add dynamic theme task window
+                AddDynamicThemeTask addDynamicThemeTask = new AddDynamicThemeTask();
+
+                //set edit mode to true
+                addDynamicThemeTask.IsEditMode = true;
+
+                //configure the add dynamic theme task window so that the name and actions are already filled in
+                addDynamicThemeTask.TaskNameTextBox.Text = new DirectoryInfo(TaskDirectory).Name;
+
+                //iterate through text files in the directory, filling up the listbox
+                string[] TaskActions = Directory.GetFiles(TaskDirectory, "*.txt");
+
+
+                foreach (string TaskAction in TaskActions)
+                {
+                    //vraibles for the add action arguments
+                    string time = "";
+                    string mode = "";
+                    string theme = "";
+
+                    string[] lines = File.ReadAllLines(TaskAction);
+                    foreach (string line in lines)
+                    {
+                        if (line.Contains("time;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the time variable
+                            time = line.Substring(line.IndexOf(';') + 1);
+                        }
+                        else if (line.Contains("mode;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the mode variable
+                            mode = line.Substring(line.IndexOf(';') + 1);
+                        }
+                        else if (line.Contains("theme;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the theme variable
+                            theme = line.Substring(line.IndexOf(';') + 1);
+                        }
+                    }
+
+                    
+
+                    //add the action to the add dynamic theme task listbox
+                    addDynamicThemeTask.AddAction(time, mode, theme);
+
+                }
+
+
+                //show the window
+                addDynamicThemeTask.Owner = this;
+                addDynamicThemeTask.Show();
+
+                //delete the task directory
+                Directory.Delete(TaskDirectory, true);
+
+            }
+            else if (Directory.GetParent(TaskDirectory).Name == "DynamicWallpaper")
+            {
+                //The task is a dynamic theme task
+                /*TODO: AT THE TIME OF WRITING THIS COMMENT, ADDING DYNAMIC WALLPAPER TASKS HAS NOT YET
+                 BEEN IMPLEMENTED. FUTURE ME, PLEASE REMEMBER TO IMPLEMENT THIS*/
+
+                MessageBox.Show("Edit Dynamic Wallpaper Task");
+            }
         }
 
         private void RemoveItem_Click(object sender, RoutedEventArgs e)
         {
-            //get the parent context menu
+            //cast the sender as MenuItem
             MenuItem RemoveItem = sender as MenuItem;
 
             //get the context menu that the menu item belongs to
@@ -267,7 +347,7 @@ namespace DynaWin
                 //show the add dynamic theme task window
                 AddDynamicThemeTask addDynamicThemeTask = new AddDynamicThemeTask();
                 addDynamicThemeTask.Owner = this;
-                addDynamicThemeTask.ShowDialog();
+                addDynamicThemeTask.Show();
 
                 //deselect all items from the listbox
                 DynamicThemeListBox.UnselectAll();
@@ -282,7 +362,7 @@ namespace DynaWin
                 //show the add dynamic theme task window
                 AddDynamicWallpaperTask addDynamicWallpaperTask = new AddDynamicWallpaperTask();
                 addDynamicWallpaperTask.Owner = this;
-                addDynamicWallpaperTask.ShowDialog();
+                addDynamicWallpaperTask.Show();
 
                 //deselect all items from the listbox
                 DynamicWallpaperListBox.UnselectAll();

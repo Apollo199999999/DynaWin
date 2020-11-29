@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:DynaWin"
         mc:Ignorable="d"
         Title="Create new Dynamic Wallpaper Task" Height="450" Width="800" ResizeMode="NoResize" 
-        ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" >
+        ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Topmost="True">
     <Grid>
         
     </Grid>

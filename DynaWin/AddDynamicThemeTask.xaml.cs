@@ -21,13 +21,16 @@ namespace DynaWin
     /// </summary>
     public partial class AddDynamicThemeTask : Window
     {
+        //this variable denotes whether this window is in edit mode or not
+        public bool IsEditMode = false;
+
         public AddDynamicThemeTask()
         {
             InitializeComponent();
         }
 
         //create a function to add action
-        public void AddAction()
+        public void AddAction(string time, string mode, string theme)
         {
             //create a Grid
             Grid ActionItem = new Grid();
@@ -53,7 +56,7 @@ namespace DynaWin
             TriggerTimePicker.Margin = new Thickness(140, 25, 0, 0);
             TriggerTimePicker.HorizontalAlignment = HorizontalAlignment.Left;
             TriggerTimePicker.VerticalAlignment = VerticalAlignment.Top;
-            TriggerTimePicker.SetTimeAsString("8:00 AM");
+            TriggerTimePicker.SetTimeAsString(time);
 
             //create a label that says "When this action is triggered:"
             Label label3 = new Label();
@@ -86,8 +89,16 @@ namespace DynaWin
 
             SystemOrAppThemePicker.Items.Add(SystemThemeItem);
             SystemOrAppThemePicker.Items.Add(AppsThemeItem);
+
             //set the default selected item
-            SystemOrAppThemePicker.SelectedItem = SystemThemeItem;
+            if (mode == "windows")
+            {
+                SystemOrAppThemePicker.SelectedItem = SystemThemeItem;
+            }
+            else if (mode == "apps")
+            {
+                SystemOrAppThemePicker.SelectedItem = AppsThemeItem;
+            }
 
             //create a label that says "to"
             Label label5 = new Label();
@@ -112,8 +123,17 @@ namespace DynaWin
 
             LightDarkThemePicker.Items.Add(LightThemeItem);
             LightDarkThemePicker.Items.Add(DarkThemeItem);
+
             //set the default selected item
-            LightDarkThemePicker.SelectedItem = LightThemeItem;
+            if (theme == "light")
+            {
+                LightDarkThemePicker.SelectedItem = LightThemeItem;
+            }
+            else if (theme == "dark")
+            {
+                LightDarkThemePicker.SelectedItem = DarkThemeItem;
+            }
+
 
             //add everything to the grid
             ActionItem.Children.Add(label1);
@@ -132,10 +152,26 @@ namespace DynaWin
             ActionsListBox.SelectedItem = ActionItem;
         }
 
+        private void ActionsListBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            //add an action in the listbox as the default first item only IF iseditmode is set to false
+            if (IsEditMode == false)
+            {
+                AddAction("8:00 AM", "windows", "light");
+            }
+            else if (IsEditMode == true)
+            {
+                //change the window title and the label text
+                this.Title = "Edit Dynamic Theme task";
+                TitleLabel.Content = "Edit Dynamic Theme task";
+            }
+            
+        }
+
         private void AddActionBtn_Click(object sender, RoutedEventArgs e)
         {
             //add an action
-            AddAction();
+            AddAction("8:00 AM", "windows", "light");
         } 
 
         private void RemoveActionBtn_Click(object sender, RoutedEventArgs e)
@@ -181,11 +217,6 @@ namespace DynaWin
             
         }
 
-        private void ActionsListBox_Loaded(object sender, RoutedEventArgs e)
-        {
-            //add a item in the action listbox by default
-            AddAction();
-        }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -203,6 +234,9 @@ namespace DynaWin
                 //only save data if the name filed is entered
                 if (string.IsNullOrEmpty(TaskNameTextBox.Text) == false && string.IsNullOrWhiteSpace(TaskNameTextBox.Text) == false)
                 {
+                    //remove leading and trailing spaces from textbox.text
+                    TaskNameTextBox.Text = TaskNameTextBox.Text.Trim();
+
                     //create a folder in the datadynamicrootdir with the folder name being the task name
                     string TaskDir = System.IO.Path.Combine(DataDynamicThemeRootDir, TaskNameTextBox.Text);
 
@@ -278,6 +312,9 @@ namespace DynaWin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            //set the editmode to false
+            IsEditMode = false;
+
             foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(SettingsWindow))
