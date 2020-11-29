@@ -139,8 +139,10 @@ namespace DynaWin
                 MoreBtn.VerticalAlignment = VerticalAlignment.Center;
                 MoreBtn.FontFamily = new System.Windows.Media.FontFamily("Segoe MDL2 Assets");
                 MoreBtn.FontSize = 14;
+                //store the filepath in the button tag
+                MoreBtn.Tag = TaskDirectory;
                 MoreBtn.Click += MoreBtn_Click;
-
+               
                 TaskGrid.Children.Add(icon);
                 TaskGrid.Children.Add(label1);
                 TaskGrid.Children.Add(MoreBtn);
@@ -169,6 +171,9 @@ namespace DynaWin
             //set the icon
             RemoveItem.Icon = RemoveImage;
 
+            //Click event handler
+            RemoveItem.Click += RemoveItem_Click;
+
 
             //second menu item for editing the task
             MenuItem EditItem = new MenuItem();
@@ -181,6 +186,8 @@ namespace DynaWin
             //set the icon
             EditItem.Icon = EditImage;
 
+            //click event handler
+            EditItem.Click += EditItem_Click;
 
             //add the items to the context menu
             MenuFlyout.Items.Add(RemoveItem);
@@ -190,6 +197,43 @@ namespace DynaWin
             MoreBtn.ContextMenu = MenuFlyout;
             MenuFlyout.PlacementTarget = MoreBtn;
             MenuFlyout.IsOpen = true;
+
+        }
+
+        private void EditItem_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void RemoveItem_Click(object sender, RoutedEventArgs e)
+        {
+            //get the parent context menu
+            MenuItem RemoveItem = sender as MenuItem;
+
+            //get the context menu that the menu item belongs to
+            ContextMenu MenuFlyout = RemoveItem.Parent as ContextMenu;
+
+            //get the source control of the context menu
+            Button MoreBtn = MenuFlyout.PlacementTarget as Button;
+
+            //get the tag of the button (that's where the directory of the task is stored)
+            string TaskDirectory = MoreBtn.Tag.ToString();
+
+            //delete the task directory and all of its contents
+            Directory.Delete(TaskDirectory, true);
+
+            //update the listbox accordingly
+            //check if the directory belongs to dynamic theme or dynamic wallpaper
+            if (Directory.GetParent(TaskDirectory).Name == "DynamicTheme")
+            {
+                //The task is a dynamic theme task
+                UpdateTaskListBox(DynamicThemeListBox, 0);
+            }
+            else if (Directory.GetParent(TaskDirectory).Name == "DynamicWallpaper")
+            {
+                //The task is a dynamic theme task
+                UpdateTaskListBox(DynamicWallpaperListBox, 1);
+            }
 
         }
 
