@@ -45,7 +45,7 @@
             </Button.ToolTip>
         </Button>
 
-        <ListBox x:Name="ActionsListBox" Height="435" Margin="10,270,10,0" VerticalAlignment="Top" Width="574" SelectionChanged="ActionsListBox_SelectionChanged" Loaded="ActionsListBox_Loaded"/>
+        <ListBox x:Name="ActionsListBox" Height="435" Margin="10,270,10,0" VerticalAlignment="Top" Width="574" SelectionChanged="ActionsListBox_SelectionChanged" Loaded="ActionsListBox_Loaded" ScrollViewer.CanContentScroll="False"/>
 
     </Grid>
 </Window>

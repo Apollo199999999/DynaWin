@@ -132,13 +132,24 @@ namespace DynaWin
                 label1.Margin = new Thickness(30, 0, 0, 0);
                 label1.HorizontalContentAlignment = HorizontalAlignment.Center;
 
+                //create a tooltip for the more button
+                ToolTip toolTip = new ToolTip();
+                toolTip.Content = "More";
+
                 //create a more button
                 Button MoreBtn = new Button();
+
+                //set the tooltip service
+                MoreBtn.ToolTip = toolTip;
+                
                 MoreBtn.Content = "\xE712";
                 MoreBtn.HorizontalAlignment = HorizontalAlignment.Right;
                 MoreBtn.VerticalAlignment = VerticalAlignment.Center;
                 MoreBtn.FontFamily = new System.Windows.Media.FontFamily("Segoe MDL2 Assets");
-                MoreBtn.FontSize = 14;
+                MoreBtn.FontSize = 18;
+                MoreBtn.FontWeight = FontWeights.Bold;
+                MoreBtn.Background = System.Windows.Media.Brushes.Transparent;
+
                 //store the filepath in the button tag
                 MoreBtn.Tag = TaskDirectory;
                 MoreBtn.Click += MoreBtn_Click;
@@ -147,7 +158,10 @@ namespace DynaWin
                 TaskGrid.Children.Add(label1);
                 TaskGrid.Children.Add(MoreBtn);
 
+                //add the item to the listbox, make the item the selected item of the listbox and scroll to it
                 listBox.Items.Add(TaskGrid);
+                listBox.SelectedItem = TaskGrid;
+                listBox.ScrollIntoView(listBox.SelectedItem);
             }
         }
 
@@ -279,7 +293,7 @@ namespace DynaWin
             {
                 //The task is a dynamic theme task
                 /*TODO: AT THE TIME OF WRITING THIS COMMENT, ADDING DYNAMIC WALLPAPER TASKS HAS NOT YET
-                 BEEN IMPLEMENTED. FUTURE ME, PLEASE REMEMBER TO IMPLEMENT THIS*/
+                 BEEN IMPLEMENTED. FUTURE ME, PLEASE REMEMBER TO IMPLEMENT THIS (this is the edit event handler)*/
 
                 MessageBox.Show("Edit Dynamic Wallpaper Task");
             }

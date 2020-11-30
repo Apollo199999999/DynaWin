@@ -242,12 +242,12 @@ namespace DynaWin
             
             if (SettingsWindowInstances == 0)
             {
-                //show the window
-                settingsWindow.Show();
-
-                //and set the settingswindowinstances to 1 so that 
+                //set the settingswindowinstances to 1 so that 
                 //another instance of settings window cannot open
                 SettingsWindowInstances = 1;
+
+                //show the window
+                settingsWindow.Show();
 
                 //call the event handler
                 UpdaterTimer_Tick(null, null);
@@ -275,12 +275,12 @@ namespace DynaWin
 
                 if (SettingsWindowInstances == 0)
                 {
-                    //show the window
-                    settingsWindow.Show();
-
-                    //and set the settingswindowinstances to 1 so that 
+                    //set the settingswindowinstances to 1 so that 
                     //another instance of settings window cannot open
                     SettingsWindowInstances = 1;
+
+                    //show the window
+                    settingsWindow.Show();
 
                     //call the event handler
                     UpdaterTimer_Tick(null, null);

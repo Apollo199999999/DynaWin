@@ -148,8 +148,9 @@ namespace DynaWin
             //add the grid to the actionlistbox
             ActionsListBox.Items.Add(ActionItem);
 
-            //make the action item the selected item
+            //make the action item the selected item and scroll to the selected item
             ActionsListBox.SelectedItem = ActionItem;
+            ActionsListBox.ScrollIntoView(ActionsListBox.SelectedItem);
         }
 
         private void ActionsListBox_Loaded(object sender, RoutedEventArgs e)
@@ -323,6 +324,9 @@ namespace DynaWin
 
                     //call the update task function
                     settingsWindow.UpdateTaskListBox(settingsWindow.DynamicThemeListBox, 0);
+
+                    //activate settings window
+                    settingsWindow.Activate();
 
                 }
             }
