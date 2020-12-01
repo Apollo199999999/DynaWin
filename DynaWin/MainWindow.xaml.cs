@@ -108,7 +108,12 @@ namespace DynaWin
             //create event handlers for mouse_up
             ni.MouseUp += Ni_MouseUp;
             //------------------------------------------------------------------------------------------
+
+            //show a notification that DynaWin is running
+            ni.ShowBalloonTip(3000, "DynaWin is running", "To view or configure DynaWin Settings, " +
+                "click on the tray icon", System.Windows.Forms.ToolTipIcon.Info);
         }
+
 
         private void SettingsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
