@@ -24,6 +24,9 @@ namespace DynaWin
         //this variable denotes whether this window is in edit mode or not
         public bool IsEditMode = false;
 
+        //this variable denotes the original directory of the dynamic theme task, used for editing
+        public string OriginalTaskDir = "";
+
         public AddDynamicThemeTask()
         {
             InitializeComponent();
@@ -221,6 +224,7 @@ namespace DynaWin
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
+
             if (CheckifTaskNameExists(DataDynamicThemeRootDir, TaskNameTextBox.Text) == true)
             {
                 /*another task of the same name exists. This task cannot be created unless the name is changed. 
@@ -232,6 +236,13 @@ namespace DynaWin
             }
             else if (CheckifTaskNameExists(DataDynamicThemeRootDir, TaskNameTextBox.Text) == false)
             {
+                //check if edit mode is true
+                if (IsEditMode == true)
+                {
+                    //delete the original task directory
+                    Directory.Delete(OriginalTaskDir, true);
+                }
+
                 //only save data if the name filed is entered
                 if (string.IsNullOrEmpty(TaskNameTextBox.Text) == false && string.IsNullOrWhiteSpace(TaskNameTextBox.Text) == false)
                 {

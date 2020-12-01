@@ -36,7 +36,7 @@ namespace DynaWin
          
             //create a timer to update theme
             DispatcherTimer Updater = new DispatcherTimer();
-            Updater.Interval = TimeSpan.FromMilliseconds(100);
+            Updater.Interval = TimeSpan.FromMilliseconds(1000);
             Updater.Tick += Updater_Tick;
             Updater.Start();
 
@@ -283,10 +283,9 @@ namespace DynaWin
 
                 //show the window
                 addDynamicThemeTask.Owner = this;
+                addDynamicThemeTask.OriginalTaskDir = TaskDirectory;
                 addDynamicThemeTask.Show();
 
-                //delete the task directory
-                Directory.Delete(TaskDirectory, true);
 
             }
             else if (Directory.GetParent(TaskDirectory).Name == "DynamicWallpaper")
