@@ -23,5 +23,26 @@ namespace DynaWin
         {
             InitializeComponent();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(SettingsWindow))
+                {
+                    var settingsWindow = window as SettingsWindow;
+
+                    //reenable this window
+                    settingsWindow.IsEnabled = true;
+
+                    //call the update task function
+                    settingsWindow.UpdateTaskListBox(settingsWindow.DynamicWallpaperListBox, 1);
+
+                    //activate settings window
+                    settingsWindow.Activate();
+
+                }
+            }
+        }
     }
 }

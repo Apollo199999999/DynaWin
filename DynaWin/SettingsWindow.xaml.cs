@@ -158,10 +158,9 @@ namespace DynaWin
                 TaskGrid.Children.Add(label1);
                 TaskGrid.Children.Add(MoreBtn);
 
-                //add the item to the listbox, make the item the selected item of the listbox and scroll to it
+                //add the item to the listbox and unselect all items
                 listBox.Items.Add(TaskGrid);
-                listBox.SelectedItem = TaskGrid;
-                listBox.ScrollIntoView(listBox.SelectedItem);
+                listBox.UnselectAll();
             }
         }
 
@@ -283,9 +282,18 @@ namespace DynaWin
 
                 //show the window
                 addDynamicThemeTask.Owner = this;
-                addDynamicThemeTask.OriginalTaskDir = TaskDirectory;
                 addDynamicThemeTask.Show();
 
+                //disable this window
+                this.IsEnabled = false;
+
+                //move taskdir to the temp folder
+                Directory.Move(TaskDirectory, System.IO.Path.Combine(DataTempRootDir, 
+                    new DirectoryInfo(TaskDirectory).Name));
+
+                //assign the temp task dir to the variable in adddynamicthemetask window
+                addDynamicThemeTask.TempTaskDir = System.IO.Path.Combine(DataTempRootDir, 
+                    new DirectoryInfo(TaskDirectory).Name);
 
             }
             else if (Directory.GetParent(TaskDirectory).Name == "DynamicWallpaper")
@@ -362,6 +370,9 @@ namespace DynaWin
                 addDynamicThemeTask.Owner = this;
                 addDynamicThemeTask.Show();
 
+                //disable this window
+                this.IsEnabled = false;
+
                 //deselect all items from the listbox
                 DynamicThemeListBox.UnselectAll();
             }
@@ -376,6 +387,9 @@ namespace DynaWin
                 AddDynamicWallpaperTask addDynamicWallpaperTask = new AddDynamicWallpaperTask();
                 addDynamicWallpaperTask.Owner = this;
                 addDynamicWallpaperTask.Show();
+
+                //disable this window
+                this.IsEnabled = false;
 
                 //deselect all items from the listbox
                 DynamicWallpaperListBox.UnselectAll();

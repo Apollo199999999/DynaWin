@@ -24,8 +24,8 @@ namespace DynaWin
         //this variable denotes whether this window is in edit mode or not
         public bool IsEditMode = false;
 
-        //this variable denotes the original directory of the dynamic theme task, used for editing
-        public string OriginalTaskDir = "";
+        //this variable denotes the temp task directory, used for editing
+        public string TempTaskDir = "";
 
         public AddDynamicThemeTask()
         {
@@ -224,7 +224,6 @@ namespace DynaWin
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-
             if (CheckifTaskNameExists(DataDynamicThemeRootDir, TaskNameTextBox.Text) == true)
             {
                 /*another task of the same name exists. This task cannot be created unless the name is changed. 
@@ -236,13 +235,6 @@ namespace DynaWin
             }
             else if (CheckifTaskNameExists(DataDynamicThemeRootDir, TaskNameTextBox.Text) == false)
             {
-                //check if edit mode is true
-                if (IsEditMode == true)
-                {
-                    //delete the original task directory
-                    Directory.Delete(OriginalTaskDir, true);
-                }
-
                 //only save data if the name filed is entered
                 if (string.IsNullOrEmpty(TaskNameTextBox.Text) == false && string.IsNullOrWhiteSpace(TaskNameTextBox.Text) == false)
                 {
@@ -309,6 +301,17 @@ namespace DynaWin
                         i++;
                     }
 
+
+                    //delete the temp taskdir if edit mode is true
+                    if (IsEditMode == true)
+                    {
+                        //delete the temptaskdir
+                        Directory.Delete(TempTaskDir, true);
+                    }
+
+                    //set the editmode to false
+                    IsEditMode = false;
+
                     this.Close();
                 }
                 else
@@ -324,6 +327,16 @@ namespace DynaWin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            /*check if edit mode is true, if it is, move the original task dir back to dynamic theme root dir
+            because changes were not saved*/
+
+            if (IsEditMode == true)
+            {
+                //move the directory back
+                Directory.Move(TempTaskDir, System.IO.Path.Combine(DataDynamicThemeRootDir,
+                    new DirectoryInfo(TempTaskDir).Name));
+            }
+
             //set the editmode to false
             IsEditMode = false;
 
@@ -332,6 +345,9 @@ namespace DynaWin
                 if (window.GetType() == typeof(SettingsWindow))
                 {
                     var settingsWindow = window as SettingsWindow;
+
+                    //reenable this window
+                    settingsWindow.IsEnabled = true;
 
                     //call the update task function
                     settingsWindow.UpdateTaskListBox(settingsWindow.DynamicThemeListBox, 0);

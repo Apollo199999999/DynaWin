@@ -19,6 +19,7 @@ using System.IO;
 using System.Threading;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace DynaWin
 {
@@ -59,6 +60,7 @@ namespace DynaWin
             Directory.CreateDirectory(DataRootDir);
             Directory.CreateDirectory(DataDynamicThemeRootDir);
             Directory.CreateDirectory(DataDynamicWallpaperRootDir);
+            Directory.CreateDirectory(DataTempRootDir);
 
             //event handler for settings window closing
             settingsWindow.Closing += SettingsWindow_Closing;
@@ -222,6 +224,8 @@ namespace DynaWin
             }
 
             //TODO: Implement checking procedures for Dynamic wallpaper here
+
+
 
         }
 
