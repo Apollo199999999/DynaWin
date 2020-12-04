@@ -6,9 +6,59 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:local="clr-namespace:DynaWin"
         mc:Ignorable="d"
-        Title="Create new Dynamic Wallpaper Task" Height="450" Width="800" ResizeMode="NoResize" 
+        Title="New Dynamic Wallpaper Task" Height="800" Width="800" ResizeMode="NoResize" 
         ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Topmost="True" Closing="Window_Closing">
     <Grid>
-        
+        <Label x:Name="TitleLabel" Content="New Dynamic Wallpaper task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Name of Dynamic Wallpaper task (the name cannot contain illegal characters)" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+        <TextBox Height="32" Margin="10,93,10,0" VerticalAlignment="Top" x:Name="TaskNameTextBox" TextWrapping="NoWrap" MaxLines="1" TextChanged="TaskNameTextBox_TextChanged"/>
+
+        <Label Content="Events:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBlock Text="Add or remove the events that you want this task to do. (e.g changing the wallpaper when the time is 12 PM, or changing the wallpaper when the battery percentage is 10%)" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" TextWrapping="Wrap"/>
+
+        <Button x:Name="AddTimeActionBtn" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="165" Height="37" 
+                ToolTipService.InitialShowDelay="0" Click="AddTimeActionBtn_Click">
+            <Button.Content>
+                <Grid Width="155">
+                    <Image Source="pack://siteoforigin:,,,/Resources/AddIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
+                    <Label Content="Add a Time Event" Margin="30,0,10,0" VerticalContentAlignment="Center"/>
+                </Grid>
+            </Button.Content>
+
+            <Button.ToolTip>
+                <ToolTip x:Name="AddTimeActionBtnToolTip" Content="Add a Time Event"/>
+            </Button.ToolTip>
+        </Button>
+
+        <Button x:Name="AddThemeActionBtn" HorizontalAlignment="Left" Margin="195,224,0,0" VerticalAlignment="Top" Width="175" Height="37" 
+                ToolTipService.InitialShowDelay="0" Click="AddThemeActionBtn_Click">
+            <Button.Content>
+                <Grid Width="165">
+                    <Image Source="pack://siteoforigin:,,,/Resources/AddIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
+                    <Label Content="Add a Theme Event" Margin="30,0,10,0" VerticalContentAlignment="Center"/>
+                </Grid>
+            </Button.Content>
+
+            <Button.ToolTip>
+                <ToolTip x:Name="AddThemeBtnToolTip" Content="Add a Theme Event"/>
+            </Button.ToolTip>
+        </Button>
+
+        <Button x:Name="AddBatteryActionBtn" HorizontalAlignment="Left" Margin="390,224,0,0" VerticalAlignment="Top" Width="174" Height="37" 
+                ToolTipService.InitialShowDelay="0" Click="AddBatteryActionBtn_Click">
+            <Button.Content>
+                <Grid Width="165">
+                    <Image Source="pack://siteoforigin:,,,/Resources/AddIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
+                    <Label Content="Add a Battery Event" Margin="30,0,10,0" VerticalContentAlignment="Center"/>
+                </Grid>
+            </Button.Content>
+
+            <Button.ToolTip>
+                <ToolTip x:Name="AddBatteryBtnToolTip" Content="Add a Battery Event"/>
+            </Button.ToolTip>
+        </Button>
+
+        <Button x:Name="SaveBtn" Content="Save and Exit" HorizontalAlignment="Right" Margin="0,715,10,0" VerticalAlignment="Top" Width="140" Height="37" Style="{StaticResource AccentButtonStyle}" Click="SaveBtn_Click" />
     </Grid>
 </Window>

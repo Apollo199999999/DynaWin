@@ -196,17 +196,17 @@ namespace DynaWin
 
                 if (ActionsListBox.SelectedIndex != 0)
                 {
-                    /*it is not the first item, change the tooltip text to "Remove an Action" and 
+                    /*it is not the first item, change the tooltip text to "Remove an Event" and 
                     enable the remove action button*/
-                    RemoveActionBtnToolTip.Content = "Remove an Action";
+                    RemoveActionBtnToolTip.Content = "Remove an Event";
                     RemoveActionBtn.IsEnabled = true;
 
                 }
                 else if (ActionsListBox.SelectedIndex == 0)
                 {
                     /*the selected item is the first item. Disable the remove action button and 
-                    change the tooltip text to "You cannot remove the first action"*/
-                    RemoveActionBtnToolTip.Content = "You cannot remove the first action";
+                    change the tooltip text to "You cannot remove the first event"*/
+                    RemoveActionBtnToolTip.Content = "You cannot remove the first event";
                     RemoveActionBtn.IsEnabled = false;
 
                 }
@@ -214,8 +214,8 @@ namespace DynaWin
             }
             else
             {
-                //disable the remove action button and with the tooltip text as "No action selected to remove"
-                RemoveActionBtnToolTip.Content = "There is no selected action to remove";
+                //disable the remove action button and with the tooltip text as "No event selected to remove"
+                RemoveActionBtnToolTip.Content = "There is no selected event to remove";
                 RemoveActionBtn.IsEnabled = false;
             }
             

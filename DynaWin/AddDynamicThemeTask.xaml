@@ -12,8 +12,8 @@
         <Label x:Name="TitleLabel" Content="New Dynamic Theme task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <Label Content="Name of Dynamic Theme task (the name cannot contain illegal characters)" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox Height="32" Margin="10,93,10,0" VerticalAlignment="Top" Width="574" x:Name="TaskNameTextBox" TextWrapping="NoWrap" MaxLines="1" TextChanged="TaskNameTextBox_TextChanged"/>
-        <Label Content="Actions:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBlock Text="Add or remove the actions that you want this task to do. (e.g switching the system theme to light or dark at a specified time.)  The first one has already been added for you." HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" TextWrapping="Wrap"/>
+        <Label Content="Events:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBlock Text="Add or remove the events that you want this task to do. (e.g switching the system theme to light or dark at a specified time.)" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" TextWrapping="Wrap"/>
         
         <Button x:Name="SaveBtn" Content="Save and Exit" HorizontalAlignment="Right" Margin="0,715,10,0" VerticalAlignment="Top" Width="140" Height="37" Style="{StaticResource AccentButtonStyle}" Click="SaveBtn_Click"/>
         
@@ -22,12 +22,12 @@
             <Button.Content>
                 <Grid Width="145">
                     <Image Source="pack://siteoforigin:,,,/Resources/AddIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
-                    <Label Content="Add an Action" Margin="30,0,10,0" VerticalContentAlignment="Center"/>
+                    <Label Content="Add an Event" Margin="30,0,10,0" VerticalContentAlignment="Center"/>
                 </Grid>
             </Button.Content>
             
             <Button.ToolTip>
-                <ToolTip x:Name="AddActionBtnToolTip" Content="Add an Action"/>
+                <ToolTip x:Name="AddActionBtnToolTip" Content="Add an Event"/>
             </Button.ToolTip>
         </Button>
 
@@ -36,12 +36,12 @@
             <Button.Content>
                 <Grid Width="160">
                     <Image Source="pack://siteoforigin:,,,/Resources/DeleteIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
-                    <Label Content="Remove an Action" Margin="30,0,0,0" VerticalContentAlignment="Center"/>
+                    <Label Content="Remove an Event" Margin="30,0,0,0" VerticalContentAlignment="Center"/>
                 </Grid>
             </Button.Content>
 
             <Button.ToolTip>
-                <ToolTip x:Name="RemoveActionBtnToolTip" Content="Remove an Action"/>
+                <ToolTip x:Name="RemoveActionBtnToolTip" Content="Remove an Event"/>
             </Button.ToolTip>
         </Button>
 

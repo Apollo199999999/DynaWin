@@ -112,7 +112,7 @@ namespace DynaWin
             //------------------------------------------------------------------------------------------
 
             //show a notification that DynaWin is running
-            ni.ShowBalloonTip(3000, "DynaWin is running", "To view or configure DynaWin Settings, " +
+            ni.ShowBalloonTip(1000, "DynaWin is running", "To view or configure DynaWin Settings, " +
                 "click on the tray icon", System.Windows.Forms.ToolTipIcon.Info);
         }
 
@@ -136,7 +136,7 @@ namespace DynaWin
         }
 
         //function to change the system theme
-        public void ChangeSystemTheme(string theme, string mode)
+        public void ChangeTheme(string theme, string mode)
         {
             //check the theme
             if (theme == "light")
@@ -181,6 +181,7 @@ namespace DynaWin
 
         private void UpdaterTimer_Tick(object sender, EventArgs e)
         {
+
             //get the current time
             string currentTime = GetCurrentTime();
 
@@ -218,15 +219,13 @@ namespace DynaWin
                     //check if time matches the current time
                     if (time == currentTime)
                     {
-                        ChangeSystemTheme(theme, mode);
+                        //change the theme
+                        ChangeTheme(theme, mode);
                     }
                 }
             }
 
             //TODO: Implement checking procedures for Dynamic wallpaper here
-
-
-
         }
 
         
