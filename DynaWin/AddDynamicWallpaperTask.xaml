@@ -6,7 +6,7 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:local="clr-namespace:DynaWin"
         mc:Ignorable="d"
-        Title="New Dynamic Wallpaper Task" Height="800" Width="800" ResizeMode="NoResize" 
+        Title="New Dynamic Wallpaper Task" Height="800" Width="772" ResizeMode="NoResize" 
         ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Topmost="True" Closing="Window_Closing">
     <Grid>
         <Label x:Name="TitleLabel" Content="New Dynamic Wallpaper task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
@@ -58,6 +58,22 @@
                 <ToolTip x:Name="AddBatteryBtnToolTip" Content="Add a Battery Event"/>
             </Button.ToolTip>
         </Button>
+
+        <Button x:Name="RemoveActionBtn" HorizontalAlignment="Left" Margin="585,224,0,0" VerticalAlignment="Top" Width="170" 
+                Height="37" Click="RemoveActionBtn_Click" ToolTipService.InitialShowDelay="0" ToolTipService.ShowOnDisabled="True">
+            <Button.Content>
+                <Grid Width="160">
+                    <Image Source="pack://siteoforigin:,,,/Resources/DeleteIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
+                    <Label Content="Remove an Event" Margin="30,0,0,0" VerticalContentAlignment="Center"/>
+                </Grid>
+            </Button.Content>
+
+            <Button.ToolTip>
+                <ToolTip x:Name="RemoveActionBtnToolTip" Content="Remove an Event"/>
+            </Button.ToolTip>
+        </Button>
+
+        <ListBox x:Name="ActionsListBox" Height="435" Margin="10,270,10,0" VerticalAlignment="Top" SelectionChanged="ActionsListBox_SelectionChanged" Loaded="ActionsListBox_Loaded" ScrollViewer.CanContentScroll="False"/>
 
         <Button x:Name="SaveBtn" Content="Save and Exit" HorizontalAlignment="Right" Margin="0,715,10,0" VerticalAlignment="Top" Width="140" Height="37" Style="{StaticResource AccentButtonStyle}" Click="SaveBtn_Click" />
     </Grid>
