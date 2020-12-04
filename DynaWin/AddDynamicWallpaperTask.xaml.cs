@@ -99,7 +99,7 @@ namespace DynaWin
                     RemoveActionBtn.IsEnabled = true;
 
                 }
-                else if (ActionsListBox.Items.Count < 1)
+                else if (ActionsListBox.Items.Count <= 1)
                 {
                     /*the listbox items count is 1. Disable the remove action button and 
                     change the tooltip text to "You cannot remove the first event"*/
