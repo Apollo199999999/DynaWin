@@ -173,7 +173,7 @@ namespace DynaWin
         }
 
       
-        private void UpdaterTimer_Tick(object sender, EventArgs e)
+        private async void UpdaterTimer_Tick(object sender, EventArgs e)
         {
             //this variable denotes whether to restart explorer
             bool TaskbarRefresh = false;
@@ -230,6 +230,7 @@ namespace DynaWin
             if (TaskbarRefresh == true)
             {
                 //refresh the taskbar
+                await Task.Delay(100);
                 RefreshTaskbarClass refreshTaskbarClass = new RefreshTaskbarClass();
                 refreshTaskbarClass.RefreshTaskbar();
             }
