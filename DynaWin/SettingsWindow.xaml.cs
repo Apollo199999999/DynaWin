@@ -288,11 +288,11 @@ namespace DynaWin
                 this.IsEnabled = false;
 
                 //move taskdir to the temp folder
-                Directory.Move(TaskDirectory, System.IO.Path.Combine(DataTempRootDir, 
+                Directory.Move(TaskDirectory, System.IO.Path.Combine(DataDynamicThemeTempDir, 
                     new DirectoryInfo(TaskDirectory).Name));
 
                 //assign the temp task dir to the variable in adddynamicthemetask window
-                addDynamicThemeTask.TempTaskDir = System.IO.Path.Combine(DataTempRootDir, 
+                addDynamicThemeTask.TempTaskDir = System.IO.Path.Combine(DataDynamicThemeTempDir, 
                     new DirectoryInfo(TaskDirectory).Name);
 
             }

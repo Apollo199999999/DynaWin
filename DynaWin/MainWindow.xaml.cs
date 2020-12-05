@@ -20,6 +20,7 @@ using System.Threading;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using System.Diagnostics;
+using RefreshTaskbar;
 
 namespace DynaWin
 {
@@ -60,10 +61,8 @@ namespace DynaWin
             Directory.CreateDirectory(DataRootDir);
             Directory.CreateDirectory(DataDynamicThemeRootDir);
             Directory.CreateDirectory(DataDynamicWallpaperRootDir);
-            Directory.CreateDirectory(DataTempRootDir);
-
-            //event handler for settings window closing
-            settingsWindow.Closing += SettingsWindow_Closing;
+            Directory.CreateDirectory(DataDynamicThemeTempDir);
+            Directory.CreateDirectory(DataDynamicWallpaperTempDir);
 
             //set updater timer interval to about 1 minute and start the timer
             UpdaterTimer.Interval = TimeSpan.FromSeconds(60);
@@ -97,9 +96,14 @@ namespace DynaWin
 
 
             //create and init a tray icon------------------------------------------------------------
-            
             ni.Icon = new System.Drawing.Icon(@"Resources\icon.ico");
+
+            //show the notify icon
             ni.Visible = true;
+
+            //show a notification that DynaWin is running
+            ni.ShowBalloonTip(1000, "DynaWin is running", "To view or configure DynaWin Settings, " +
+                "click on the tray icon", System.Windows.Forms.ToolTipIcon.Info);
 
             //set the context menu
             ni.ContextMenu = TrayMenu;
@@ -109,20 +113,9 @@ namespace DynaWin
 
             //create event handlers for mouse_up
             ni.MouseUp += Ni_MouseUp;
+
             //------------------------------------------------------------------------------------------
 
-            //show a notification that DynaWin is running
-            ni.ShowBalloonTip(1000, "DynaWin is running", "To view or configure DynaWin Settings, " +
-                "click on the tray icon", System.Windows.Forms.ToolTipIcon.Info);
-        }
-
-
-        private void SettingsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //start the timer again
-            UpdaterTimer.Start();
-            //call the event handler
-            UpdaterTimer_Tick(null, null);
         }
 
         //function to get the current time so I don't have to repeat myself
@@ -179,8 +172,11 @@ namespace DynaWin
 
         }
 
+      
         private void UpdaterTimer_Tick(object sender, EventArgs e)
         {
+            //this variable denotes whether to restart explorer
+            bool TaskbarRefresh = false;
 
             //get the current time
             string currentTime = GetCurrentTime();
@@ -221,11 +217,22 @@ namespace DynaWin
                     {
                         //change the theme
                         ChangeTheme(theme, mode);
+
+                        //set taskbarrefresh to true so that the taskbar will be refreshed later
+                        TaskbarRefresh = true;
                     }
                 }
             }
 
             //TODO: Implement checking procedures for Dynamic wallpaper here
+
+
+            if (TaskbarRefresh == true)
+            {
+                //refresh the taskbar
+                RefreshTaskbarClass refreshTaskbarClass = new RefreshTaskbarClass();
+                refreshTaskbarClass.RefreshTaskbar();
+            }
         }
 
         
@@ -256,10 +263,6 @@ namespace DynaWin
 
                 //show the window
                 settingsWindow.Show();
-
-                //call the event handler
-                UpdaterTimer_Tick(null, null);
-
             }
             else
             {
@@ -289,9 +292,6 @@ namespace DynaWin
 
                     //show the window
                     settingsWindow.Show();
-
-                    //call the event handler
-                    UpdaterTimer_Tick(null, null);
                 }
                 else
                 {

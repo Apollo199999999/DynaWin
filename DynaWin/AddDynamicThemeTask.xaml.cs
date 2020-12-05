@@ -40,16 +40,16 @@ namespace DynaWin
             ActionItem.Height = 150;
             ActionItem.Width = 560;
 
-            //create a label that says "Dynamic Theme Action"
+            //create a label that says "Dynamic Theme Event"
             Label label1 = new Label();
-            label1.Content = "Dynamic Theme Action:";
+            label1.Content = "Dynamic Theme Event:";
             label1.FontWeight = FontWeights.Bold;
             label1.HorizontalAlignment = HorizontalAlignment.Left;
             label1.VerticalAlignment = VerticalAlignment.Top;
 
-            //create a label that says "Trigger this action at:"
+            //create a label that says "Trigger this event at:"
             Label label2 = new Label();
-            label2.Content = "Trigger this action at:";
+            label2.Content = "Trigger this event at:";
             label2.HorizontalAlignment = HorizontalAlignment.Left;
             label2.VerticalAlignment = VerticalAlignment.Top;
             label2.Margin = new Thickness(0, 31, 0, 0);
@@ -61,9 +61,9 @@ namespace DynaWin
             TriggerTimePicker.VerticalAlignment = VerticalAlignment.Top;
             TriggerTimePicker.SetTimeAsString(time);
 
-            //create a label that says "When this action is triggered:"
+            //create a label that says "When this event is triggered:"
             Label label3 = new Label();
-            label3.Content = "When this action is triggered:";
+            label3.Content = "When this event is triggered:";
             label3.HorizontalAlignment = HorizontalAlignment.Left;
             label3.VerticalAlignment = VerticalAlignment.Top;
             label3.Margin = new Thickness(0, 70, 0, 0);

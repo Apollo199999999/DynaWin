@@ -19,8 +19,11 @@ namespace DynaWin
         public static string DataDynamicThemeRootDir = Environment.GetFolderPath
             (Environment.SpecialFolder.ApplicationData) + "\\DynaWin\\DynamicTheme\\";
 
-        public static string DataTempRootDir = Environment.GetFolderPath
-            (Environment.SpecialFolder.ApplicationData) + "\\DynaWin\\Temp\\";
+        public static string DataDynamicThemeTempDir = Environment.GetFolderPath
+            (Environment.SpecialFolder.ApplicationData) + "\\DynaWin\\Temp\\DynamicTheme";
+
+        public static string DataDynamicWallpaperTempDir = Environment.GetFolderPath
+            (Environment.SpecialFolder.ApplicationData) + "\\DynaWin\\Temp\\DynamicWallpaper";
 
         //function to see if a second task with the same name exists
         public static bool CheckifTaskNameExists(string targetDirectory, string TaskName)
