@@ -6,7 +6,7 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:local="clr-namespace:DynaWin"
         mc:Ignorable="d"
-        Title="New Dynamic Wallpaper Task" Height="800" Width="772" ResizeMode="NoResize" 
+        Title="New Dynamic Wallpaper Task" Height="800" Width="1000" ResizeMode="NoResize" 
         ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Topmost="True" Closing="Window_Closing">
     <Grid>
         <Label x:Name="TitleLabel" Content="New Dynamic Wallpaper task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
@@ -73,7 +73,14 @@
             </Button.ToolTip>
         </Button>
 
-        <ListBox x:Name="ActionsListBox" Height="435" Margin="10,270,10,0" VerticalAlignment="Top" SelectionChanged="ActionsListBox_SelectionChanged" Loaded="ActionsListBox_Loaded" ScrollViewer.CanContentScroll="False"/>
+        <ListBox x:Name="ActionsListBox" Height="435" Margin="10,270,10,0" VerticalAlignment="Top" SelectionChanged="ActionsListBox_SelectionChanged" Loaded="ActionsListBox_Loaded" ScrollViewer.CanContentScroll="False"
+            ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Background="Transparent" Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
 
         <Button x:Name="SaveBtn" Content="Save and Exit" HorizontalAlignment="Right" Margin="0,715,10,0" VerticalAlignment="Top" Width="140" Height="37" Style="{StaticResource AccentButtonStyle}" Click="SaveBtn_Click" />
     </Grid>
