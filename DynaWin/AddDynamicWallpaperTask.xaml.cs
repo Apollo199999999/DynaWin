@@ -102,144 +102,13 @@ namespace DynaWin
 
             //add the grid to the listbox
             ActionsListBox.Items.Add(TimeEventGrid);
+
+            //make the timeeventgrid the selected item and scrool it into view
+            ActionsListBox.SelectedItem = TimeEventGrid;
+            ActionsListBox.ScrollIntoView(ActionsListBox.SelectedItem);
         }
 
-        //function to create Theme Event 
-        public void AddThemeEvent(string mode, string theme, string wallpaperPath)
-        {
-            //create a grid
-            Grid ThemeEventGrid = new Grid();
-            ThemeEventGrid.Width = 480;
-            ThemeEventGrid.Height = 415;
-
-            //add a Label that says "Time Event:"
-            Label label1 = new Label();
-            label1.Content = "Theme Event:";
-            label1.FontSize = 16;
-            label1.FontWeight = FontWeights.Bold;
-            label1.VerticalAlignment = VerticalAlignment.Top;
-            label1.HorizontalAlignment = HorizontalAlignment.Left;
-
-            //create a label that says "Trigger this event"
-            Label label2 = new Label();
-            label2.Content = "Trigger this event when the theme of the";
-            label2.HorizontalAlignment = HorizontalAlignment.Left;
-            label2.VerticalAlignment = VerticalAlignment.Top;
-            label2.Margin = new Thickness(0, 35, 0, 0);
-
-            //create a combobox for either default windows mode or default apps mode
-            ComboBox SystemOrAppThemePicker = new ComboBox();
-            SystemOrAppThemePicker.HorizontalAlignment = HorizontalAlignment.Left;
-            SystemOrAppThemePicker.Margin = new Thickness(265, 29, 0, 0);
-            SystemOrAppThemePicker.VerticalAlignment = VerticalAlignment.Top;
-            SystemOrAppThemePicker.Width = 203;
-            SystemOrAppThemePicker.Height = 32;
-
-            //add items to the combo box
-            ComboBoxItem SystemThemeItem = new ComboBoxItem();
-            ComboBoxItem AppsThemeItem = new ComboBoxItem();
-            SystemThemeItem.Content = "Default Windows mode";
-            AppsThemeItem.Content = "Default app mode";
-
-            SystemOrAppThemePicker.Items.Add(SystemThemeItem);
-            SystemOrAppThemePicker.Items.Add(AppsThemeItem);
-
-            //set the default selected item
-            if (mode == "windows")
-            {
-                SystemOrAppThemePicker.SelectedItem = SystemThemeItem;
-            }
-            else if (mode == "apps")
-            {
-                SystemOrAppThemePicker.SelectedItem = AppsThemeItem;
-            }
-
-            //create a label that says "is set to"
-            Label label5 = new Label();
-            label5.Content = "is set to";
-            label5.HorizontalAlignment = HorizontalAlignment.Left;
-            label5.VerticalAlignment = VerticalAlignment.Top;
-            label5.Margin = new Thickness(0, 70, 0, 0);
-
-            //create a combobox for picking light theme or dark theme
-            ComboBox LightDarkThemePicker = new ComboBox();
-            LightDarkThemePicker.HorizontalAlignment = HorizontalAlignment.Left;
-            LightDarkThemePicker.Margin = new Thickness(60, 64, 0, 0);
-            LightDarkThemePicker.VerticalAlignment = VerticalAlignment.Top;
-            LightDarkThemePicker.Width = 136;
-            LightDarkThemePicker.Height = 32;
-
-            //add items to the combo box
-            ComboBoxItem LightThemeItem = new ComboBoxItem();
-            ComboBoxItem DarkThemeItem = new ComboBoxItem();
-            LightThemeItem.Content = "Light Theme";
-            DarkThemeItem.Content = "Dark Theme";
-
-            LightDarkThemePicker.Items.Add(LightThemeItem);
-            LightDarkThemePicker.Items.Add(DarkThemeItem);
-
-            //set the default selected item
-            if (theme == "light")
-            {
-                LightDarkThemePicker.SelectedItem = LightThemeItem;
-            }
-            else if (theme == "dark")
-            {
-                LightDarkThemePicker.SelectedItem = DarkThemeItem;
-            }
-
-            //create a label that says "When this event is triggered"
-            Label label3 = new Label();
-            label3.Content = "When this event is triggered:";
-            label3.HorizontalAlignment = HorizontalAlignment.Left;
-            label3.VerticalAlignment = VerticalAlignment.Top;
-            label3.FontWeight = FontWeights.Bold;
-            label3.Margin = new Thickness(0, 125, 0, 0);
-
-            //create a label that says "Change Wallpaper to:"
-            Label label4 = new Label();
-            label4.Content = "Change wallpaper to:";
-            label4.HorizontalAlignment = HorizontalAlignment.Left;
-            label4.VerticalAlignment = VerticalAlignment.Top;
-            label4.Margin = new Thickness(0, 155, 0, 0);
-
-            //create an image control
-            Image WallpaperImage = new Image();
-            WallpaperImage.StretchDirection = StretchDirection.Both;
-            WallpaperImage.Stretch = Stretch.Uniform;
-            WallpaperImage.Height = 170;
-            WallpaperImage.Width = 440;
-            //try and set the source of the image control
-            try { WallpaperImage.Source = new BitmapImage(new Uri(wallpaperPath)); } catch { };
-            WallpaperImage.HorizontalAlignment = HorizontalAlignment.Center;
-            WallpaperImage.VerticalAlignment = VerticalAlignment.Top;
-            WallpaperImage.Margin = new Thickness(0, 185, 0, 0);
-
-            //create a button that says "Pick Image"
-            Button PickImageBtn = new Button();
-            PickImageBtn.Click += PickImageBtn_Click;
-            PickImageBtn.Content = "Pick Image";
-            PickImageBtn.HorizontalAlignment = HorizontalAlignment.Center;
-            PickImageBtn.VerticalAlignment = VerticalAlignment.Top;
-            //store the image control in the tag so that we can access it later
-            PickImageBtn.Tag = WallpaperImage;
-            PickImageBtn.Margin = new Thickness(0, 375, 0, 0);
-
-            //add the controls to grid
-            ThemeEventGrid.Children.Add(label1);
-            ThemeEventGrid.Children.Add(label2);
-            ThemeEventGrid.Children.Add(label3);
-            ThemeEventGrid.Children.Add(label4);
-            ThemeEventGrid.Children.Add(label5);
-            ThemeEventGrid.Children.Add(SystemOrAppThemePicker);
-            ThemeEventGrid.Children.Add(LightDarkThemePicker);
-            ThemeEventGrid.Children.Add(WallpaperImage);
-            ThemeEventGrid.Children.Add(PickImageBtn);
-
-            //add the grid to the listbox
-            ActionsListBox.Items.Add(ThemeEventGrid);
-        }
-
+       
         //function to add battery event
         public void AddBatteryEvent(int batteryPercentage, string wallpaperPath)
         {
@@ -333,6 +202,10 @@ namespace DynaWin
 
             //add the grid to the listbox
             ActionsListBox.Items.Add(BatteryEventGrid);
+
+            //make the batteryeventgrid the selected item and scroll it into view
+            ActionsListBox.SelectedItem = BatteryEventGrid;
+            ActionsListBox.ScrollIntoView(ActionsListBox.SelectedItem);
         }
         private void PickImageBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -406,12 +279,6 @@ namespace DynaWin
             AddTimeEvent("8:00 AM", "");
         }
 
-        private void AddThemeActionBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //This event handler is for adding a theme event
-            AddThemeEvent("windows", "light", "");
-        }
-
         private void AddBatteryActionBtn_Click(object sender, RoutedEventArgs e)
         {
             //this event handler is for adding a battery event
@@ -457,6 +324,13 @@ namespace DynaWin
         private void ActionsListBox_Loaded(object sender, RoutedEventArgs e)
         {
             //this is the event handler for when the actions list box loads. Add events here by default
+
+            //add a time event
+            AddTimeEvent("8:00 AM", "");
+
+            //add a battery event
+            AddBatteryEvent(50, "");
+
         }
 
         private void RemoveActionBtn_Click(object sender, RoutedEventArgs e)

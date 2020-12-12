@@ -69,6 +69,9 @@ namespace DynaWin
             UpdaterTimer.Tick += UpdaterTimer_Tick;
             UpdaterTimer.Start();
 
+            //event handler for settiingswindow closing
+            settingsWindow.Closing += SettingsWindow_Closing;
+
             //minimize this window
             this.WindowState = WindowState.Minimized;
 
@@ -118,14 +121,22 @@ namespace DynaWin
 
         }
 
+        private void SettingsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //call the timer event handler
+            UpdaterTimer_Tick(null, null);
+
+        }
+
         //function to get the current time so I don't have to repeat myself
-        public string GetCurrentTime()
+        public DateTime GetCurrentTime()
         {
             DateTime now = DateTime.Now;
             string currentTime = now.ToString("h:mm tt");
             currentTime = currentTime.ToUpper(); //This is to make sure that the AM and PM is upper case
-           
-            return currentTime;
+
+            return DateTime.ParseExact(currentTime, "h:mm tt",
+                System.Globalization.CultureInfo.InvariantCulture);
         }
 
         //function to change the system theme
@@ -172,33 +183,64 @@ namespace DynaWin
 
         }
 
-      
+        //function to find closest dateTime
+        public DateTime FindClosestDate(IEnumerable<DateTime> source, DateTime target)
+        {
+            DateTime result = DateTime.MinValue;
+            var lowestDifference = TimeSpan.MaxValue;
+
+            foreach (var date in source)
+            {
+                if (date > target)
+                    continue;
+
+                var difference = target - date;
+
+                if (difference <= lowestDifference)
+                {
+                    lowestDifference = difference;
+                    result = date;
+                }
+            }
+
+            return result;
+        }
+
         private void UpdaterTimer_Tick(object sender, EventArgs e)
         {
             //this variable denotes whether to restart explorer
             bool TaskbarRefresh = false;
 
             //get the current time
-            string currentTime = GetCurrentTime();
+            DateTime currentTime = GetCurrentTime();
 
             //iterate through tasks in Dynamic Theme, and then iterate through the actions of the tasks
             foreach (string TaskDirectory in Directory.GetDirectories(DataDynamicThemeRootDir))
             {
+                //arrays to store the data from all actions (create 2 lists to run actions from system mode and apps mode)
+                var SystemModeTime = new List<DateTime>();
+                var SystemModeTheme = new List<string>();
+
+                var AppsModeTime = new List<DateTime>();
+                var AppsModeTheme = new List<string>();
+
                 foreach (string TaskAction in Directory.GetFiles(TaskDirectory, "*.txt"))
                 {
-                    //variables to store data from the text file
+                    //variables to store data from text file
                     string time = "";
                     string mode = "";
                     string theme = "";
 
                     //iterate through lines in the taskaction text file.
                     string[] lines = File.ReadAllLines(TaskAction);
+
                     foreach (string line in lines)
                     {
                         if (line.Contains("time;"))
                         {
-                            //remove the stuff after the semicolon and assign it to the time variable
+                            //remove the stuff after the semicolon 
                             time = line.Substring(line.IndexOf(';') + 1);
+
                         }
                         else if (line.Contains("mode;"))
                         {
@@ -210,17 +252,64 @@ namespace DynaWin
                             //remove the stuff after the semicolon and assign it to the theme variable
                             theme = line.Substring(line.IndexOf(';') + 1);
                         }
+                        
                     }
 
-                    //check if time matches the current time
-                    if (time == currentTime)
+                    //check if mode is apps or windows(system) and add the theme and time to the correct list
+                    if (mode == "apps")
                     {
-                        //change the theme
-                        ChangeTheme(theme, mode);
+                        //add time var and theme var to correct list
+                        AppsModeTime.Add(DateTime.ParseExact(time, "h:mm tt",
+                            System.Globalization.CultureInfo.InvariantCulture));
 
-                        //set taskbarrefresh to true so that the taskbar will be refreshed later
+                        AppsModeTheme.Add(theme);
+                    }
+                    else if (mode == "windows")
+                    {
+                        //add time var and theme var to correct list
+                        SystemModeTime.Add(DateTime.ParseExact(time, "h:mm tt",
+                            System.Globalization.CultureInfo.InvariantCulture));
+
+                        SystemModeTheme.Add(theme);
+                    }
+                }
+
+                try
+                {
+                    //get the index of the closest time (from the SystemModeTime and AppsModeTime list)
+                    //do this ONLY if the list is not empty, otherwise shit will go haywire
+                    if (SystemModeTime.Count > 0 && SystemModeTheme.Count > 0)
+                    {
+                        //get the index of the closest time
+                        int SystemTimeIndex = SystemModeTime.IndexOf(FindClosestDate(SystemModeTime, currentTime));
+
+                        //use the index to get the appropriate mode and theme from the list
+                        string SystemTheme = SystemModeTheme[SystemTimeIndex];
+
+                        //call the change theme function
+                        ChangeTheme(SystemTheme, "windows");
+
+                        //set taskbar refresh to true to refresh the taskbar
                         TaskbarRefresh = true;
                     }
+
+                    if (AppsModeTime.Count > 0 && AppsModeTheme.Count > 0)
+                    {
+                        //get the index of the closest time
+                        int AppsTimeIndex = AppsModeTime.IndexOf(FindClosestDate(AppsModeTime, currentTime));
+
+                        //use the index to get the appropriate mode and theme from the list
+                        string AppsTheme = AppsModeTheme[AppsTimeIndex];
+
+                        //call the change theme function
+                        ChangeTheme(AppsTheme, "apps");
+
+                        //set taskbar refresh to true to refresh the taskbar
+                        TaskbarRefresh = true;
+                    }
+
+                }
+                catch { //do nothing and try again when the timer ticks again 
                 }
             }
 
@@ -263,12 +352,18 @@ namespace DynaWin
 
                 //show the window
                 settingsWindow.Show();
+
+                //call the timer event handler
+                UpdaterTimer_Tick(null, null);
             }
             else
             {
                 //activate settingswindow
                 settingsWindow.Activate();
-                
+
+                //call the timer event handler
+                UpdaterTimer_Tick(null, null);
+
             }
 
 
@@ -292,11 +387,17 @@ namespace DynaWin
 
                     //show the window
                     settingsWindow.Show();
+
+                    //call the timer event handler
+                    UpdaterTimer_Tick(null, null);
                 }
                 else
                 {
                     //activate settingswindow
                     settingsWindow.Activate();
+
+                    //call the timer event handler
+                    UpdaterTimer_Tick(null, null);
 
                 }
 

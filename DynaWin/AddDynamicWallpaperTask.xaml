@@ -31,21 +31,7 @@
             </Button.ToolTip>
         </Button>
 
-        <Button x:Name="AddThemeActionBtn" HorizontalAlignment="Left" Margin="195,224,0,0" VerticalAlignment="Top" Width="175" Height="37" 
-                ToolTipService.InitialShowDelay="0" Click="AddThemeActionBtn_Click">
-            <Button.Content>
-                <Grid Width="165">
-                    <Image Source="pack://siteoforigin:,,,/Resources/AddIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
-                    <Label Content="Add a Theme Event" Margin="30,0,10,0" VerticalContentAlignment="Center"/>
-                </Grid>
-            </Button.Content>
-
-            <Button.ToolTip>
-                <ToolTip x:Name="AddThemeBtnToolTip" Content="Add a Theme Event"/>
-            </Button.ToolTip>
-        </Button>
-
-        <Button x:Name="AddBatteryActionBtn" HorizontalAlignment="Left" Margin="390,224,0,0" VerticalAlignment="Top" Width="174" Height="37" 
+        <Button x:Name="AddBatteryActionBtn" HorizontalAlignment="Left" Margin="195,224,0,0" VerticalAlignment="Top" Width="174" Height="37" 
                 ToolTipService.InitialShowDelay="0" Click="AddBatteryActionBtn_Click">
             <Button.Content>
                 <Grid Width="165">
@@ -59,7 +45,7 @@
             </Button.ToolTip>
         </Button>
 
-        <Button x:Name="RemoveActionBtn" HorizontalAlignment="Left" Margin="585,224,0,0" VerticalAlignment="Top" Width="170" 
+        <Button x:Name="RemoveActionBtn" HorizontalAlignment="Left" Margin="390,224,0,0" VerticalAlignment="Top" Width="170" 
                 Height="37" Click="RemoveActionBtn_Click" ToolTipService.InitialShowDelay="0" ToolTipService.ShowOnDisabled="True">
             <Button.Content>
                 <Grid Width="160">
