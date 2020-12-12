@@ -119,6 +119,9 @@ namespace DynaWin
 
             //------------------------------------------------------------------------------------------
 
+            //call the timer event handler
+            UpdaterTimer_Tick(null, null);
+
         }
 
         private void SettingsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -309,7 +312,9 @@ namespace DynaWin
                     }
 
                 }
-                catch { //do nothing and try again when the timer ticks again 
+                catch
+                {
+                    //do nothing and try again when the timer ticks again 
                 }
             }
 
