@@ -121,7 +121,7 @@ namespace DynaWin
 
             //call the timer event handler
             UpdaterTimer_Tick(null, null);
-
+            
         }
 
         private void SettingsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
