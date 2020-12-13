@@ -272,7 +272,7 @@ namespace DynaWin
                         //add time var and theme var to correct list
                         SystemModeTime.Add(DateTime.ParseExact(time, "h:mm tt",
                             System.Globalization.CultureInfo.InvariantCulture));
-
+         
                         SystemModeTheme.Add(theme);
                     }
                 }
@@ -296,6 +296,16 @@ namespace DynaWin
                         TaskbarRefresh = true;
                     }
 
+                }
+                catch
+                {
+                    //do nothing and try again when the timer ticks again 
+                }
+
+
+                //do the same for the appsMode actions
+                try
+                {
                     if (AppsModeTime.Count > 0 && AppsModeTheme.Count > 0)
                     {
                         //get the index of the closest time
@@ -310,7 +320,6 @@ namespace DynaWin
                         //set taskbar refresh to true to refresh the taskbar
                         TaskbarRefresh = true;
                     }
-
                 }
                 catch
                 {
