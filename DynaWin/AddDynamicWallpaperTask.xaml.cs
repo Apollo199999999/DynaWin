@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static DynaWin.PublicVariables;
 
 namespace DynaWin
 {
@@ -207,6 +209,7 @@ namespace DynaWin
             ActionsListBox.SelectedItem = BatteryEventGrid;
             ActionsListBox.ScrollIntoView(ActionsListBox.SelectedItem);
         }
+
         private void PickImageBtn_Click(object sender, RoutedEventArgs e)
         {
             //handle the event handler when the pickimage btn is clicked
@@ -225,9 +228,6 @@ namespace DynaWin
             {
                 //set the wallpaperimage image as the filename of the open file dialog
                 WallpaperImage.Source = new BitmapImage(new Uri(WallpaperFileDialog.FileName));
-
-                //store the image source file path in the image control tag
-                WallpaperImage.Tag = WallpaperFileDialog.FileName;
             }
         }
 
@@ -270,7 +270,100 @@ namespace DynaWin
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Add the saving mechanism here
+            //saving mechanism
+            if (CheckifTaskNameExists(DataDynamicWallpaperRootDir, TaskNameTextBox.Text) == true)
+            {
+                /*another task of the same name exists. This task cannot be created unless the name is changed. 
+                Show the user an error message.*/
+
+                MessageBox.Show("Another Dynamic Wallpaper task of the same name already exists, " +
+                    "hence, this task cannot be saved. You should try renaming this task before you try again.", "Error " +
+                    "while saving task", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (CheckifTaskNameExists(DataDynamicWallpaperRootDir, TaskNameTextBox.Text) == false)
+            {
+                //only save data if the name field is entered
+                if (string.IsNullOrEmpty(TaskNameTextBox.Text) == false && string.IsNullOrWhiteSpace(TaskNameTextBox.Text) == false)
+                {
+                    //remove leading and trailing spaces from textbox.text
+                    TaskNameTextBox.Text = TaskNameTextBox.Text.Trim();
+
+                    //create a folder in the datadynamicrootdir with the folder name being the task name
+                    string TaskDir = System.IO.Path.Combine(DataDynamicWallpaperRootDir, TaskNameTextBox.Text);
+
+                    Directory.CreateDirectory(TaskDir);
+
+                    //WARNING: THE FOLLOWING SAVING DATA CODE IS NOT VERY EFFICIENT, BUT I DON'T HAVE ANY OTHER METHOD
+                    //iterate through the items in actionslistbox, and save the data
+                    int i = 1;
+
+                    //iterate through grid in actionslistbox
+                    foreach (Grid EventItemGrid in ActionsListBox.Items)
+                    {
+                        string dataTextPath = System.IO.Path.Combine(TaskDir, i.ToString() + ".txt");
+
+                        //create a text file to store data
+                        var DataText = File.Create(dataTextPath);
+                        DataText.Close();
+
+                        StreamWriter sw = new StreamWriter(dataTextPath);
+
+                        //iterate through controls in Grid
+                        foreach (var control in EventItemGrid.Children)
+                        {
+                            if (control is TimePicker)
+                            {
+                                //cast control as TimePicker
+                                TimePicker timePicker = control as TimePicker;
+
+                                //save the time
+                                sw.WriteLine("mode;time");
+                                sw.WriteLine("trigger;" + timePicker.GetSelectedTime());
+
+                            }
+                            else if (control is ModernWpf.Controls.NumberBox)
+                            {
+                                //cast control as NumberBox
+                                ModernWpf.Controls.NumberBox numberBox 
+                                    = control as ModernWpf.Controls.NumberBox;
+
+                                //save the value of numberbox
+                                sw.WriteLine("mode;battery");
+                                sw.WriteLine("trigger;" + numberBox.Value.ToString());
+                            }
+
+                            else if (control is Image)
+                            {
+                                //cast control elemnt as Image
+                                Image image = control as Image;
+
+                                //get the filepath of the source of the image
+                                string ImageSource = (image.Source as BitmapImage).UriSource.OriginalString;
+
+                                //write to text file
+                                sw.WriteLine("wallpaper;" + ImageSource);
+                            }
+                        }
+
+                        //close the data text file
+                        sw.Close();
+
+                        i++;
+
+                    }
+
+                    //TODO: INSERT THE CODE FOR EDITMODE HERE
+                    this.Close();
+                }
+                else
+                {
+                    //the name field is empty
+                    MessageBox.Show("Please enter a name for this Dynamic Wallpaper task and try again.",
+                        "Error while creating task", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+
         }
 
         private void AddTimeActionBtn_Click(object sender, RoutedEventArgs e)
