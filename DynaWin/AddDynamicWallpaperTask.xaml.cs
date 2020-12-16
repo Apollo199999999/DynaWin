@@ -366,16 +366,26 @@ namespace DynaWin
 
         }
 
+        //function to get placeholder wallpaper path (so i dont have to repeat myself)
+        public string GetPlaceholderWallpaperPath()
+        {
+            string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+            string PlaceHolderWallpaperPath =
+             System.IO.Path.Combine(RunningPath, @"Resources\PlaceHolderWallpaper.jpg");
+
+            return PlaceHolderWallpaperPath;
+        }
+
         private void AddTimeActionBtn_Click(object sender, RoutedEventArgs e)
         {
-            //add a time event
-            AddTimeEvent("8:00 AM", "");
+            //Add Time event with the default placeholder wallpaper
+            AddTimeEvent("8:00 AM", GetPlaceholderWallpaperPath());
         }
 
         private void AddBatteryActionBtn_Click(object sender, RoutedEventArgs e)
         {
             //this event handler is for adding a battery event
-            AddBatteryEvent(50, "");
+            AddBatteryEvent(50, GetPlaceholderWallpaperPath());
         }
 
         private void ActionsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -414,15 +424,16 @@ namespace DynaWin
             }
         }
 
+       
         private void ActionsListBox_Loaded(object sender, RoutedEventArgs e)
         {
             //this is the event handler for when the actions list box loads. Add events here by default
 
             //add a time event
-            AddTimeEvent("8:00 AM", "");
+            AddTimeEvent("8:00 AM", GetPlaceholderWallpaperPath());
 
             //add a battery event
-            AddBatteryEvent(50, "");
+            AddBatteryEvent(50, GetPlaceholderWallpaperPath());
 
         }
 
