@@ -298,7 +298,7 @@ namespace DynaWin
             }
             else if (Directory.GetParent(TaskDirectory).Name == "DynamicWallpaper")
             {
-                //The task is a dynamic theme task
+                //The task is a dynamic wallpaper task
 
                 //init a new add dynamic wallpaper task window
                 AddDynamicWallpaperTask addDynamicWallpaperTask = new AddDynamicWallpaperTask();
@@ -326,7 +326,7 @@ namespace DynaWin
                     {
                         if (line.Contains("wallpaper;"))
                         {
-                            //remove the stuff after the semicolon and assign it to the time variable
+                            //remove the stuff after the semicolon and assign it to the wallpaper variable
                             wallpaper = line.Substring(line.IndexOf(';') + 1);
                         }
                         else if (line.Contains("mode;"))
@@ -336,7 +336,7 @@ namespace DynaWin
                         }
                         else if (line.Contains("trigger;"))
                         {
-                            //remove the stuff after the semicolon and assign it to the theme variable
+                            //remove the stuff after the semicolon and assign it to the trigger variable
                             trigger = line.Substring(line.IndexOf(';') + 1);
                         }
                     }

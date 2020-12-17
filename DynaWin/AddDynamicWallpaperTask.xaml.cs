@@ -239,7 +239,7 @@ namespace DynaWin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            /*check if edit mode is true, if it is, move the original task dir back to dynamic theme root dir
+            /*check if edit mode is true, if it is, move the original task dir back to dynamic wallpaper root dir
             because changes were not saved*/
 
             if (IsEditMode == true)
@@ -471,8 +471,8 @@ namespace DynaWin
             else if (IsEditMode == true)
             {
                 //change the window title and the label text
-                this.Title = "Edit Dynamic Theme task";
-                TitleLabel.Content = "Edit Dynamic Theme task";
+                this.Title = "Edit Dynamic Wallpaper task";
+                TitleLabel.Content = "Edit Dynamic Wallpaper task";
             }
 
         }
