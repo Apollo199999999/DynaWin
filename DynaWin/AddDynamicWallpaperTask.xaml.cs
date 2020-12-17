@@ -22,6 +22,12 @@ namespace DynaWin
     /// </summary>
     public partial class AddDynamicWallpaperTask : Window
     {
+        //this variable denotes whether this window is in edit mode or not
+        public bool IsEditMode = false;
+
+        //this variable denotes the temp task directory, used for editing
+        public string TempTaskDir = "";
+
         public AddDynamicWallpaperTask()
         {
             InitializeComponent();
@@ -233,6 +239,19 @@ namespace DynaWin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            /*check if edit mode is true, if it is, move the original task dir back to dynamic theme root dir
+            because changes were not saved*/
+
+            if (IsEditMode == true)
+            {
+                //move the directory back
+                Directory.Move(TempTaskDir, System.IO.Path.Combine(DataDynamicWallpaperRootDir,
+                    new DirectoryInfo(TempTaskDir).Name));
+            }
+
+            //set the editmode to false
+            IsEditMode = false;
+
             foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(SettingsWindow))
@@ -279,6 +298,7 @@ namespace DynaWin
                 MessageBox.Show("Another Dynamic Wallpaper task of the same name already exists, " +
                     "hence, this task cannot be saved. You should try renaming this task before you try again.", "Error " +
                     "while saving task", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
             else if (CheckifTaskNameExists(DataDynamicWallpaperRootDir, TaskNameTextBox.Text) == false)
             {
@@ -352,7 +372,17 @@ namespace DynaWin
 
                     }
 
-                    //TODO: INSERT THE CODE FOR EDITMODE HERE
+                    //delete the temp taskdir if edit mode is true
+                    if (IsEditMode == true)
+                    {
+                        //delete the temptaskdir
+                        Directory.Delete(TempTaskDir, true);
+                    }
+
+                    //set the editmode to false
+                    IsEditMode = false;
+
+                    //close this window
                     this.Close();
                 }
                 else
@@ -429,11 +459,21 @@ namespace DynaWin
         {
             //this is the event handler for when the actions list box loads. Add events here by default
 
-            //add a time event
-            AddTimeEvent("8:00 AM", GetPlaceholderWallpaperPath());
+            //add an action in the listbox as the default first item only IF iseditmode is set to false
+            if (IsEditMode == false)
+            {
+                //add a time event
+                AddTimeEvent("8:00 AM", GetPlaceholderWallpaperPath());
 
-            //add a battery event
-            AddBatteryEvent(50, GetPlaceholderWallpaperPath());
+                //add a battery event
+                AddBatteryEvent(50, GetPlaceholderWallpaperPath());
+            }
+            else if (IsEditMode == true)
+            {
+                //change the window title and the label text
+                this.Title = "Edit Dynamic Theme task";
+                TitleLabel.Content = "Edit Dynamic Theme task";
+            }
 
         }
 

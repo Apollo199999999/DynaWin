@@ -299,10 +299,80 @@ namespace DynaWin
             else if (Directory.GetParent(TaskDirectory).Name == "DynamicWallpaper")
             {
                 //The task is a dynamic theme task
-                /*TODO: AT THE TIME OF WRITING THIS COMMENT, ADDING DYNAMIC WALLPAPER TASKS HAS NOT YET
-                 BEEN IMPLEMENTED. FUTURE ME, PLEASE REMEMBER TO IMPLEMENT THIS (this is the edit event handler)*/
 
-                MessageBox.Show("Edit Dynamic Wallpaper Task");
+                //init a new add dynamic wallpaper task window
+                AddDynamicWallpaperTask addDynamicWallpaperTask = new AddDynamicWallpaperTask();
+
+                //set edit mode to true
+                addDynamicWallpaperTask.IsEditMode = true;
+
+                //configure the window such that the name and actions (events) are already filled in
+                addDynamicWallpaperTask.TaskNameTextBox.Text = new DirectoryInfo(TaskDirectory).Name;
+
+                //iterate through text files in the directory, filling up the listbox
+                string[] TaskActions = Directory.GetFiles(TaskDirectory, "*.txt");
+
+                foreach (string TaskAction in TaskActions)
+                {
+                    //variables to store info from text file
+                    string wallpaper = "";
+                    string mode = "";
+                    string trigger = "";
+
+                    //read all lines in the text file
+                    string[] lines = File.ReadAllLines(TaskAction);
+
+                    foreach (string line in lines)
+                    {
+                        if (line.Contains("wallpaper;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the time variable
+                            wallpaper = line.Substring(line.IndexOf(';') + 1);
+                        }
+                        else if (line.Contains("mode;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the mode variable
+                            mode = line.Substring(line.IndexOf(';') + 1);
+                        }
+                        else if (line.Contains("trigger;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the theme variable
+                            trigger = line.Substring(line.IndexOf(';') + 1);
+                        }
+                    }
+
+                    /*check the mode, if the mode is "time", add a time event, otheriwse, 
+                     * if the mode is "battery", add a battery event*/
+
+                    if (mode == "time")
+                    {
+                        //Add a time action
+                        addDynamicWallpaperTask.AddTimeEvent(trigger, wallpaper);
+                    }
+                    else if (mode == "battery")
+                    {
+                        //add a battery action (parse trigger as an int for the battery percentage)
+                        addDynamicWallpaperTask.AddBatteryEvent(int.Parse(trigger), wallpaper);
+                    }
+
+
+                }
+
+                //show the window
+                addDynamicWallpaperTask.Owner = this;
+                addDynamicWallpaperTask.Show();
+
+                //disable this window
+                this.IsEnabled = false;
+
+                //move taskdir to the temp folder
+                Directory.Move(TaskDirectory, System.IO.Path.Combine(DataDynamicWallpaperTempDir,
+                    new DirectoryInfo(TaskDirectory).Name));
+
+                //assign the temp task dir to the variable in adddynamicwallpapertask window
+                addDynamicWallpaperTask.TempTaskDir = System.IO.Path.Combine(DataDynamicWallpaperTempDir,
+                    new DirectoryInfo(TaskDirectory).Name);
+
             }
         }
 
