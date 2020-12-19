@@ -84,7 +84,18 @@ namespace DynaWin
             WallpaperImage.Height = 170;
             WallpaperImage.Width = 440;
             //try and set the source of the image control
-            try { WallpaperImage.Source = new BitmapImage(new Uri(wallpaperPath)); } catch { };
+            try { WallpaperImage.Source = new BitmapImage(new Uri(wallpaperPath)); }
+            catch (Exception e)
+            {
+                //show an error message
+                MessageBox.Show("An error occured while trying to add the event with the wallpaper: " + wallpaperPath + "\n" +
+                    "with the exception: " + "\n" + e + "\n" + "Check that the file exists and change the wallpaper under the 'Events' " +
+                    "section when you are done.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                //set the placeholder wallpaper as image source
+                WallpaperImage.Source = new BitmapImage(new Uri(GetPlaceholderWallpaperPath()));
+            }
+
             WallpaperImage.HorizontalAlignment = HorizontalAlignment.Center;
             WallpaperImage.VerticalAlignment = VerticalAlignment.Top;
             WallpaperImage.Margin = new Thickness(0, 185, 0, 0);
@@ -183,7 +194,18 @@ namespace DynaWin
             WallpaperImage.Height = 170;
             WallpaperImage.Width = 440;
             //try and set the source of the image control
-            try { WallpaperImage.Source = new BitmapImage(new Uri(wallpaperPath)); } catch { };
+            try { WallpaperImage.Source = new BitmapImage(new Uri(wallpaperPath)); } 
+            catch (Exception e)
+            {
+                //show an error message
+                MessageBox.Show("An error occured while trying to add the event with the wallpaper: " + wallpaperPath + "\n" +
+                    "with the exception: " + "\n" + e + "\n" + "Check that the file exists and change the wallpaper under the 'Events' " +
+                    "section when you are done.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                //set the placeholder wallpaper as image source
+                WallpaperImage.Source = new BitmapImage(new Uri(GetPlaceholderWallpaperPath()));
+            }
+
             WallpaperImage.HorizontalAlignment = HorizontalAlignment.Center;
             WallpaperImage.VerticalAlignment = VerticalAlignment.Top;
             WallpaperImage.Margin = new Thickness(0, 185, 0, 0);
@@ -225,10 +247,8 @@ namespace DynaWin
 
             //open a file dialog to pick the image
             OpenFileDialog WallpaperFileDialog = new OpenFileDialog();
-            WallpaperFileDialog.Filter = "All Image files (*.jpg;*.jpeg;*.bmp;*.dib;*.png;" +
-                "*.jfif;*.jpe;*.gif;*.tif;*.tiff;*.wdp;*.heic;*.heif;*.heics;*.heifs;*.avci;*.avcs;*.avit*.avifs)" +
-                "|*.jpg;*.jpeg;*.bmp;*.dib;*.png;*.jfif;*.jpe;*.gif;*.tif;*.tiff;*.wdp;*.heic;*.heif;*.heics;*.heifs;" +
-                "*.avci;*.avcs;*.avit*.avifs";
+            WallpaperFileDialog.Filter = "All Image files (*.jpg;*.jpeg;*.bmp;.png;)" +
+                "|*.jpg;*.jpeg;*.bmp;*.png;";
 
             if (WallpaperFileDialog.ShowDialog() == true)
             {

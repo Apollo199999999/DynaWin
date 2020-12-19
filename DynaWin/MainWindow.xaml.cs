@@ -142,6 +142,17 @@ namespace DynaWin
                 System.Globalization.CultureInfo.InvariantCulture);
         }
 
+
+        //function to get battery percentage
+        public int GetCurrentBatteryPercentage()
+        {
+            System.Windows.Forms.PowerStatus powerStatus = System.Windows.Forms.SystemInformation.PowerStatus;
+            int BatteryPercentage = (int)(powerStatus.BatteryLifePercent * 100);
+
+            return BatteryPercentage;
+        }
+
+
         //function to change the system theme
         public void ChangeTheme(string theme, string mode)
         {
@@ -217,10 +228,15 @@ namespace DynaWin
             //get the current time
             DateTime currentTime = GetCurrentTime();
 
+            //get the current battery percentage
+            int currentBatteryPercentage = GetCurrentBatteryPercentage();
+
+            //CHECK DYNAMIC THEME TASKS------------------------------------------------------------------------------
+
             //iterate through tasks in Dynamic Theme, and then iterate through the actions of the tasks
             foreach (string TaskDirectory in Directory.GetDirectories(DataDynamicThemeRootDir))
             {
-                //arrays to store the data from all actions (create 2 lists to run actions from system mode and apps mode)
+                //arrays to store the data from all actions (create 2 categories of lists to run actions from system mode and apps mode)
                 var SystemModeTime = new List<DateTime>();
                 var SystemModeTheme = new List<string>();
 
@@ -277,10 +293,10 @@ namespace DynaWin
                     }
                 }
 
+                //get the index of the closest time (from the SystemModeTime and AppsModeTime list)
+                //do this ONLY if the list is not empty, otherwise shit will go haywire
                 try
                 {
-                    //get the index of the closest time (from the SystemModeTime and AppsModeTime list)
-                    //do this ONLY if the list is not empty, otherwise shit will go haywire
                     if (SystemModeTime.Count > 0 && SystemModeTheme.Count > 0)
                     {
                         //get the index of the closest time
@@ -327,7 +343,93 @@ namespace DynaWin
                 }
             }
 
-            //TODO: Implement checking procedures for Dynamic wallpaper here
+
+
+            //CHECK DYNAMIC WALLPAPER TASKS------------------------------------------------------------------------------
+
+            //iterate through tasks in dynamic wallpaper root dir
+            foreach (string DynamicWallpaperTaskDirectory in Directory.GetDirectories(DataDynamicWallpaperRootDir))
+            {
+                //arrays to store the data from all actions (create 2 categories of lists to run actions from time mode and battery mode)
+                var TimeModeTriggers = new List<DateTime>();
+                var TimeModeWallpapers = new List<string>();
+
+                var BatteryModeTriggers = new List<int>();
+                var BatteryModeWallpapers = new List<string>();
+                
+                foreach(string DynamicWallpaperTaskAction in Directory.GetFiles(DynamicWallpaperTaskDirectory, "*.txt"))
+                {
+                    //variables to store info from text file
+                    string wallpaper = "";
+                    string mode = "";
+                    string trigger = "";
+
+                    //read all lines in the text file
+                    string[] lines = File.ReadAllLines(DynamicWallpaperTaskAction);
+
+                    foreach (string line in lines)
+                    {
+                        if (line.Contains("wallpaper;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the wallpaper variable
+                            wallpaper = line.Substring(line.IndexOf(';') + 1);
+                        }
+                        else if (line.Contains("mode;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the mode variable
+                            mode = line.Substring(line.IndexOf(';') + 1);
+                        }
+                        else if (line.Contains("trigger;"))
+                        {
+                            //remove the stuff after the semicolon and assign it to the trigger variable
+                            trigger = line.Substring(line.IndexOf(';') + 1);
+                        }
+                    }
+
+                    /*check the mode, if the mode is battery, add trigger and wallpaper 
+                     * to the battery lists, if the mode is time, add the wallpaper and trigger
+                     * to the time lists.*/
+
+                    if (mode == "time")
+                    {
+                        //the mode is time, add to time list
+                        TimeModeTriggers.Add(DateTime.ParseExact(trigger, "h:mm tt",
+                            System.Globalization.CultureInfo.InvariantCulture));
+
+                        TimeModeWallpapers.Add(wallpaper);
+                    }
+                    else if (mode == "battery")
+                    {
+                        //the mode is battery, add to battery list
+                        BatteryModeTriggers.Add(int.Parse(trigger));
+                        BatteryModeWallpapers.Add(wallpaper);
+                    }
+                }
+
+                //get the index of the closest time/number(battery percentage) from the the Time and Battery lists
+                //do this ONLY if the list is not empty, otherwise shit will go haywire
+
+                try
+                {
+
+                }
+                catch
+                {
+
+                }
+
+                try
+                {
+
+                }
+                catch
+                {
+
+                }
+
+
+            }
+
 
 
             if (TaskbarRefresh == true)
