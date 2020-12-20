@@ -220,6 +220,68 @@ namespace DynaWin
             return result;
         }
 
+        //function to get closest number (definitely did not replicate the dfnction for dateTime)
+        public int FindClosestNumber(IEnumerable<int> numberList, int targetNumber)
+        {
+            int result = 0;
+            var lowestDifference = int.MaxValue;
+
+            foreach (int number in numberList)
+            {
+                if (number > targetNumber)
+                {
+                    continue;
+                }
+
+                var difference = targetNumber - number;
+
+                if (difference <= lowestDifference)
+                {
+                    lowestDifference = difference;
+                    result = number;
+                }
+            }
+
+            return result;
+
+        }
+
+        [DllImport("user32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool SystemParametersInfo(uint uiAction, uint uiParam, String pvParam, uint fWinIni);
+
+        private const uint SPI_SETDESKWALLPAPER = 0x14;
+        private const uint SPIF_UPDATEINIFILE = 0x1;
+        private const uint SPIF_SENDWININICHANGE = 0x2;
+
+        // function to change desktop wallpaper
+        private void ChangeDesktopWallpaper(string file_name, bool update_registry)
+        {
+            try
+            {
+                // If we should update the registry,
+                // set the appropriate flags.
+                uint flags = 0;
+                if (update_registry)
+                    flags = SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE;
+
+                // Set the desktop background to this file.
+                if (!SystemParametersInfo(SPI_SETDESKWALLPAPER,
+                    0, file_name, flags))
+                {
+                    MessageBox.Show("SystemParametersInfo failed.",
+                        "Error", MessageBoxButton.OK,
+                        MessageBoxImage.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error displaying picture " +
+                    file_name + ".\n" + ex.Message,
+                    "Error", MessageBoxButton.OK,
+                    MessageBoxImage.Exclamation);
+            }
+        }
         private void UpdaterTimer_Tick(object sender, EventArgs e)
         {
             //this variable denotes whether to restart explorer
@@ -302,7 +364,7 @@ namespace DynaWin
                         //get the index of the closest time
                         int SystemTimeIndex = SystemModeTime.IndexOf(FindClosestDate(SystemModeTime, currentTime));
 
-                        //use the index to get the appropriate mode and theme from the list
+                        //use the index to get the appropriate theme from the list
                         string SystemTheme = SystemModeTheme[SystemTimeIndex];
 
                         //call the change theme function
@@ -327,7 +389,7 @@ namespace DynaWin
                         //get the index of the closest time
                         int AppsTimeIndex = AppsModeTime.IndexOf(FindClosestDate(AppsModeTime, currentTime));
 
-                        //use the index to get the appropriate mode and theme from the list
+                        //use the index to get the appropriate theme from the list
                         string AppsTheme = AppsModeTheme[AppsTimeIndex];
 
                         //call the change theme function
@@ -406,25 +468,57 @@ namespace DynaWin
                     }
                 }
 
+
                 //get the index of the closest time/number(battery percentage) from the the Time and Battery lists
                 //do this ONLY if the list is not empty, otherwise shit will go haywire
 
                 try
                 {
+                    if (TimeModeTriggers.Count > 0 && TimeModeWallpapers.Count > 0)
+                    {
+                        //get the index of the closet time
+                        int ClosestTimeIndex = TimeModeTriggers.IndexOf
+                            (FindClosestDate(TimeModeTriggers, currentTime));
 
+                        //use the index to get the appropriate wallpaper from the wallpaper list
+                        string timeWallpaperPath = TimeModeWallpapers[ClosestTimeIndex];
+
+                        //change wallpaper
+                        ChangeDesktopWallpaper(timeWallpaperPath, true);
+
+                        //set TaskbarRefresh to true to update the taskbar
+                        TaskbarRefresh = true;
+
+                    }
                 }
                 catch
                 {
-
+                    //do nothing and try again when the timer ticks again
                 }
 
+
+                //do the same for battery mode
                 try
                 {
+                    if (BatteryModeTriggers.Count > 0 && BatteryModeWallpapers.Count > 0)
+                    {
+                        //get the index of the closest number from the list (compared to battery percentage)
+                        int ClosestBatteryPercentageIndex = BatteryModeTriggers.IndexOf
+                            (FindClosestNumber(BatteryModeTriggers, currentBatteryPercentage));
 
+                        //use the index to get the appropriate wallpaper from the wallpaper list
+                        string batteryWallpaperPath = BatteryModeWallpapers[ClosestBatteryPercentageIndex];
+
+                        //change wallpaper
+                        ChangeDesktopWallpaper(batteryWallpaperPath, true);
+
+                        //set TaskbarRefresh to true to update the taskbar
+                        TaskbarRefresh = true;
+                    }
                 }
                 catch
                 {
-
+                    //do nothing and try again when the timer ticks again
                 }
 
 

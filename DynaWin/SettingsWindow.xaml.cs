@@ -424,8 +424,6 @@ namespace DynaWin
             //reset the settingswindowinstances var so another settings window can be opened
             SettingsWindowInstances = 0;
 
-            //save settings for everything
-
             //hide this window
             this.Hide();
         }

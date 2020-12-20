@@ -26,3 +26,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The 2 background images for DynaWin are part of the Google Now backgrounds, and are made by Brent Couchman.
+Source: 
+https://www.flickr.com/photos/brentcouchman/8775428047/
+and
+https://www.flickr.com/photos/brentcouchman/8781996610/
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Some icons in DynaWin are part of the Fluent Icons made by Icons8.
+Source: https://icons8.com/icons/fluent
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
