@@ -246,42 +246,21 @@ namespace DynaWin
 
         }
 
-        [DllImport("user32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool SystemParametersInfo(uint uiAction, uint uiParam, String pvParam, uint fWinIni);
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern Int32 SystemParametersInfo(
+    UInt32 action, UInt32 uParam, String vParam, UInt32 winIni);
 
-        private const uint SPI_SETDESKWALLPAPER = 0x14;
-        private const uint SPIF_UPDATEINIFILE = 0x1;
-        private const uint SPIF_SENDWININICHANGE = 0x2;
+        private static readonly UInt32 SPI_SETDESKWALLPAPER = 0x14;
+        private static readonly UInt32 SPIF_UPDATEINIFILE = 0x01;
+        private static readonly UInt32 SPIF_SENDWININICHANGE = 0x02;
 
-        // function to change desktop wallpaper
-        private void ChangeDesktopWallpaper(string file_name, bool update_registry)
+        public void SetWallpaper(String path)
         {
-            try
-            {
-                // If we should update the registry,
-                // set the appropriate flags.
-                uint flags = 0;
-                if (update_registry)
-                    flags = SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE;
-
-                // Set the desktop background to this file.
-                if (!SystemParametersInfo(SPI_SETDESKWALLPAPER,
-                    0, file_name, flags))
-                {
-                    MessageBox.Show("SystemParametersInfo failed.",
-                        "Error", MessageBoxButton.OK,
-                        MessageBoxImage.Exclamation);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error displaying picture " +
-                    file_name + ".\n" + ex.Message,
-                    "Error", MessageBoxButton.OK,
-                    MessageBoxImage.Exclamation);
-            }
+            SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, path,
+                SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
         }
+
+
         private void UpdaterTimer_Tick(object sender, EventArgs e)
         {
             //this variable denotes whether to restart explorer
@@ -484,7 +463,7 @@ namespace DynaWin
                         string timeWallpaperPath = TimeModeWallpapers[ClosestTimeIndex];
 
                         //change wallpaper
-                        ChangeDesktopWallpaper(timeWallpaperPath, true);
+                        SetWallpaper(timeWallpaperPath);
 
                         //set TaskbarRefresh to true to update the taskbar
                         TaskbarRefresh = true;
@@ -510,7 +489,7 @@ namespace DynaWin
                         string batteryWallpaperPath = BatteryModeWallpapers[ClosestBatteryPercentageIndex];
 
                         //change wallpaper
-                        ChangeDesktopWallpaper(batteryWallpaperPath, true);
+                        SetWallpaper(batteryWallpaperPath);
 
                         //set TaskbarRefresh to true to update the taskbar
                         TaskbarRefresh = true;

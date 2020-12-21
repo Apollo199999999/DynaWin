@@ -90,8 +90,7 @@ namespace DynaWin
                 //show an error message
                 MessageBox.Show("An error occured while trying to add the event with the wallpaper: " + wallpaperPath + "\n" +
                     "with the exception: " + "\n" + e.Message + "\n" + "Check that the file exists and change the wallpaper under the 'Events' " +
-                    "section when you are done. In the meantime, the default DynaWin wallpaper will replace it. " +
-                    "(You must save changes to the task, otherwise this error will persist)", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    "section when you are done.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 //set the placeholder wallpaper as image source
                 WallpaperImage.Source = new BitmapImage(new Uri(GetPlaceholderWallpaperPath()));
@@ -201,8 +200,7 @@ namespace DynaWin
                 //show an error message
                 MessageBox.Show("An error occured while trying to add the event with the wallpaper: " + wallpaperPath + "\n" +
                     "with the exception: " + "\n" + e.Message + "\n" + "Check that the file exists and change the wallpaper under the 'Events' " +
-                    "section when you are done. In the meantime, the default DynaWin wallpaper will replace it. " +
-                    "(You must save changes to the task, otherwise this error will persist)", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    "section when you are done.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 //set the placeholder wallpaper as image source
                 WallpaperImage.Source = new BitmapImage(new Uri(GetPlaceholderWallpaperPath()));
@@ -261,47 +259,37 @@ namespace DynaWin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //show a message box to ask if they want to exit without saving changes
+            /*check if edit mode is true, if it is, move the original task dir back to dynamic wallpaper root dir
+            because changes were not saved*/
 
-            if (MessageBox.Show("Exit without saving?", "Exit?", 
-                MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+            if (IsEditMode == true)
             {
-                /*check if edit mode is true, if it is, move the original task dir back to dynamic wallpaper root dir
-                because changes were not saved*/
-
-                if (IsEditMode == true)
-                {
-                    //move the directory back
-                    Directory.Move(TempTaskDir, System.IO.Path.Combine(DataDynamicWallpaperRootDir,
-                        new DirectoryInfo(TempTaskDir).Name));
-                }
-
-                //set the editmode to false
-                IsEditMode = false;
-
-                foreach (Window window in Application.Current.Windows)
-                {
-                    if (window.GetType() == typeof(SettingsWindow))
-                    {
-                        var settingsWindow = window as SettingsWindow;
-
-                        //reenable this window
-                        settingsWindow.IsEnabled = true;
-
-                        //call the update task function
-                        settingsWindow.UpdateTaskListBox(settingsWindow.DynamicWallpaperListBox, 1);
-
-                        //activate settings window
-                        settingsWindow.Activate();
-
-                    }
-                }
+                //move the directory back
+                Directory.Move(TempTaskDir, System.IO.Path.Combine(DataDynamicWallpaperRootDir,
+                    new DirectoryInfo(TempTaskDir).Name));
             }
-            else
+
+            //set the editmode to false
+            IsEditMode = false;
+
+            foreach (Window window in Application.Current.Windows)
             {
-                //dont close the window
-                e.Cancel = true;
-            }
+                if (window.GetType() == typeof(SettingsWindow))
+                {
+                    var settingsWindow = window as SettingsWindow;
+
+                    //reenable this window
+                    settingsWindow.IsEnabled = true;
+
+                    //call the update task function
+                    settingsWindow.UpdateTaskListBox(settingsWindow.DynamicWallpaperListBox, 1);
+
+                    //activate settings window
+                    settingsWindow.Activate();
+
+                }
+            } 
+           
         }
 
         private void TaskNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -434,7 +422,7 @@ namespace DynaWin
         {
             string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
             string PlaceHolderWallpaperPath =
-             System.IO.Path.Combine(RunningPath, @"Resources\PlaceHolderWallpaper.jpg");
+             System.IO.Path.Combine(RunningPath, @"Resources\PlaceholderWallpaper.png");
 
             return PlaceHolderWallpaperPath;
         }

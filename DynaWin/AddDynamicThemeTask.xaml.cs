@@ -327,45 +327,37 @@ namespace DynaWin
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (MessageBox.Show("Exit without saving?", "Exit?",
-                MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
-            {
-                /*check if edit mode is true, if it is, move the original task dir back to dynamic theme root dir
-                 because changes were not saved*/
+            /*check if edit mode is true, if it is, move the original task dir back to dynamic theme root dir
+             because changes were not saved*/
 
-                if (IsEditMode == true)
-                {
-                    //move the directory back
-                    Directory.Move(TempTaskDir, System.IO.Path.Combine(DataDynamicThemeRootDir,
-                        new DirectoryInfo(TempTaskDir).Name));
-                }
+            if (IsEditMode == true)
+            {
+               //move the directory back
+                Directory.Move(TempTaskDir, System.IO.Path.Combine(DataDynamicThemeRootDir,
+                   new DirectoryInfo(TempTaskDir).Name));
+            }
 
                 //set the editmode to false
                 IsEditMode = false;
 
-                foreach (Window window in Application.Current.Windows)
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(SettingsWindow))
                 {
-                    if (window.GetType() == typeof(SettingsWindow))
-                    {
-                        var settingsWindow = window as SettingsWindow;
+                    var settingsWindow = window as SettingsWindow;
 
-                        //reenable this window
-                        settingsWindow.IsEnabled = true;
+                    //reenable this window
+                    settingsWindow.IsEnabled = true;
 
-                        //call the update task function
-                        settingsWindow.UpdateTaskListBox(settingsWindow.DynamicThemeListBox, 0);
+                    //call the update task function
+                    settingsWindow.UpdateTaskListBox(settingsWindow.DynamicThemeListBox, 0);
 
-                        //activate settings window
-                        settingsWindow.Activate();
+                    //activate settings window
+                    settingsWindow.Activate();
 
-                    }
                 }
             }
-            else
-            {
-                //dont close the window
-                e.Cancel = true;
-            }
+            
             
         }
 

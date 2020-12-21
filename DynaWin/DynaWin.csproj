@@ -197,7 +197,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PlaceholderWallpaper.jpg">
+    <None Include="Resources\PlaceholderWallpaper.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
