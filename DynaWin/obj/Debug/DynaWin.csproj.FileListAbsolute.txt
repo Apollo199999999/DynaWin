@@ -52,3 +52,6 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csproj.CopyComplet
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.exe
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.pdb
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\PlaceholderWallpaper.png
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\SettingsIcon.png
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\PreferencesWindow.g.cs
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\PreferencesWindow.baml

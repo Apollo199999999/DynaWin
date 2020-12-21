@@ -73,6 +73,9 @@
     <Compile Include="AddDynamicWallpaperTask.xaml.cs">
       <DependentUpon>AddDynamicWallpaperTask.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PreferencesWindow.xaml.cs">
+      <DependentUpon>PreferencesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PublicVariables.cs" />
     <Compile Include="RefreshTaskbarClass.cs" />
     <Compile Include="SettingsWindow.xaml.cs">
@@ -101,6 +104,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PreferencesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,6 +205,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PlaceholderWallpaper.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingsIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

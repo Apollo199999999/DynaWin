@@ -254,7 +254,7 @@ namespace DynaWin
         private static readonly UInt32 SPIF_UPDATEINIFILE = 0x01;
         private static readonly UInt32 SPIF_SENDWININICHANGE = 0x02;
 
-        public void SetWallpaper(String path)
+        public void SetWallpaper(string path)
         {
             SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, path,
                 SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);

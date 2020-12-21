@@ -13,7 +13,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Background.jpg" x:Name="GridBackground"/>
         </Grid.Background>
-        
+
         <Image HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Source="pack://siteoforigin:,,,/Resources/icon with text.png" x:Name="LogoHeader"/>
         <Label Content="Dynamic Theme:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Dynamic Wallpaper:" HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" FontSize="14"/>
@@ -35,6 +35,14 @@
                 </Grid>
             </ListBox.Items>
         </ListBox>
+
+        <Button HorizontalAlignment="Left" Margin="860,10,0,0" VerticalAlignment="Top" Width="130" Height="45" x:Name="PreferencesBtn">
+            <Grid Height="35" Width="115">
+                <Image Height="28" Width="28" Source="pack://siteoforigin:,,,/Resources/SettingsIcon.png" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label Content="Preferences" HorizontalAlignment="Left" Margin="33,0,0,0" VerticalContentAlignment="Center" />
+            </Grid>
+
+        </Button>
 
 
     </Grid>
