@@ -337,8 +337,8 @@ namespace DynaWin
                    new DirectoryInfo(TempTaskDir).Name));
             }
 
-                //set the editmode to false
-                IsEditMode = false;
+            //set the editmode to false
+            IsEditMode = false;
 
             foreach (Window window in Application.Current.Windows)
             {
