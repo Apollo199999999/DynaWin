@@ -59,7 +59,7 @@ namespace DynaWin
             {
                 //Windows is in light mode
                 //change the grid bg image and the logoheader image
-                LogoHeader.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/icon with text.png"));
+                LogoHeader.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/icon with text Dark.png"));
                 GridBackground.ImageSource = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/Background.jpg"));
             }
             else if (is_light_mode == false)

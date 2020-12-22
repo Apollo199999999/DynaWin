@@ -15,14 +15,14 @@
         </Grid.Background>
 
         <Image HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Source="pack://siteoforigin:,,,/Resources/icon with text.png" x:Name="LogoHeader"/>
-        <Label Content="Dynamic Theme:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White"/>
+        <Label Content="Dynamic Theme:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Dynamic Wallpaper:" HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" FontSize="14"/>
 
         <ListBox x:Name="DynamicThemeListBox" Height="232" Margin="10,119,10,0" Width="980" VerticalAlignment="Top" Background="#33808080" SelectionChanged="DynamicThemeListBox_SelectionChanged" x:FieldModifier="public" ScrollViewer.CanContentScroll="False">
             <ListBox.Items>
                 <Grid Height="30" Width ="500" x:Name="AddDynamicThemeTaskBtn">
                     <Image Height="23" Width="23" HorizontalAlignment="Left" Source="pack://siteoforigin:,,,/Resources/AddIcon.png" />
-                    <Label Content="Create a new Dynamic Theme task" Margin="30,0,0,0" HorizontalAlignment="Left"  VerticalContentAlignment="Center" Foreground="White"/>
+                    <Label Content="Create a new Dynamic Theme task" Margin="30,0,0,0" HorizontalAlignment="Left"  VerticalContentAlignment="Center"/>
                 </Grid>
             </ListBox.Items>
         </ListBox>
@@ -31,7 +31,7 @@
             <ListBox.Items>
                 <Grid Height="30" Width="500" x:Name="AddDynamicWallpaperTaskBtn">
                     <Image Height="23" Width="23" HorizontalAlignment="Left" Source="pack://siteoforigin:,,,/Resources/AddIcon.png" />
-                    <Label Content="Create a new Dynamic Wallpaper task" Margin="30,0,0,0" HorizontalAlignment="Left"  VerticalContentAlignment="Center" Foreground="White"/>
+                    <Label Content="Create a new Dynamic Wallpaper task" Margin="30,0,0,0" HorizontalAlignment="Left"  VerticalContentAlignment="Center"/>
                 </Grid>
             </ListBox.Items>
         </ListBox>
@@ -39,7 +39,7 @@
         <Button HorizontalAlignment="Left" Margin="860,10,0,0" VerticalAlignment="Top" Width="130" Height="45" x:Name="PreferencesBtn" Click="PreferencesBtn_Click">
             <Grid Height="35" Width="115">
                 <Image Height="28" Width="28" Source="pack://siteoforigin:,,,/Resources/SettingsIcon.png" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <Label Content="Preferences" HorizontalAlignment="Left" Margin="33,0,0,0" VerticalContentAlignment="Center" Foreground="White" />
+                <Label Content="Preferences" HorizontalAlignment="Left" Margin="33,0,0,0" VerticalContentAlignment="Center" />
             </Grid>
 
         </Button>
