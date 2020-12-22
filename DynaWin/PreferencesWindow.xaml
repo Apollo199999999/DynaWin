@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DynaWin"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         mc:Ignorable="d"
-        Title="DynaWin Preferences" Height="450" Width="600" ResizeMode="NoResize" 
+        Title="DynaWin Preferences" Height="550" Width="670" ResizeMode="NoResize" 
         ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Topmost="True" Closing="Window_Closing">
     <Grid>
         <Label Content="Preferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
@@ -16,8 +16,45 @@
         <Label x:Name="VersionLabel" Content="Current Version:" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
         <Button x:Name="UpdateBtn" Content="Check for Updates" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top" Width="140" Height="32" 
                 Click="UpdateBtn_Click" Style="{StaticResource AccentButtonStyle}"/>
-        <Label Content="About DynaWin" HorizontalAlignment="Left" Margin="382,62,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="382,98,0,0" VerticalAlignment="Top" TextWrapping="Wrap"><Run Text="DynaWin "/><Run Text="is"/><Run Text=" a "/><Run Text="utility"/><Run Text=" that allow"/><Run Text="s"/><Run Text=" the Windows desktop to change dynamically"/></TextBlock>
+        <TextBlock Text="About DynaWin" HorizontalAlignment="Left" Margin="422,72,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="422,98,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="170"><Run Text="DynaWin "/><Run Text="is"/><Run Text=" a "/><Run Text="utility"/><Run Text=" that allow"/><Run Text="s"/><Run Text=" the Windows desktop to change dynamically"/></TextBlock>
+        <Image HorizontalAlignment="Left" Height="100" Margin="422,190,0,0" VerticalAlignment="Top" Width="170" Source="pack://siteoforigin:,,,/Resources/DynaWinImage.jpg" Stretch="UniformToFill"/>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,300,0,0">           
+    <Hyperlink x:Name="GithubLink" NavigateUri="https://github.com/Apollo199999999/DynaWin" RequestNavigate="HyperLink_RequestNavigate" >
+        Github Repository
+    </Hyperlink>
+        </TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,326,0,0">           
+    <Hyperlink x:Name="WebsiteLink" NavigateUri="clickphase.weebly.com/dynawin.html" RequestNavigate="HyperLink_RequestNavigate" >
+        Visit DynaWin's Website
+    </Hyperlink>
+        </TextBlock>
+        
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,352,0,0">           
+    <Hyperlink x:Name="ReportBugLink" NavigateUri="https://github.com/Apollo199999999/DynaWin/issues" RequestNavigate="HyperLink_RequestNavigate" >
+        Report a bug
+    </Hyperlink>
+        </TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,378,0,0">           
+    <Hyperlink x:Name="RequestFeatureLink" NavigateUri="https://github.com/Apollo199999999/DynaWin/issues" RequestNavigate="HyperLink_RequestNavigate" >
+        Request a feature
+    </Hyperlink>
+        </TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,404,0,0" RenderTransformOrigin="0.548,1.615">           
+    <Hyperlink x:Name="MITLicenseLink" NavigateUri="https://github.com/Apollo199999999/DynaWin/blob/main/LICENSE.txt" RequestNavigate="HyperLink_RequestNavigate" >
+        MIT License
+    </Hyperlink>
+        </TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,430,0,0">           
+    <Hyperlink x:Name="ThirdPartyLicenseLink" NavigateUri="https://github.com/Apollo199999999/DynaWin/blob/main/NOTICE.txt" RequestNavigate="HyperLink_RequestNavigate" >
+        Third Party Notices and Licenses
+    </Hyperlink>
+        </TextBlock>
 
     </Grid>
 </Window>

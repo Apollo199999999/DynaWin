@@ -36,7 +36,7 @@
             </ListBox.Items>
         </ListBox>
 
-        <Button HorizontalAlignment="Left" Margin="860,10,0,0" VerticalAlignment="Top" Width="130" Height="45" x:Name="PreferencesBtn" Click="PreferencesBtn_Click">
+        <Button HorizontalAlignment="Left" Margin="860,10,0,0" VerticalAlignment="Top" Width="130" Height="45" x:Name="PreferencesBtn" Click="PreferencesBtn_Click" Background="#33808080">
             <Grid Height="35" Width="115">
                 <Image Height="28" Width="28" Source="pack://siteoforigin:,,,/Resources/SettingsIcon.png" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Label Content="Preferences" HorizontalAlignment="Left" Margin="33,0,0,0" VerticalContentAlignment="Center" />
