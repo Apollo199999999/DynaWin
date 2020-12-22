@@ -4,9 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DynaWin"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
         mc:Ignorable="d"
-        Title="DynaWin Preferences" Height="450" Width="800">
+        Title="DynaWin Preferences" Height="450" Width="600" ResizeMode="NoResize" 
+        ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Topmost="True" Closing="Window_Closing">
     <Grid>
-        
+        <Label Content="Preferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Run on Windows Startup:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <CheckBox Content="Run on Windows starup" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top"/>
+        <Label Content="Updates:" HorizontalAlignment="Left" Margin="10,151,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="VersionLabel" Content="Current Version:" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="UpdateBtn" Content="Check for Updates" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top" Width="140" Height="32" 
+                Click="UpdateBtn_Click" Style="{StaticResource AccentButtonStyle}"/>
+        <Label Content="About DynaWin" HorizontalAlignment="Left" Margin="382,62,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="382,98,0,0" VerticalAlignment="Top" TextWrapping="Wrap"><Run Text="DynaWin "/><Run Text="is"/><Run Text=" a "/><Run Text="utility"/><Run Text=" that allow"/><Run Text="s"/><Run Text=" the Windows desktop to change dynamically"/></TextBlock>
+
     </Grid>
 </Window>

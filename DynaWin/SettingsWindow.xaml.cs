@@ -463,5 +463,16 @@ namespace DynaWin
                 DynamicWallpaperListBox.UnselectAll();
             }
         }
+
+        private void PreferencesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //show the preferences window
+            PreferencesWindow preferencesWindow = new PreferencesWindow();
+            preferencesWindow.Owner = this;
+            preferencesWindow.Show();
+
+            //disable this window
+            this.IsEnabled = false;
+        }
     }
 }

@@ -25,6 +25,9 @@ namespace DynaWin
         public static string DataDynamicWallpaperTempDir = Environment.GetFolderPath
             (Environment.SpecialFolder.ApplicationData) + "\\DynaWin\\Temp\\DynamicWallpaper";
 
+        //this variable stores the current version of DynaWin
+        public static string DynaWinCurrentVersion = "1.0";
+
         //function to see if a second task with the same name exists
         public static bool CheckifTaskNameExists(string targetDirectory, string TaskName)
         {

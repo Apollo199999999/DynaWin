@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static DynaWin.PublicVariables;
 
 namespace DynaWin
 {
@@ -22,6 +23,32 @@ namespace DynaWin
         public PreferencesWindow()
         {
             InitializeComponent();
+
+            //set the text of the VersionLabel to the current verion (from public variables)
+            VersionLabel.Content = "Current version: " + DynaWinCurrentVersion;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(SettingsWindow))
+                {
+                    var settingsWindow = window as SettingsWindow;
+
+                    //reenable this window
+                    settingsWindow.IsEnabled = true;
+
+                    //activate settings window
+                    settingsWindow.Activate();
+
+                }
+            }
+        }
+
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
