@@ -59,5 +59,10 @@ namespace DynaWin
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:DynaWin"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         mc:Ignorable="d"
-        Title="DynaWin Preferences" Height="550" Width="670" ResizeMode="NoResize" 
+        Title="DynaWin Preferences" Height="560" Width="670" ResizeMode="NoResize" 
         ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Topmost="True" Closing="Window_Closing">
     <Grid>
         <Label Content="Preferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Run on Windows Startup:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label Content="DynaWin Startup Settings:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <CheckBox Content="Run on Windows starup" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top"/>
         <Label Content="Updates:" HorizontalAlignment="Left" Margin="10,151,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="VersionLabel" Content="Current Version:" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
@@ -27,11 +27,11 @@
         </TextBlock>
 
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,326,0,0">           
-    <Hyperlink x:Name="WebsiteLink" NavigateUri="clickphase.weebly.com/dynawin.html" RequestNavigate="HyperLink_RequestNavigate" >
+    <Hyperlink x:Name="WebsiteLink" NavigateUri="https://clickphase.weebly.com/dynawin.html" RequestNavigate="HyperLink_RequestNavigate" >
         Visit DynaWin's Website
     </Hyperlink>
         </TextBlock>
-        
+
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,352,0,0">           
     <Hyperlink x:Name="ReportBugLink" NavigateUri="https://github.com/Apollo199999999/DynaWin/issues" RequestNavigate="HyperLink_RequestNavigate" >
         Report a bug
@@ -55,6 +55,9 @@
         Third Party Notices and Licenses
     </Hyperlink>
         </TextBlock>
+
+        <Button x:Name="SaveBtn" Content="Save Preferences and Exit" HorizontalAlignment="Right" Margin="0,0,15,15" VerticalAlignment="Bottom" Width="200" Height="38" 
+             Style="{StaticResource AccentButtonStyle}" Click="SaveBtn_Click"/>
 
     </Grid>
 </Window>
