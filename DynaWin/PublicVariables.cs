@@ -1,5 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Runtime.InteropServices;
 using System.IO;
+using System.Net;
 
 namespace DynaWin
 {
@@ -57,7 +73,76 @@ namespace DynaWin
         }
 
 
+        //Check Internet Connection Function
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var CheckInternet = new WebClient())
+                using (CheckInternet.OpenRead("http://clients3.google.com/generate_204"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
+        public static void CheckForUpdates(bool ShowInfoMessage)
+        {
+            //check if there is internet connection
+            if (CheckForInternetConnection() == true)
+            {
+                //Check for updates
+                var url = "https://pastebin.com/raw/m3m85kbH";
+                WebClient client = new WebClient();
+                string reply = client.DownloadString(url);
 
+                if (reply != DynaWinCurrentVersion)
+                {
+                    //this is the output when an update is available. Modify it if you wish
+
+                    //show the messagebox
+                    var result = MessageBox.Show("An update is available for DynaWin, " +
+                        "would you like to go to our website to download it?", "Update available", 
+                        MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        //go to the github page
+                        System.Diagnostics.Process.Start("https://github.com/Apollo199999999/DynaWin/releases");
+
+                        //exit the application
+                        Application.Current.Shutdown();
+                    }
+                }
+                else if (reply == DynaWinCurrentVersion)
+                {
+                    //no updates available
+                    //only show a messsage if the showinfomessage is true
+                    if (ShowInfoMessage == true)
+                    {
+                        //show a messagebox
+                        MessageBox.Show("No updates available for DynaWin.", "You're up to date!", 
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+
+            }
+            else if (CheckForInternetConnection() == false)
+            {
+                //show an error message that there is no internet connection (only if showinfomessage is true)
+                if (ShowInfoMessage == true)
+                {
+                    //show error message
+                    MessageBox.Show("DynaWin cannot check for updates as there is no internet connection. " +
+                    "Connect to the internet and try again", "No internet connection",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+        }
     }
 }

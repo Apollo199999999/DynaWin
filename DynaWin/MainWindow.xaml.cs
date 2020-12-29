@@ -119,6 +119,9 @@ namespace DynaWin
 
             //------------------------------------------------------------------------------------------
 
+            //Check for updates
+            CheckForUpdates(false);
+
             //call the timer event handler
             UpdaterTimer_Tick(null, null);
             
