@@ -25,6 +25,8 @@ namespace DynaWin
         public static string DataDynamicWallpaperTempDir = Environment.GetFolderPath
             (Environment.SpecialFolder.ApplicationData) + "\\DynaWin\\Temp\\DynamicWallpaper";
 
+        public static string StarupFolder = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+
         //this variable stores the current version of DynaWin
         public static string DynaWinCurrentVersion = "1.0";
 

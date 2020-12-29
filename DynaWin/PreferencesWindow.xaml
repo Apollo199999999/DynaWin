@@ -6,18 +6,18 @@
         xmlns:local="clr-namespace:DynaWin"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         mc:Ignorable="d"
-        Title="DynaWin Preferences" Height="560" Width="670" ResizeMode="NoResize" 
+        Title="DynaWin Preferences" Height="605" Width="670" ResizeMode="NoResize" 
         ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Topmost="True" Closing="Window_Closing">
     <Grid>
         <Label Content="Preferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Label Content="DynaWin Startup Settings:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <CheckBox Content="Run on Windows starup" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="StartupCheckBox" Content="Run on Windows starup" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top"/>
         <Label Content="Updates:" HorizontalAlignment="Left" Margin="10,151,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="VersionLabel" Content="Current Version:" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
         <Button x:Name="UpdateBtn" Content="Check for Updates" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top" Width="140" Height="32" 
                 Click="UpdateBtn_Click" Style="{StaticResource AccentButtonStyle}"/>
         <TextBlock Text="About DynaWin" HorizontalAlignment="Left" Margin="422,72,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="422,98,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="170"><Run Text="DynaWin "/><Run Text="is"/><Run Text=" a "/><Run Text="utility"/><Run Text=" that allow"/><Run Text="s"/><Run Text=" the Windows desktop to change dynamically"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="422,98,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="170"><Run Text="DynaWin "/><Run Text="is"/><Run Text=" a "/><Run Text="utility"/><Run Text=" that allow"/><Run Text="s"/><Run Text=" the Windows desktop to change dynamically"/><Run Text="."/></TextBlock>
         <Image HorizontalAlignment="Left" Height="100" Margin="422,190,0,0" VerticalAlignment="Top" Width="170" Source="pack://siteoforigin:,,,/Resources/DynaWinImage.jpg" Stretch="UniformToFill"/>
 
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,300,0,0">           
@@ -56,8 +56,15 @@
     </Hyperlink>
         </TextBlock>
 
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,456,0,0">           
+    <Hyperlink x:Name="RickRoll" NavigateUri= "https://www.youtube.com/watch?v=dQw4w9WgXcQ" RequestNavigate="HyperLink_RequestNavigate" >
+        Secret Link (don't click)
+    </Hyperlink>
+        </TextBlock>
+        
         <Button x:Name="SaveBtn" Content="Save Preferences and Exit" HorizontalAlignment="Right" Margin="0,0,15,15" VerticalAlignment="Bottom" Width="200" Height="38" 
              Style="{StaticResource AccentButtonStyle}" Click="SaveBtn_Click"/>
+        
 
     </Grid>
 </Window>
