@@ -38,5 +38,5 @@ In addition to changing your wallpaper based on the time, you can also change yo
 DynaWin also automatically notifies you when there is a new update. This is to ensure that you have the latest version of DynaWin at all times so that you can have the latest features available.
 
 ## Compatibility
-DynaWin works with Windows 10. I have not tested if DynaWin works with Windows 8 or Windows 7, so if you are on those versions of Windows, use at your own risk.
+DynaWin works with Windows 10. I have not tested if DynaWin works with Windows 8 or Windows 7, so if you are on those versions of Windows, use at your own risk. DynaWin also requires .NET framework version 4.8 to function properly.
 
