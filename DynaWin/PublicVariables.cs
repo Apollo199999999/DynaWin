@@ -78,11 +78,9 @@ namespace DynaWin
         {
             try
             {
-                using (var CheckInternet = new WebClient())
-                using (CheckInternet.OpenRead("http://clients3.google.com/generate_204"))
-                {
+                using (var client = new WebClient())
+                using (client.OpenRead("https://www.google.com/"))
                     return true;
-                }
             }
             catch
             {

@@ -111,7 +111,8 @@ namespace DynaWin
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            //check for updates
+            CheckForUpdates(true);
         }
 
         private void HyperLink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
