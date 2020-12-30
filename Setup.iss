@@ -10,7 +10,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{9EABAE70-5B60-4372-9301-AF2E8703EF36}
+AppId={{42F8A7FC-7816-44A3-ACCE-2E65EA8BBA0B}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -18,7 +18,6 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-VersionInfoVersion = {#MyAppVersion}
 DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
 LicenseFile=C:\Users\fligh\source\repos\DynaWin\LICENSE.txt
@@ -26,26 +25,21 @@ LicenseFile=C:\Users\fligh\source\repos\DynaWin\LICENSE.txt
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\fligh\source\repos\DynaWin
 OutputBaseFilename=DynaWin_1.0_Setup
-SetupIconFile=C:\Users\fligh\Documents\Code Resources\DynaWin\icon.ico
+SetupIconFile=C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\icon.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+VersionInfoVersion = 1.0
+UninstallDisplayIcon={app}\DynaWin.exe
+UninstallDisplayName=DynaWin
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
-[Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-
 [Files]
-Source: "C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\DynaWin.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
-
-[Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
