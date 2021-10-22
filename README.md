@@ -3,7 +3,7 @@
 ### Project site: https://clickphase.weebly.com/dynawin.html
 ### Demo video: https://www.youtube.com/watch?v=J0iyzZG5tXc
 
-DynaWin - Dynamic Desktop for Windows 10
+DynaWin - Dynamic Desktop for Windows 10 and Windows 11
 
 ## About DynaWin
 
@@ -43,5 +43,10 @@ In addition to changing your wallpaper based on the time, you can also change yo
 DynaWin also automatically notifies you when there is a new update. This is to ensure that you have the latest version of DynaWin at all times so that you can have the latest features available.
 
 ## Compatibility
-DynaWin works with Windows 10. I have not tested if DynaWin works with Windows 8 or Windows 7, so if you are on those versions of Windows, use at your own risk. DynaWin also requires .NET framework version 4.8 to function properly.
+DynaWin works with Windows 10 and Windows 11. I have not tested if DynaWin works with Windows 8 or Windows 7, so if you are on those versions of Windows, use at your own risk. DynaWin also requires .NET framework version 4.8 to function properly.
 
+## Licensing
+
+DynaWin is licensed under the MIT License. To view the license, visit [LICENSE.TXT](https://github.com/Apollo199999999/DynaWin/blob/main/LICENSE.txt)
+
+Copyright © 2020-present ClickPhase 
