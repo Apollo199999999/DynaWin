@@ -176,4 +176,3 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Release\zh-CN\ModernWpf.Controls
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Release\zh-CN\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Release\zh-TW\ModernWpf.Controls.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Release\zh-TW\ModernWpf.resources.dll
-C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Release\DynaWin.csproj.AssemblyReference.cache
