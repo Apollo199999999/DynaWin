@@ -16,7 +16,6 @@ using System.Windows.Threading;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Net;
-using System.Diagnostics;
 
 namespace DynaWin
 {
@@ -100,7 +99,6 @@ namespace DynaWin
                 var url = "https://raw.githubusercontent.com/Apollo199999999/DynaWin/main/VersionNumber.txt";
                 WebClient client = new WebClient();
                 string reply = client.DownloadString(url);
-                Debug.WriteLine(reply);
 
                 if (reply != DynaWinCurrentVersion)
                 {
