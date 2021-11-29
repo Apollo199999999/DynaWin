@@ -144,7 +144,7 @@ namespace DynaWin
             string currentTime = DateTime.Now.ToString("h:mm tt");
             currentTime = currentTime.ToUpper(); //This is to make sure that the AM and PM is upper case
 
-            return DateTime.ParseExact(currentTime, "h:mm tt", null);
+            return DateTime.ParseExact(currentTime, "h:mm tt", System.Globalization.CultureInfo.InvariantCulture);
         }
 
 
