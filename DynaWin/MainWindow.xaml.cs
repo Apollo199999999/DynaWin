@@ -21,6 +21,7 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 using System.Diagnostics;
 using RefreshTaskbar;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace DynaWin
 {
@@ -105,8 +106,11 @@ namespace DynaWin
             ni.Visible = true;
 
             //show a notification that DynaWin is running
-            ni.ShowBalloonTip(1000, "DynaWin is running", "To view or configure DynaWin Settings, " +
-                "click on the tray icon", System.Windows.Forms.ToolTipIcon.Info);
+            // Requires Microsoft.Toolkit.Uwp.Notifications NuGet package version 7.0 or greater
+            new ToastContentBuilder()
+                .AddText("DynaWin is running")
+                .AddText("To view or configure DynaWin Settings, click on the tray icon")
+                .Show();
 
             //set the context menu
             ni.ContextMenu = TrayMenu;
@@ -137,12 +141,10 @@ namespace DynaWin
         //function to get the current time so I don't have to repeat myself
         public DateTime GetCurrentTime()
         {
-            DateTime now = DateTime.Now;
-            string currentTime = now.ToString("h:mm tt");
+            string currentTime = DateTime.Now.ToString("h:mm tt");
             currentTime = currentTime.ToUpper(); //This is to make sure that the AM and PM is upper case
 
-            return DateTime.ParseExact(currentTime, "h:mm tt",
-                System.Globalization.CultureInfo.InvariantCulture);
+            return DateTime.ParseExact(currentTime, "h:mm tt", null);
         }
 
 
@@ -223,7 +225,7 @@ namespace DynaWin
             return result;
         }
 
-        //function to get closest number (definitely did not replicate the dfnction for dateTime)
+        //function to get closest number (definitely did not replicate the function for dateTime)
         public int FindClosestNumber(IEnumerable<int> numberList, int targetNumber)
         {
             int result = 0;

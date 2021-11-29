@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "9Xy/oQKgeTXbm0cFksYKmyDXR7VQ8i0QvH127lG2qLKHEIgAWnzXdkpqNfP0m8J1ShgeIKsPGDlMzfpInXQZiQ==",
+  "dgSpecHash": "0pLOZbIiVOUlkL4jSVkCOoJ2uH+S7WvXDWOw8FeG3/mQliBXdOdT4MAk81jBWYXurHo4uUwCRfJymiD6ZE3sCQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\fligh\\source\\repos\\DynaWin\\DynaWin\\DynaWin.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\fligh\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.18362.2005\\microsoft.windows.sdk.contracts.10.0.18362.2005.nupkg.sha512",
+    "C:\\Users\\fligh\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\fligh\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net48\\1.0.0\\microsoft.netframework.referenceassemblies.net48.1.0.0.nupkg.sha512",
+    "C:\\Users\\fligh\\.nuget\\packages\\microsoft.toolkit.uwp.notifications\\7.1.2\\microsoft.toolkit.uwp.notifications.7.1.2.nupkg.sha512",
+    "C:\\Users\\fligh\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.19041.1\\microsoft.windows.sdk.contracts.10.0.19041.1.nupkg.sha512",
     "C:\\Users\\fligh\\.nuget\\packages\\modernwpfui\\0.9.2\\modernwpfui.0.9.2.nupkg.sha512",
     "C:\\Users\\fligh\\.nuget\\packages\\system.runtime.windowsruntime\\4.6.0\\system.runtime.windowsruntime.4.6.0.nupkg.sha512",
     "C:\\Users\\fligh\\.nuget\\packages\\system.runtime.windowsruntime.ui.xaml\\4.6.0\\system.runtime.windowsruntime.ui.xaml.4.6.0.nupkg.sha512",

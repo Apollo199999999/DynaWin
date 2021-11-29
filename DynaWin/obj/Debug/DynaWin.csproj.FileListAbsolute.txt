@@ -29,7 +29,6 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\tr\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\zh-Hans\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\zh-Hant\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\System.ValueTuple.dll
-C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csprojAssemblyReference.cache
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\AddDynamicThemeTask.g.cs
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\AddDynamicWallpaperTask.g.cs
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\MainWindow.g.cs
@@ -56,3 +55,7 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\SettingsIcon.png
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\PreferencesWindow.g.cs
 C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\PreferencesWindow.baml
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\DynaWinImage.jpg
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.dll
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.pdb
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csproj.AssemblyReference.cache
+C:\Users\fligh\source\repos\DynaWin\DynaWin\obj\Debug\DynaWin.csproj.SuggestedBindingRedirects.cache
