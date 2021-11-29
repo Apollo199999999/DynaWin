@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "DynaWin"
-#define MyAppVersion "1.0.2"
+#define MyAppVersion "1.0.3"
 #define MyAppPublisher "ClickPhase"
 #define MyAppURL "https://clickphase.weebly.com/dynawin.html"
 #define MyAppExeName "DynaWin.exe"
@@ -22,16 +22,16 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName=C:\Program Files (x86)\DynaWin
 DisableProgramGroupPage=yes
-LicenseFile=C:\Users\fligh\source\repos\DynaWin\LICENSE.txt
+LicenseFile=C:\Users\fligh\source\repos\DynaWin\COMBINED-LICENSES.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\fligh\source\repos\DynaWin
-OutputBaseFilename=DynaWin_1.0.2_Setup
+OutputBaseFilename=DynaWin_1.0.3_Setup
 SetupIconFile=C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\Resources\icon.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
-VersionInfoVersion = 1.0.2
+VersionInfoVersion = 1.0.3
 UninstallDisplayIcon={app}\DynaWin.exe
 UninstallDisplayName=DynaWin
 
@@ -39,9 +39,13 @@ UninstallDisplayName=DynaWin
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+
+[UninstallRun]
+Filename: "{cmd}"; Parameters: "/C ""taskkill /im {#MyAppExeName} /f /t"; RunOnceId: "Uninstall"
 
