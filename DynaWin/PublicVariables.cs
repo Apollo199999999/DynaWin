@@ -96,7 +96,7 @@ namespace DynaWin
             if (CheckForInternetConnection() == true)
             {
                 //Check for updates
-                var url = "https://raw.githubusercontent.com/Apollo199999999/DynaWin/main/VersionNumber.txt";
+                var url = "https://pastebin.com/raw/m3m85kbH";
                 WebClient client = new WebClient();
                 string reply = client.DownloadString(url);
 
