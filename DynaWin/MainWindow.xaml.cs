@@ -20,7 +20,6 @@ using System.Threading;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using System.Diagnostics;
-using RefreshTaskbar;
 using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace DynaWin
@@ -268,9 +267,6 @@ namespace DynaWin
 
         private void UpdaterTimer_Tick(object sender, EventArgs e)
         {
-            //this variable denotes whether to restart explorer
-            bool TaskbarRefresh = false;
-
             //get the current time
             DateTime currentTime = GetCurrentTime();
 
@@ -353,9 +349,6 @@ namespace DynaWin
 
                         //call the change theme function
                         ChangeTheme(SystemTheme, "windows");
-
-                        //set taskbar refresh to true to refresh the taskbar
-                        TaskbarRefresh = true;
                     }
 
                 }
@@ -378,9 +371,6 @@ namespace DynaWin
 
                         //call the change theme function
                         ChangeTheme(AppsTheme, "apps");
-
-                        //set taskbar refresh to true to refresh the taskbar
-                        TaskbarRefresh = true;
                     }
                 }
                 catch
@@ -470,9 +460,6 @@ namespace DynaWin
                         //change wallpaper
                         SetWallpaper(timeWallpaperPath);
 
-                        //set TaskbarRefresh to true to update the taskbar
-                        TaskbarRefresh = true;
-
                     }
                 }
                 catch
@@ -495,9 +482,6 @@ namespace DynaWin
 
                         //change wallpaper
                         SetWallpaper(batteryWallpaperPath);
-
-                        //set TaskbarRefresh to true to update the taskbar
-                        TaskbarRefresh = true;
                     }
                 }
                 catch
@@ -506,15 +490,6 @@ namespace DynaWin
                 }
 
 
-            }
-
-
-
-            if (TaskbarRefresh == true)
-            {
-                //refresh the taskbar
-                RefreshTaskbarClass refreshTaskbarClass = new RefreshTaskbarClass();
-                refreshTaskbarClass.RefreshTaskbar();
             }
         }
 

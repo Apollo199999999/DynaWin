@@ -27,7 +27,7 @@
         </TextBlock>
 
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="422,326,0,0">           
-    <Hyperlink x:Name="WebsiteLink" NavigateUri="https://clickphase.weebly.com/dynawin.html" RequestNavigate="HyperLink_RequestNavigate" >
+    <Hyperlink x:Name="WebsiteLink" NavigateUri="https://clickphase.vercel.app/dynawin" RequestNavigate="HyperLink_RequestNavigate" >
         Visit DynaWin's Website
     </Hyperlink>
         </TextBlock>

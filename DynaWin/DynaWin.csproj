@@ -77,7 +77,6 @@
       <DependentUpon>PreferencesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PublicVariables.cs" />
-    <Compile Include="RefreshTaskbarClass.cs" />
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
