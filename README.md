@@ -10,7 +10,7 @@ DynaWin - Dynamic Desktop for Windows 10 and Windows 11
 DynaWin is a utility that allows the Windows desktop to change dynamically.
 
 ## Before you install...
-To run on startup, DynaWin creates a batch script in the user's startup folder. However, some antiviruses may flag this as unsafe. If this is the case, please add DynaWin and the batch script, located at **```%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\StartDynaWin.bat```** to your antivirus's exclusions list.
+To run on startup, DynaWin creates a batch script in the user's startup folder. However, some antiviruses may flag this as unsafe. If this is the case, please add DynaWin and the batch script, located at **<code>%APPDATA%\Microsoft\Windows\Start&nbsp;Menu\Programs\Startup\StartDynaWin.bat</code>** to your antivirus's exclusions list.
      
 Some antiviruses and/or firewalls may block DynaWin from accessing the internet, causing the auto-update system to not work. In this case, please add DynaWin to your firewall's or antivrus's exclusion list.
 
