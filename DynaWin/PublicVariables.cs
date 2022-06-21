@@ -44,7 +44,7 @@ namespace DynaWin
         public static string StarupFolder = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
 
         //this variable stores the current version of DynaWin
-        public static string DynaWinCurrentVersion = "1.0.4";
+        public static string DynaWinCurrentVersion = "1.1.0";
 
         //function to see if a second task with the same name exists
         public static bool CheckifTaskNameExists(string targetDirectory, string TaskName)

@@ -52,8 +52,8 @@ namespace DynaWin
                 Application.Current.Shutdown();
                 Thread.Sleep(10000);
             }
-            
-            
+
+
             InitializeComponent();
 
 
@@ -65,7 +65,7 @@ namespace DynaWin
             Directory.CreateDirectory(DataDynamicWallpaperTempDir);
 
             //set updater timer interval to about 1 minute and start the timer
-            UpdaterTimer.Interval = TimeSpan.FromSeconds(60);
+            UpdaterTimer.Interval = TimeSpan.FromMinutes(1);
             UpdaterTimer.Tick += UpdaterTimer_Tick;
             UpdaterTimer.Start();
 
@@ -127,7 +127,7 @@ namespace DynaWin
 
             //call the timer event handler
             UpdaterTimer_Tick(null, null);
-            
+
         }
 
         private void SettingsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -204,50 +204,20 @@ namespace DynaWin
         //function to find closest dateTime
         public DateTime FindClosestDate(IEnumerable<DateTime> source, DateTime target)
         {
-            DateTime result = DateTime.MinValue;
-            var lowestDifference = TimeSpan.MaxValue;
+            DateTime closestTime = source.OrderBy(t => Math.Abs((t - target).Ticks))
+                             .First();
 
-            foreach (var date in source)
-            {
-                if (date > target)
-                    continue;
+            return DateTime.ParseExact(closestTime.ToString("h:mm tt"), "h:mm tt",
+                            System.Globalization.CultureInfo.InvariantCulture);
 
-                var difference = target - date;
-
-                if (difference <= lowestDifference)
-                {
-                    lowestDifference = difference;
-                    result = date;
-                }
-            }
-
-            return result;
         }
 
-        //function to get closest number (definitely did not replicate the function for dateTime)
+        //function to get closest number 
         public int FindClosestNumber(IEnumerable<int> numberList, int targetNumber)
         {
-            int result = 0;
-            var lowestDifference = int.MaxValue;
+            int nearest = numberList.OrderBy(x => Math.Abs((long)x - targetNumber)).First();
 
-            foreach (int number in numberList)
-            {
-                if (number > targetNumber)
-                {
-                    continue;
-                }
-
-                var difference = targetNumber - number;
-
-                if (difference <= lowestDifference)
-                {
-                    lowestDifference = difference;
-                    result = number;
-                }
-            }
-
-            return result;
-
+            return nearest;
         }
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
@@ -275,16 +245,16 @@ namespace DynaWin
 
             //CHECK DYNAMIC THEME TASKS------------------------------------------------------------------------------
 
+            //arrays to store the data from all actions (create 2 categories of lists to run actions from system mode and apps mode)
+            var SystemModeTime = new List<DateTime>();
+            var SystemModeTheme = new List<string>();
+
+            var AppsModeTime = new List<DateTime>();
+            var AppsModeTheme = new List<string>();
+
             //iterate through tasks in Dynamic Theme, and then iterate through the actions of the tasks
             foreach (string TaskDirectory in Directory.GetDirectories(DataDynamicThemeRootDir))
             {
-                //arrays to store the data from all actions (create 2 categories of lists to run actions from system mode and apps mode)
-                var SystemModeTime = new List<DateTime>();
-                var SystemModeTheme = new List<string>();
-
-                var AppsModeTime = new List<DateTime>();
-                var AppsModeTheme = new List<string>();
-
                 foreach (string TaskAction in Directory.GetFiles(TaskDirectory, "*.txt"))
                 {
                     //variables to store data from text file
@@ -313,7 +283,7 @@ namespace DynaWin
                             //remove the stuff after the semicolon and assign it to the theme variable
                             theme = line.Substring(line.IndexOf(';') + 1);
                         }
-                        
+
                     }
 
                     //check if mode is apps or windows(system) and add the theme and time to the correct list
@@ -330,70 +300,72 @@ namespace DynaWin
                         //add time var and theme var to correct list
                         SystemModeTime.Add(DateTime.ParseExact(time, "h:mm tt",
                             System.Globalization.CultureInfo.InvariantCulture));
-         
+
                         SystemModeTheme.Add(theme);
                     }
                 }
-
-                //get the index of the closest time (from the SystemModeTime and AppsModeTime list)
-                //do this ONLY if the list is not empty, otherwise shit will go haywire
-                try
-                {
-                    if (SystemModeTime.Count > 0 && SystemModeTheme.Count > 0)
-                    {
-                        //get the index of the closest time
-                        int SystemTimeIndex = SystemModeTime.IndexOf(FindClosestDate(SystemModeTime, currentTime));
-
-                        //use the index to get the appropriate theme from the list
-                        string SystemTheme = SystemModeTheme[SystemTimeIndex];
-
-                        //call the change theme function
-                        ChangeTheme(SystemTheme, "windows");
-                    }
-
-                }
-                catch
-                {
-                    //do nothing and try again when the timer ticks again 
-                }
-
-
-                //do the same for the appsMode actions
-                try
-                {
-                    if (AppsModeTime.Count > 0 && AppsModeTheme.Count > 0)
-                    {
-                        //get the index of the closest time
-                        int AppsTimeIndex = AppsModeTime.IndexOf(FindClosestDate(AppsModeTime, currentTime));
-
-                        //use the index to get the appropriate theme from the list
-                        string AppsTheme = AppsModeTheme[AppsTimeIndex];
-
-                        //call the change theme function
-                        ChangeTheme(AppsTheme, "apps");
-                    }
-                }
-                catch
-                {
-                    //do nothing and try again when the timer ticks again 
-                }
             }
 
+            //APPLY THEME
+
+            //get the index of the closest time (from the SystemModeTime and AppsModeTime list)
+            //do this ONLY if the list is not empty, otherwise shit will go haywire
+            try
+            {
+                if (SystemModeTime.Count > 0 && SystemModeTheme.Count > 0)
+                {
+                    //get the index of the closest time
+                    int SystemTimeIndex = SystemModeTime.IndexOf(FindClosestDate(SystemModeTime, currentTime));
+
+                    //use the index to get the appropriate theme from the list
+                    string SystemTheme = SystemModeTheme[SystemTimeIndex];
+
+                    //call the change theme function
+                    ChangeTheme(SystemTheme, "windows");
+                }
+
+            }
+            catch
+            {
+                //do nothing and try again when the timer ticks again 
+            }
+
+
+            //do the same for the appsMode actions
+            try
+            {
+                if (AppsModeTime.Count > 0 && AppsModeTheme.Count > 0)
+                {
+                    //get the index of the closest time
+                    int AppsTimeIndex = AppsModeTime.IndexOf(FindClosestDate(AppsModeTime, currentTime));
+
+                    //use the index to get the appropriate theme from the list
+                    string AppsTheme = AppsModeTheme[AppsTimeIndex];
+
+                    //call the change theme function
+                    ChangeTheme(AppsTheme, "apps");
+                }
+            }
+            catch
+            {
+                //do nothing and try again when the timer ticks again 
+            }
 
 
             //CHECK DYNAMIC WALLPAPER TASKS------------------------------------------------------------------------------
 
             //iterate through tasks in dynamic wallpaper root dir
+
+            //arrays to store the data from all actions (create 2 categories of lists to run actions from time mode and battery mode)
+            var TimeModeTriggers = new List<DateTime>();
+            var TimeModeWallpapers = new List<string>();
+
+            var BatteryModeTriggers = new List<int>();
+            var BatteryModeWallpapers = new List<string>();
+
             foreach (string DynamicWallpaperTaskDirectory in Directory.GetDirectories(DataDynamicWallpaperRootDir))
             {
-                //arrays to store the data from all actions (create 2 categories of lists to run actions from time mode and battery mode)
-                var TimeModeTriggers = new List<DateTime>();
-                var TimeModeWallpapers = new List<string>();
-
-                var BatteryModeTriggers = new List<int>();
-                var BatteryModeWallpapers = new List<string>();
-                
-                foreach(string DynamicWallpaperTaskAction in Directory.GetFiles(DynamicWallpaperTaskDirectory, "*.txt"))
+                foreach (string DynamicWallpaperTaskAction in Directory.GetFiles(DynamicWallpaperTaskDirectory, "*.txt"))
                 {
                     //variables to store info from text file
                     string wallpaper = "";
@@ -441,59 +413,58 @@ namespace DynaWin
                         BatteryModeWallpapers.Add(wallpaper);
                     }
                 }
+            }
 
+            //APPLY WALLPAPER
 
-                //get the index of the closest time/number(battery percentage) from the the Time and Battery lists
-                //do this ONLY if the list is not empty, otherwise shit will go haywire
+            //get the index of the closest time/number(battery percentage) from the the Time and Battery lists
+            //do this ONLY if the list is not empty, otherwise shit will go haywire
 
-                try
+            try
+            {
+                if (TimeModeTriggers.Count > 0 && TimeModeWallpapers.Count > 0)
                 {
-                    if (TimeModeTriggers.Count > 0 && TimeModeWallpapers.Count > 0)
-                    {
-                        //get the index of the closet time
-                        int ClosestTimeIndex = TimeModeTriggers.IndexOf
-                            (FindClosestDate(TimeModeTriggers, currentTime));
+                    //get the index of the closet time
+                    int ClosestTimeIndex = TimeModeTriggers.IndexOf
+                        (FindClosestDate(TimeModeTriggers, currentTime));
+                   
+                    //use the index to get the appropriate wallpaper from the wallpaper list
+                    string timeWallpaperPath = TimeModeWallpapers[ClosestTimeIndex];
 
-                        //use the index to get the appropriate wallpaper from the wallpaper list
-                        string timeWallpaperPath = TimeModeWallpapers[ClosestTimeIndex];
+                    //change wallpaper
+                    SetWallpaper(timeWallpaperPath);
 
-                        //change wallpaper
-                        SetWallpaper(timeWallpaperPath);
-
-                    }
                 }
-                catch
+            }
+            catch
+            {
+                //do nothing and try again when the timer ticks again
+            }
+
+
+            //do the same for battery mode
+            try
+            {
+                if (BatteryModeTriggers.Count > 0 && BatteryModeWallpapers.Count > 0)
                 {
-                    //do nothing and try again when the timer ticks again
+                    //get the index of the closest number from the list (compared to battery percentage)
+                    int ClosestBatteryPercentageIndex = BatteryModeTriggers.IndexOf
+                        (FindClosestNumber(BatteryModeTriggers, currentBatteryPercentage));
+
+                    //use the index to get the appropriate wallpaper from the wallpaper list
+                    string batteryWallpaperPath = BatteryModeWallpapers[ClosestBatteryPercentageIndex];
+
+                    //change wallpaper
+                    SetWallpaper(batteryWallpaperPath);
                 }
-
-
-                //do the same for battery mode
-                try
-                {
-                    if (BatteryModeTriggers.Count > 0 && BatteryModeWallpapers.Count > 0)
-                    {
-                        //get the index of the closest number from the list (compared to battery percentage)
-                        int ClosestBatteryPercentageIndex = BatteryModeTriggers.IndexOf
-                            (FindClosestNumber(BatteryModeTriggers, currentBatteryPercentage));
-
-                        //use the index to get the appropriate wallpaper from the wallpaper list
-                        string batteryWallpaperPath = BatteryModeWallpapers[ClosestBatteryPercentageIndex];
-
-                        //change wallpaper
-                        SetWallpaper(batteryWallpaperPath);
-                    }
-                }
-                catch
-                {
-                    //do nothing and try again when the timer ticks again
-                }
-
-
+            }
+            catch
+            {
+                //do nothing and try again when the timer ticks again
             }
         }
 
-        
+
 
         private void QuitDynaWin_Click(object sender, EventArgs e)
         {
@@ -506,13 +477,13 @@ namespace DynaWin
             Application.Current.Shutdown();
         }
 
-        
+
         private void OpenDynaWin_Click(object sender, EventArgs e)
         {
             //check if settingswindow is open, if it is, just activate the window
             //if not, open the window
 
-            
+
             if (SettingsWindowInstances == 0)
             {
                 //set the settingswindowinstances to 1 so that 
