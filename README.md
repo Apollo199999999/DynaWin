@@ -17,7 +17,7 @@ Some antiviruses and/or firewalls may block DynaWin from accessing the internet,
 ## Features
 
 ### Dynamic Theme:
-Switch your Windows theme or app theme based on time
+Switch your Windows theme or app theme based on time.
 
 #### Automatic switching of theme
 
@@ -29,13 +29,13 @@ You can configure DynaWin to switch only the app or system theme, or both. This 
 ![Dynamic Theme](https://i.imgur.com/fiCZUw4.png)
 
 ### Dynamic Wallpaper
-Switch your desktop wallpaper at certain triggers
+Switch your desktop wallpaper at certain triggers.
 
 #### Automatic switching of desktop wallpaper
 You can configure DynaWin to automatically switch your wallpaper at specific triggers. For example, you can configure DynaWin to switch your wallpaper at night, to make it easier on the eyes at night.
 
 #### Choose when your wallpaper should be changed
-You can choose to change your wallpaper either based on the time, or based on your battery percentage. This can help to remind you when your battery is running low, or remind you to unplug your laptop charger when it is fully charged.
+You can choose to change your wallpaper either based on the time, or based on your battery percentage. This can help to remind you when your battery is running low, or remind you to unplug your laptop charger when your laptop is fully charged.
 
 ![Dynamic Wallpaper](https://i.imgur.com/iBwCU13.png)
 
