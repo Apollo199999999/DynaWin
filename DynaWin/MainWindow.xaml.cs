@@ -204,9 +204,22 @@ namespace DynaWin
         //function to find closest dateTime
         public DateTime FindClosestDate(IEnumerable<DateTime> source, DateTime target)
         {
-            DateTime closestTime = source.OrderBy(t => Math.Abs((t - target).Ticks))
+            List<DateTime> DateTimesBeforeCurrent = new List<DateTime>();
+
+            //iterate through dates earlier than a target date and add them to another list
+            foreach (DateTime date in source)
+            {
+                if (DateTime.Compare(date, target) <= 0)
+                {
+                    DateTimesBeforeCurrent.Add(date);
+                }
+            }
+
+            //get closest date earlier than target date
+            DateTime closestTime = DateTimesBeforeCurrent.OrderBy(t => Math.Abs((t - target).Ticks))
                              .First();
 
+            //return formatted date
             return DateTime.ParseExact(closestTime.ToString("h:mm tt"), "h:mm tt",
                             System.Globalization.CultureInfo.InvariantCulture);
 
@@ -215,7 +228,19 @@ namespace DynaWin
         //function to get closest number 
         public int FindClosestNumber(IEnumerable<int> numberList, int targetNumber)
         {
-            int nearest = numberList.OrderBy(x => Math.Abs((long)x - targetNumber)).First();
+            List<int> NumbersLowerThanTarget = new List<int>();
+
+            //iterate through numbers lower than target number and add it to a new list
+            foreach(int number in numberList)
+            {
+                if (number <= targetNumber)
+                {
+                    NumbersLowerThanTarget.Add(number);
+                }
+            }
+
+            //get closest number below target number
+            int nearest = NumbersLowerThanTarget.OrderBy(x => Math.Abs((long)x - targetNumber)).First();
 
             return nearest;
         }
