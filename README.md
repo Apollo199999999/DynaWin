@@ -26,7 +26,7 @@ You can configure DynaWin to automatically switch the theme at specified timings
 #### Choose which mode to switch
 You can configure DynaWin to switch only the app or system theme, or both. This allows DynaWin to better cater to your needs.
 
-![Dynamic Theme](https://i.imgur.com/fiCZUw4.png)
+![Dynamic Theme](https://i.imgur.com/e3tuDlT.png)
 
 ### Dynamic Wallpaper
 Switch your desktop wallpaper at certain triggers.
@@ -37,7 +37,7 @@ You can configure DynaWin to automatically switch your wallpaper at specific tri
 #### Choose when your wallpaper should be changed
 You can choose to change your wallpaper either based on the time, or based on your battery percentage. This can help to remind you when your battery is running low, or remind you to unplug your laptop charger when your laptop is fully charged.
 
-![Dynamic Wallpaper](https://i.imgur.com/iBwCU13.png)
+![Dynamic Wallpaper](https://i.imgur.com/4mBjc2M.png)
 
 ### Automatic Updates
 DynaWin also automatically notifies you when there is a new update. This is to ensure that you have the latest version of DynaWin at all times so that you can have the latest features available.
