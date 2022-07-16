@@ -9,6 +9,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemeResources />
                 <ui:XamlControlsResources />
+                <!--  FluentWPF Controls  -->
+                <ResourceDictionary Source="pack://application:,,,/FluentWPF;component/Styles/Controls.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

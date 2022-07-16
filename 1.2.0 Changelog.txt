@@ -1,0 +1,4 @@
+-DynaWin window now resizable (NOT DONE)
+-UI Refresh from ModernWPF (NOT DONE)
+-Fix Image Pixelation (NOT DONE)
+-Mica Material on Windows 11 (NOT DONE)

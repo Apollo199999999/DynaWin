@@ -5,45 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DynaWin"
         xmlns:ui="http://schemas.modernwpf.com/2019"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         x:Class="DynaWin.SettingsWindow"
         mc:Ignorable="d"
         Title="DynaWin Settings" Height="653.5" Width="1006" ui:WindowHelper.UseModernWindowStyle="True" 
-        Icon="pack://siteoforigin:,,,/Resources/icon.ico" Closing="Window_Closing" Loaded="Window_Loaded" ResizeMode="CanMinimize" x:FieldModifier="public" x:Name="Window">
+        Icon="pack://siteoforigin:,,,/Resources/icon.ico" Closing="Window_Closing" Loaded="Window_Loaded" x:FieldModifier="public" x:Name="Window" fw:AcrylicWindow.Enabled="True">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Background.jpg" x:Name="GridBackground"/>
-        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Source="pack://siteoforigin:,,,/Resources/icon with text.png" x:Name="LogoHeader"  />
 
-        <Image HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Source="pack://siteoforigin:,,,/Resources/icon with text.png" x:Name="LogoHeader"/>
-        <Label Content="Dynamic Theme:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="Dynamic Wallpaper:" HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" FontSize="14"/>
-
-        <ListBox x:Name="DynamicThemeListBox" Height="232" Margin="10,119,10,0" Width="980" VerticalAlignment="Top" Background="#33808080" SelectionChanged="DynamicThemeListBox_SelectionChanged" x:FieldModifier="public" ScrollViewer.CanContentScroll="False">
-            <ListBox.Items>
-                <Grid Height="30" Width ="500" x:Name="AddDynamicThemeTaskBtn">
-                    <Image Height="23" Width="23" HorizontalAlignment="Left" Source="pack://siteoforigin:,,,/Resources/AddIcon.png" />
-                    <Label Content="Create a new Dynamic Theme task" Margin="30,0,0,0" HorizontalAlignment="Left"  VerticalContentAlignment="Center"/>
-                </Grid>
-            </ListBox.Items>
-        </ListBox>
-
-        <ListBox x:Name="DynamicWallpaperListBox" Height="232" Margin="10,389,10,0" Width="980" VerticalAlignment="Top" Background="#33808080" SelectionChanged="DynamicWallpaperListBox_SelectionChanged" x:FieldModifier="public" ScrollViewer.CanContentScroll="False">
-            <ListBox.Items>
-                <Grid Height="30" Width="500" x:Name="AddDynamicWallpaperTaskBtn">
-                    <Image Height="23" Width="23" HorizontalAlignment="Left" Source="pack://siteoforigin:,,,/Resources/AddIcon.png" />
-                    <Label Content="Create a new Dynamic Wallpaper task" Margin="30,0,0,0" HorizontalAlignment="Left"  VerticalContentAlignment="Center"/>
-                </Grid>
-            </ListBox.Items>
-        </ListBox>
-
-        <Button HorizontalAlignment="Left" Margin="860,10,0,0" VerticalAlignment="Top" Width="130" Height="45" x:Name="PreferencesBtn" Click="PreferencesBtn_Click" Background="#33808080">
-            <Grid Height="35" Width="115">
+        <Button HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="130" x:Name="PreferencesBtn" Click="PreferencesBtn_Click" Background="#33808080">
+            <Grid Width="115">
                 <Image Height="28" Width="28" Source="pack://siteoforigin:,,,/Resources/SettingsIcon.png" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Label Content="Preferences" HorizontalAlignment="Left" Margin="33,0,0,0" VerticalContentAlignment="Center" />
             </Grid>
-
         </Button>
 
+        <StackPanel Orientation="Vertical"  Margin="10,70,10,0" >
+            <Label Content="Dynamic Theme:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <ui:ListView x:Name="DynamicThemeListBox" Height="232" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,10,0,0" Background="#33808080" SelectionChanged="DynamicThemeListBox_SelectionChanged" x:FieldModifier="public" ScrollViewer.CanContentScroll="False">
+                <ui:ListView.Items>
+                    <Grid Height="40" x:Name="AddDynamicThemeTaskBtn">
+                        <Image Height="23" Width="23" HorizontalAlignment="Left" Source="pack://siteoforigin:,,,/Resources/AddIcon.png" />
+                        <Label Content="Create a new Dynamic Theme task" Margin="30,0,0,0" HorizontalAlignment="Left"  VerticalContentAlignment="Center"/>
+                    </Grid>
+                </ui:ListView.Items>
+            </ui:ListView>
 
+            <Label Content="Dynamic Wallpaper:" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <ui:ListView x:Name="DynamicWallpaperListBox" Height="232" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,10,0,0" Background="#33808080" SelectionChanged="DynamicWallpaperListBox_SelectionChanged" x:FieldModifier="public" ScrollViewer.CanContentScroll="False">
+                <ui:ListView.Items>
+                    <Grid Height="40" x:Name="AddDynamicWallpaperTaskBtn">
+                        <Image Height="23" Width="23" HorizontalAlignment="Left" Source="pack://siteoforigin:,,,/Resources/AddIcon.png" />
+                        <Label Content="Create a new Dynamic Wallpaper task" Margin="30,0,0,0" HorizontalAlignment="Left"  VerticalContentAlignment="Center"/>
+                    </Grid>
+                </ui:ListView.Items>
+            </ui:ListView>
+        </StackPanel>
     </Grid>
 </Window>

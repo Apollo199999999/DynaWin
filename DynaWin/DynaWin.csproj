@@ -148,6 +148,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FluentWPF">
+      <Version>0.10.2</Version>
+    </PackageReference>
+    <PackageReference Include="MicaWPF">
+      <Version>3.1.35</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
       <Version>7.1.2</Version>
     </PackageReference>

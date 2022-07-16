@@ -92,8 +92,6 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\fr-FR\ModernWpf.Controls.r
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\fr-FR\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\gl-ES\ModernWpf.Controls.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\gl-ES\ModernWpf.resources.dll
-C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\ha-Latn-NG\ModernWpf.Controls.resources.dll
-C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\ha-Latn-NG\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\he-IL\ModernWpf.Controls.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\he-IL\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\hi-IN\ModernWpf.Controls.resources.dll
@@ -173,7 +171,6 @@ C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\uz-Latn-UZ\ModernWpf.Contr
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\uz-Latn-UZ\ModernWpf.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\vi-VN\ModernWpf.Controls.resources.dll
 C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\vi-VN\ModernWpf.resources.dll
-C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\zh-CN\ModernWpf.Controls.resources.dll
-C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\zh-CN\ModernWpf.resources.dll
-C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\zh-TW\ModernWpf.Controls.resources.dll
-C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\zh-TW\ModernWpf.resources.dll
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\FluentWPF.dll
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\MicaWPF.dll
+C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Debug\MicaWPFRuntimeComponent.winmd

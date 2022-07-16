@@ -38,6 +38,14 @@
       "frameworks": {
         "net48": {
           "dependencies": {
+            "FluentWPF": {
+              "target": "Package",
+              "version": "[0.10.2, )"
+            },
+            "MicaWPF": {
+              "target": "Package",
+              "version": "[3.1.35, )"
+            },
             "Microsoft.Toolkit.Uwp.Notifications": {
               "target": "Package",
               "version": "[7.1.2, )"

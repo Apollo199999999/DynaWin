@@ -27,7 +27,7 @@ namespace DynaWin
     /// 
 
 
-    public partial class SettingsWindow : Window
+    public partial class SettingsWindow
     {
         
         public SettingsWindow()
@@ -60,14 +60,14 @@ namespace DynaWin
                 //Windows is in light mode
                 //change the grid bg image and the logoheader image
                 LogoHeader.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/icon with text Dark.png"));
-                GridBackground.ImageSource = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/Background.jpg"));
+                //GridBackground.ImageSource = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/Background.jpg"));
             }
             else if (is_light_mode == false)
             {
                 //Windows is in dark mode
                 //change the grid bg image and the logoheader image
                 LogoHeader.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/icon with text.png"));
-                GridBackground.ImageSource = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/BackgroundDark.jpg"));
+                //GridBackground.ImageSource = new BitmapImage(new Uri("pack://siteoforigin:,,,/Resources/BackgroundDark.jpg"));
             }
             //-------------------------------------------------------------------------------------------------
 
@@ -99,9 +99,7 @@ namespace DynaWin
             {
                 //create a grid, populate it with controls, and add it to the listbox
                 Grid TaskGrid = new Grid();
-                //I have no idea why you need to minus 30, i do this so that the button fits ok
-                TaskGrid.Width = listBox.Width - 30;
-                TaskGrid.Height = 30;
+                TaskGrid.Height = 40;
 
                 //Create an Image control and display the dynamicthemetaskicon or dynamicwallpapertaskicon
                 System.Windows.Controls.Image icon = new System.Windows.Controls.Image();
@@ -147,7 +145,6 @@ namespace DynaWin
                 MoreBtn.VerticalAlignment = VerticalAlignment.Center;
                 MoreBtn.FontFamily = new System.Windows.Media.FontFamily("Segoe MDL2 Assets");
                 MoreBtn.FontSize = 18;
-                MoreBtn.FontWeight = FontWeights.Bold;
                 MoreBtn.Background = System.Windows.Media.Brushes.Transparent;
 
                 //store the filepath in the button tag
