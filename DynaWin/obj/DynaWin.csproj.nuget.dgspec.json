@@ -44,7 +44,7 @@
             },
             "ModernWpfUI": {
               "target": "Package",
-              "version": "[0.9.7-preview.2, )"
+              "version": "[0.9.4, )"
             }
           }
         }

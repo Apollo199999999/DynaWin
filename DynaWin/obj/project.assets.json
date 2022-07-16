@@ -126,7 +126,7 @@
           "build/_._": {}
         }
       },
-      "ModernWpfUI/0.9.7-preview.2": {
+      "ModernWpfUI/0.9.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.Windows.SDK.Contracts": "10.0.18362.2005",
@@ -281,6 +281,12 @@
           },
           "lib/net462/gl-ES/ModernWpf.resources.dll": {
             "locale": "gl-ES"
+          },
+          "lib/net462/ha-Latn-NG/ModernWpf.Controls.resources.dll": {
+            "locale": "ha-Latn-NG"
+          },
+          "lib/net462/ha-Latn-NG/ModernWpf.resources.dll": {
+            "locale": "ha-Latn-NG"
           },
           "lib/net462/he-IL/ModernWpf.Controls.resources.dll": {
             "locale": "he-IL"
@@ -521,6 +527,18 @@
           },
           "lib/net462/vi-VN/ModernWpf.resources.dll": {
             "locale": "vi-VN"
+          },
+          "lib/net462/zh-CN/ModernWpf.Controls.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net462/zh-CN/ModernWpf.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net462/zh-TW/ModernWpf.Controls.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/net462/zh-TW/ModernWpf.resources.dll": {
+            "locale": "zh-TW"
           }
         }
       },
@@ -689,7 +707,7 @@
           "build/_._": {}
         }
       },
-      "ModernWpfUI/0.9.7-preview.2": {
+      "ModernWpfUI/0.9.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.Windows.SDK.Contracts": "10.0.18362.2005",
@@ -844,6 +862,12 @@
           },
           "lib/net462/gl-ES/ModernWpf.resources.dll": {
             "locale": "gl-ES"
+          },
+          "lib/net462/ha-Latn-NG/ModernWpf.Controls.resources.dll": {
+            "locale": "ha-Latn-NG"
+          },
+          "lib/net462/ha-Latn-NG/ModernWpf.resources.dll": {
+            "locale": "ha-Latn-NG"
           },
           "lib/net462/he-IL/ModernWpf.Controls.resources.dll": {
             "locale": "he-IL"
@@ -1084,6 +1108,18 @@
           },
           "lib/net462/vi-VN/ModernWpf.resources.dll": {
             "locale": "vi-VN"
+          },
+          "lib/net462/zh-CN/ModernWpf.Controls.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net462/zh-CN/ModernWpf.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net462/zh-TW/ModernWpf.Controls.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/net462/zh-TW/ModernWpf.resources.dll": {
+            "locale": "zh-TW"
           }
         }
       },
@@ -1252,7 +1288,7 @@
           "build/_._": {}
         }
       },
-      "ModernWpfUI/0.9.7-preview.2": {
+      "ModernWpfUI/0.9.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.Windows.SDK.Contracts": "10.0.18362.2005",
@@ -1407,6 +1443,12 @@
           },
           "lib/net462/gl-ES/ModernWpf.resources.dll": {
             "locale": "gl-ES"
+          },
+          "lib/net462/ha-Latn-NG/ModernWpf.Controls.resources.dll": {
+            "locale": "ha-Latn-NG"
+          },
+          "lib/net462/ha-Latn-NG/ModernWpf.resources.dll": {
+            "locale": "ha-Latn-NG"
           },
           "lib/net462/he-IL/ModernWpf.Controls.resources.dll": {
             "locale": "he-IL"
@@ -1647,6 +1689,18 @@
           },
           "lib/net462/vi-VN/ModernWpf.resources.dll": {
             "locale": "vi-VN"
+          },
+          "lib/net462/zh-CN/ModernWpf.Controls.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net462/zh-CN/ModernWpf.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net462/zh-TW/ModernWpf.Controls.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/net462/zh-TW/ModernWpf.resources.dll": {
+            "locale": "zh-TW"
           }
         }
       },
@@ -1815,7 +1869,7 @@
           "build/_._": {}
         }
       },
-      "ModernWpfUI/0.9.7-preview.2": {
+      "ModernWpfUI/0.9.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.Windows.SDK.Contracts": "10.0.18362.2005",
@@ -1970,6 +2024,12 @@
           },
           "lib/net462/gl-ES/ModernWpf.resources.dll": {
             "locale": "gl-ES"
+          },
+          "lib/net462/ha-Latn-NG/ModernWpf.Controls.resources.dll": {
+            "locale": "ha-Latn-NG"
+          },
+          "lib/net462/ha-Latn-NG/ModernWpf.resources.dll": {
+            "locale": "ha-Latn-NG"
           },
           "lib/net462/he-IL/ModernWpf.Controls.resources.dll": {
             "locale": "he-IL"
@@ -2210,6 +2270,18 @@
           },
           "lib/net462/vi-VN/ModernWpf.resources.dll": {
             "locale": "vi-VN"
+          },
+          "lib/net462/zh-CN/ModernWpf.Controls.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net462/zh-CN/ModernWpf.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "lib/net462/zh-TW/ModernWpf.Controls.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/net462/zh-TW/ModernWpf.resources.dll": {
+            "locale": "zh-TW"
           }
         }
       },
@@ -2873,10 +2945,10 @@
         "ref/netstandard2.0/en/Windows.Web.Http.Diagnostics.HttpDiagnosticsContract.xml"
       ]
     },
-    "ModernWpfUI/0.9.7-preview.2": {
-      "sha512": "MOSelc8E0Al7UoZBwTh2UZNjxH+7KoC1kzEoObno/p9jZXZKVKEHTK1WoBn/UO2VQPeVdUZHUl/EzJPLwYs7Kg==",
+    "ModernWpfUI/0.9.4": {
+      "sha512": "HJ07Be9KOiGKGcMLz/AwY+84h3yGHRPuYpYXCE6h1yPtaFwGMWfanZ70jX7W5XWx8+Qk1vGox+WGKgxxsy6EHw==",
       "type": "package",
-      "path": "modernwpfui/0.9.7-preview.2",
+      "path": "modernwpfui/0.9.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2932,6 +3004,8 @@
         "lib/net45/fr-FR/ModernWpf.resources.dll",
         "lib/net45/gl-ES/ModernWpf.Controls.resources.dll",
         "lib/net45/gl-ES/ModernWpf.resources.dll",
+        "lib/net45/ha-Latn-NG/ModernWpf.Controls.resources.dll",
+        "lib/net45/ha-Latn-NG/ModernWpf.resources.dll",
         "lib/net45/he-IL/ModernWpf.Controls.resources.dll",
         "lib/net45/he-IL/ModernWpf.resources.dll",
         "lib/net45/hi-IN/ModernWpf.Controls.resources.dll",
@@ -3012,6 +3086,10 @@
         "lib/net45/uz-Latn-UZ/ModernWpf.resources.dll",
         "lib/net45/vi-VN/ModernWpf.Controls.resources.dll",
         "lib/net45/vi-VN/ModernWpf.resources.dll",
+        "lib/net45/zh-CN/ModernWpf.Controls.resources.dll",
+        "lib/net45/zh-CN/ModernWpf.resources.dll",
+        "lib/net45/zh-TW/ModernWpf.Controls.resources.dll",
+        "lib/net45/zh-TW/ModernWpf.resources.dll",
         "lib/net462/ModernWpf.Controls.dll",
         "lib/net462/ModernWpf.Controls.xml",
         "lib/net462/ModernWpf.dll",
@@ -3064,6 +3142,8 @@
         "lib/net462/fr-FR/ModernWpf.resources.dll",
         "lib/net462/gl-ES/ModernWpf.Controls.resources.dll",
         "lib/net462/gl-ES/ModernWpf.resources.dll",
+        "lib/net462/ha-Latn-NG/ModernWpf.Controls.resources.dll",
+        "lib/net462/ha-Latn-NG/ModernWpf.resources.dll",
         "lib/net462/he-IL/ModernWpf.Controls.resources.dll",
         "lib/net462/he-IL/ModernWpf.resources.dll",
         "lib/net462/hi-IN/ModernWpf.Controls.resources.dll",
@@ -3144,138 +3224,149 @@
         "lib/net462/uz-Latn-UZ/ModernWpf.resources.dll",
         "lib/net462/vi-VN/ModernWpf.Controls.resources.dll",
         "lib/net462/vi-VN/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ModernWpf.Controls.dll",
-        "lib/net5.0-windows7.0/ModernWpf.Controls.xml",
-        "lib/net5.0-windows7.0/ModernWpf.dll",
-        "lib/net5.0-windows7.0/ModernWpf.xml",
-        "lib/net5.0-windows7.0/af-ZA/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/af-ZA/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/am-ET/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/am-ET/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ar-SA/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/ar-SA/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/az-Latn-AZ/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/az-Latn-AZ/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/be-BY/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/be-BY/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/bg-BG/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/bg-BG/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/bn-BD/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/bn-BD/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/bs-Latn-BA/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/bs-Latn-BA/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ca-ES/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/ca-ES/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/cs-CZ/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/cs-CZ/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/da-DK/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/da-DK/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/de-DE/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/de-DE/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/el-GR/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/el-GR/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/en-GB/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/en-GB/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/es-ES/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/es-ES/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/es-MX/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/es-MX/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/et-EE/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/et-EE/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/eu-ES/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/eu-ES/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/fa-IR/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/fa-IR/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/fi-FI/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/fi-FI/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/fil-PH/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/fil-PH/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/fr-CA/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/fr-CA/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/fr-FR/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/fr-FR/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/gl-ES/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/gl-ES/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/he-IL/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/he-IL/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/hi-IN/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/hi-IN/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/hr-HR/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/hr-HR/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/hu-HU/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/hu-HU/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/id-ID/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/id-ID/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/is-IS/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/is-IS/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/it-IT/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/it-IT/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ja-JP/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/ja-JP/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ka-GE/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/ka-GE/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/kk-KZ/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/kk-KZ/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/km-KH/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/km-KH/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/kn-IN/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/kn-IN/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ko-KR/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/ko-KR/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/lo-LA/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/lo-LA/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/lt-LT/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/lt-LT/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/lv-LV/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/lv-LV/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/mk-MK/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/mk-MK/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ml-IN/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/ml-IN/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ms-MY/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/ms-MY/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/nb-NO/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/nb-NO/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/nl-NL/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/nl-NL/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/nn-NO/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/nn-NO/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/pl-PL/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/pl-PL/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/pt-BR/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/pt-BR/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/pt-PT/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/pt-PT/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ro-RO/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/ro-RO/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ru-RU/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/ru-RU/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/sk-SK/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/sk-SK/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/sl-SI/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/sl-SI/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/sq-AL/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/sq-AL/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/sr-Latn-RS/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/sr-Latn-RS/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/sv-SE/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/sv-SE/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/sw-KE/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/sw-KE/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/ta-IN/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/ta-IN/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/te-IN/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/te-IN/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/th-TH/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/th-TH/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/tr-TR/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/tr-TR/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/uk-UA/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/uk-UA/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/uz-Latn-UZ/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/uz-Latn-UZ/ModernWpf.resources.dll",
-        "lib/net5.0-windows7.0/vi-VN/ModernWpf.Controls.resources.dll",
-        "lib/net5.0-windows7.0/vi-VN/ModernWpf.resources.dll",
+        "lib/net462/zh-CN/ModernWpf.Controls.resources.dll",
+        "lib/net462/zh-CN/ModernWpf.resources.dll",
+        "lib/net462/zh-TW/ModernWpf.Controls.resources.dll",
+        "lib/net462/zh-TW/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ModernWpf.Controls.dll",
+        "lib/net5.0-windows10.0.18362.0/ModernWpf.Controls.xml",
+        "lib/net5.0-windows10.0.18362.0/ModernWpf.dll",
+        "lib/net5.0-windows10.0.18362.0/ModernWpf.xml",
+        "lib/net5.0-windows10.0.18362.0/af-ZA/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/af-ZA/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/am-ET/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/am-ET/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ar-SA/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ar-SA/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/az-Latn-AZ/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/az-Latn-AZ/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/be-BY/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/be-BY/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/bg-BG/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/bg-BG/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/bn-BD/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/bn-BD/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/bs-Latn-BA/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/bs-Latn-BA/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ca-ES/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ca-ES/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/cs-CZ/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/cs-CZ/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/da-DK/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/da-DK/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/de-DE/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/de-DE/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/el-GR/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/el-GR/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/en-GB/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/en-GB/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/es-ES/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/es-ES/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/es-MX/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/es-MX/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/et-EE/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/et-EE/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/eu-ES/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/eu-ES/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/fa-IR/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/fa-IR/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/fi-FI/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/fi-FI/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/fil-PH/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/fil-PH/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/fr-CA/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/fr-CA/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/fr-FR/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/fr-FR/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/gl-ES/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/gl-ES/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ha-Latn-NG/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ha-Latn-NG/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/he-IL/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/he-IL/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/hi-IN/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/hi-IN/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/hr-HR/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/hr-HR/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/hu-HU/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/hu-HU/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/id-ID/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/id-ID/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/is-IS/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/is-IS/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/it-IT/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/it-IT/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ja-JP/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ja-JP/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ka-GE/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ka-GE/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/kk-KZ/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/kk-KZ/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/km-KH/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/km-KH/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/kn-IN/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/kn-IN/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ko-KR/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ko-KR/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/lo-LA/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/lo-LA/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/lt-LT/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/lt-LT/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/lv-LV/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/lv-LV/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/mk-MK/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/mk-MK/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ml-IN/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ml-IN/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ms-MY/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ms-MY/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/nb-NO/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/nb-NO/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/nl-NL/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/nl-NL/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/nn-NO/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/nn-NO/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/pl-PL/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/pl-PL/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/pt-BR/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/pt-BR/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/pt-PT/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/pt-PT/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ref/ModernWpf.Controls.dll",
+        "lib/net5.0-windows10.0.18362.0/ro-RO/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ro-RO/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ru-RU/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ru-RU/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sk-SK/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sk-SK/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sl-SI/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sl-SI/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sq-AL/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sq-AL/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sr-Latn-RS/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sr-Latn-RS/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sv-SE/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sv-SE/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sw-KE/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/sw-KE/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ta-IN/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/ta-IN/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/te-IN/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/te-IN/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/th-TH/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/th-TH/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/tr-TR/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/tr-TR/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/uk-UA/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/uk-UA/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/uz-Latn-UZ/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/uz-Latn-UZ/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/vi-VN/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/vi-VN/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/zh-CN/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/zh-CN/ModernWpf.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/zh-TW/ModernWpf.Controls.resources.dll",
+        "lib/net5.0-windows10.0.18362.0/zh-TW/ModernWpf.resources.dll",
         "lib/netcoreapp3.0/ModernWpf.Controls.dll",
         "lib/netcoreapp3.0/ModernWpf.Controls.xml",
         "lib/netcoreapp3.0/ModernWpf.dll",
@@ -3328,6 +3419,8 @@
         "lib/netcoreapp3.0/fr-FR/ModernWpf.resources.dll",
         "lib/netcoreapp3.0/gl-ES/ModernWpf.Controls.resources.dll",
         "lib/netcoreapp3.0/gl-ES/ModernWpf.resources.dll",
+        "lib/netcoreapp3.0/ha-Latn-NG/ModernWpf.Controls.resources.dll",
+        "lib/netcoreapp3.0/ha-Latn-NG/ModernWpf.resources.dll",
         "lib/netcoreapp3.0/he-IL/ModernWpf.Controls.resources.dll",
         "lib/netcoreapp3.0/he-IL/ModernWpf.resources.dll",
         "lib/netcoreapp3.0/hi-IN/ModernWpf.Controls.resources.dll",
@@ -3408,7 +3501,11 @@
         "lib/netcoreapp3.0/uz-Latn-UZ/ModernWpf.resources.dll",
         "lib/netcoreapp3.0/vi-VN/ModernWpf.Controls.resources.dll",
         "lib/netcoreapp3.0/vi-VN/ModernWpf.resources.dll",
-        "modernwpfui.0.9.7-preview.2.nupkg.sha512",
+        "lib/netcoreapp3.0/zh-CN/ModernWpf.Controls.resources.dll",
+        "lib/netcoreapp3.0/zh-CN/ModernWpf.resources.dll",
+        "lib/netcoreapp3.0/zh-TW/ModernWpf.Controls.resources.dll",
+        "lib/netcoreapp3.0/zh-TW/ModernWpf.resources.dll",
+        "modernwpfui.0.9.4.nupkg.sha512",
         "modernwpfui.nuspec",
         "readme.txt"
       ]
@@ -3601,7 +3698,7 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
       "Microsoft.Toolkit.Uwp.Notifications >= 7.1.2",
-      "ModernWpfUI >= 0.9.7-preview.2"
+      "ModernWpfUI >= 0.9.4"
     ]
   },
   "packageFolders": {
@@ -3648,7 +3745,7 @@
           },
           "ModernWpfUI": {
             "target": "Package",
-            "version": "[0.9.7-preview.2, )"
+            "version": "[0.9.4, )"
           }
         }
       }

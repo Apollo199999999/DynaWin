@@ -7,7 +7,7 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         mc:Ignorable="d"
         Title="DynaWin Preferences" Height="605" Width="670" ResizeMode="NoResize" 
-        ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Topmost="True" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Closing="Window_Closing">
+        ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Topmost="True" Closing="Window_Closing">
     <Grid>
         <Label Content="Preferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Label Content="DynaWin Startup Settings:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>

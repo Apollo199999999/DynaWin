@@ -152,7 +152,7 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="ModernWpfUI">
-      <Version>0.9.7-preview.2</Version>
+      <Version>0.9.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
