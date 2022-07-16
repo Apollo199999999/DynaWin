@@ -1,12 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "RKE2eUefNo01FOtJVDZcmOQCpGaJ3HNG9qT8/OTtTYuc9r7pDrcI96o1PhS4U6WbC2nN5WHD+BjC5LheC6Ngaw==",
+  "dgSpecHash": "hlcyStFk07TGBjJ6Hxp6yU/wz2tvXgXs7w4ff1Be95gCHvBq95lyJ4yZvaAUXf9VH2Il4BPLWpJPhVyU54TKYA==",
   "success": true,
   "projectFilePath": "C:\\Users\\fligh\\source\\repos\\DynaWin\\DynaWin\\DynaWin.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\fligh\\.nuget\\packages\\fluentwpf\\0.10.2\\fluentwpf.0.10.2.nupkg.sha512",
-    "C:\\Users\\fligh\\.nuget\\packages\\micawpf\\3.1.35\\micawpf.3.1.35.nupkg.sha512",
-    "C:\\Users\\fligh\\.nuget\\packages\\micawpfruntimecomponent\\1.0.0\\micawpfruntimecomponent.1.0.0.nupkg.sha512",
     "C:\\Users\\fligh\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
     "C:\\Users\\fligh\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net48\\1.0.0\\microsoft.netframework.referenceassemblies.net48.1.0.0.nupkg.sha512",
     "C:\\Users\\fligh\\.nuget\\packages\\microsoft.toolkit.uwp.notifications\\7.1.2\\microsoft.toolkit.uwp.notifications.7.1.2.nupkg.sha512",

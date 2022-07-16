@@ -31,7 +31,7 @@
             </Button.ToolTip>
         </Button>
 
-        <Button x:Name="AddBatteryActionBtn" HorizontalAlignment="Left" Margin="195,224,0,0" VerticalAlignment="Top" Width="180" Height="37" 
+        <Button x:Name="AddBatteryActionBtn" HorizontalAlignment="Left" Margin="195,224,0,0" VerticalAlignment="Top" Width="174" Height="37" 
                 ToolTipService.InitialShowDelay="0" Click="AddBatteryActionBtn_Click">
             <Button.Content>
                 <Grid Width="165">
@@ -45,7 +45,7 @@
             </Button.ToolTip>
         </Button>
 
-        <Button x:Name="RemoveActionBtn" HorizontalAlignment="Left" Margin="396,224,0,0" VerticalAlignment="Top" Width="170" 
+        <Button x:Name="RemoveActionBtn" HorizontalAlignment="Left" Margin="390,224,0,0" VerticalAlignment="Top" Width="170" 
                 Height="37" Click="RemoveActionBtn_Click" ToolTipService.InitialShowDelay="0" ToolTipService.ShowOnDisabled="True">
             <Button.Content>
                 <Grid Width="160">

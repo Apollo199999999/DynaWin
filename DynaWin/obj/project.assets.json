@@ -2,42 +2,6 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.8": {
-      "FluentWPF/0.10.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/FluentWPF.dll": {}
-        },
-        "runtime": {
-          "lib/net45/FluentWPF.dll": {}
-        }
-      },
-      "MicaWPF/3.1.35": {
-        "type": "package",
-        "dependencies": {
-          "MicaWPFRuntimeComponent": "1.0.0"
-        },
-        "compile": {
-          "lib/net48/MicaWPF.dll": {}
-        },
-        "runtime": {
-          "lib/net48/MicaWPF.dll": {}
-        }
-      },
-      "MicaWPFRuntimeComponent/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/NETFramework48/MicaWPFRuntimeComponent.winmd": {}
-        },
-        "runtime": {
-          "lib/NETFramework48/MicaWPFRuntimeComponent.winmd": {}
-        },
-        "runtimeTargets": {
-          "runtimes/win10-x64/native/MicaWPFRuntimeComponent.dll": {
-            "assetType": "native",
-            "rid": "win10-x64"
-          }
-        }
-      },
       "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -601,36 +565,6 @@
       }
     },
     ".NETFramework,Version=v4.8/win": {
-      "FluentWPF/0.10.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/FluentWPF.dll": {}
-        },
-        "runtime": {
-          "lib/net45/FluentWPF.dll": {}
-        }
-      },
-      "MicaWPF/3.1.35": {
-        "type": "package",
-        "dependencies": {
-          "MicaWPFRuntimeComponent": "1.0.0"
-        },
-        "compile": {
-          "lib/net48/MicaWPF.dll": {}
-        },
-        "runtime": {
-          "lib/net48/MicaWPF.dll": {}
-        }
-      },
-      "MicaWPFRuntimeComponent/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/NETFramework48/MicaWPFRuntimeComponent.winmd": {}
-        },
-        "runtime": {
-          "lib/NETFramework48/MicaWPFRuntimeComponent.winmd": {}
-        }
-      },
       "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -1194,36 +1128,6 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x64": {
-      "FluentWPF/0.10.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/FluentWPF.dll": {}
-        },
-        "runtime": {
-          "lib/net45/FluentWPF.dll": {}
-        }
-      },
-      "MicaWPF/3.1.35": {
-        "type": "package",
-        "dependencies": {
-          "MicaWPFRuntimeComponent": "1.0.0"
-        },
-        "compile": {
-          "lib/net48/MicaWPF.dll": {}
-        },
-        "runtime": {
-          "lib/net48/MicaWPF.dll": {}
-        }
-      },
-      "MicaWPFRuntimeComponent/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/NETFramework48/MicaWPFRuntimeComponent.winmd": {}
-        },
-        "runtime": {
-          "lib/NETFramework48/MicaWPFRuntimeComponent.winmd": {}
-        }
-      },
       "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -1787,36 +1691,6 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x86": {
-      "FluentWPF/0.10.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/FluentWPF.dll": {}
-        },
-        "runtime": {
-          "lib/net45/FluentWPF.dll": {}
-        }
-      },
-      "MicaWPF/3.1.35": {
-        "type": "package",
-        "dependencies": {
-          "MicaWPFRuntimeComponent": "1.0.0"
-        },
-        "compile": {
-          "lib/net48/MicaWPF.dll": {}
-        },
-        "runtime": {
-          "lib/net48/MicaWPF.dll": {}
-        }
-      },
-      "MicaWPFRuntimeComponent/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/NETFramework48/MicaWPFRuntimeComponent.winmd": {}
-        },
-        "runtime": {
-          "lib/NETFramework48/MicaWPFRuntimeComponent.winmd": {}
-        }
-      },
       "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -2381,55 +2255,6 @@
     }
   },
   "libraries": {
-    "FluentWPF/0.10.2": {
-      "sha512": "6bDzdj08dRW4Ynm4GycC2E2MlKFlnH9FPJKRlrIC+a3h+V6a6W7bRiMraviqIZd21JiN6+YggRb76qu/0Zdd0w==",
-      "type": "package",
-      "path": "fluentwpf/0.10.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "fluentwpf.0.10.2.nupkg.sha512",
-        "fluentwpf.nuspec",
-        "lib/net45/FluentWPF.dll",
-        "lib/netcoreapp3.0/FluentWPF.dll"
-      ]
-    },
-    "MicaWPF/3.1.35": {
-      "sha512": "96iPkYXLNTM5U3qpRXCUqUpCQ39bNkna3wCu6bHzjthkNLYWPzk/8EWQpaj7QQAAsMHuk0bL86c37ClGXMKHXQ==",
-      "type": "package",
-      "path": "micawpf/3.1.35",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "MicaWPFLogo - 128x128.png",
-        "ReadmeNuget.md",
-        "lib/net472/MicaWPF.dll",
-        "lib/net48/MicaWPF.dll",
-        "lib/net5.0-windows10.0.19041/MicaWPF.dll",
-        "lib/net6.0-windows10.0.19041/MicaWPF.dll",
-        "lib/netcoreapp3.1/MicaWPF.dll",
-        "micawpf.3.1.35.nupkg.sha512",
-        "micawpf.nuspec"
-      ]
-    },
-    "MicaWPFRuntimeComponent/1.0.0": {
-      "sha512": "Ffb7rzFtS+twlDyXdqmDBUnPZU7sVcRQ6sC+B0zhapKPBMO/gjQz0rCwdf3qfSlr4PB5xv+aKe8Oi1pUWvTi1A==",
-      "type": "package",
-      "path": "micawpfruntimecomponent/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/NETFramework472/MicaWPFRuntimeComponent.winmd",
-        "lib/NETFramework48/MicaWPFRuntimeComponent.winmd",
-        "lib/net5.0-windows10.0.19041.0/MicaWPF.Projection.dll",
-        "lib/net6.0-windows10.0.19041.0/MicaWPF.Projection.dll",
-        "lib/netcoreapp3.1/MicaWPFRuntimeComponent.winmd",
-        "micawpfruntimecomponent.1.0.0.nupkg.sha512",
-        "micawpfruntimecomponent.nuspec",
-        "runtimes/win10-x64/native/MicaWPFRuntimeComponent.dll"
-      ]
-    },
     "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
       "sha512": "7D2TMufjGiowmt0E941kVoTIS+GTNzaPopuzM1/1LSaJAdJdBrVP0SkZW7AgDd0a2U1DjsIeaKG1wxGVBNLDMw==",
       "type": "package",
@@ -3775,8 +3600,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
-      "FluentWPF >= 0.10.2",
-      "MicaWPF >= 3.1.35",
       "Microsoft.Toolkit.Uwp.Notifications >= 7.1.2",
       "ModernWpfUI >= 0.9.7-preview.2"
     ]
@@ -3819,14 +3642,6 @@
     "frameworks": {
       "net48": {
         "dependencies": {
-          "FluentWPF": {
-            "target": "Package",
-            "version": "[0.10.2, )"
-          },
-          "MicaWPF": {
-            "target": "Package",
-            "version": "[3.1.35, )"
-          },
           "Microsoft.Toolkit.Uwp.Notifications": {
             "target": "Package",
             "version": "[7.1.2, )"
