@@ -19,12 +19,12 @@ Some antiviruses and/or firewalls may block DynaWin from accessing the internet,
 ### Dynamic Theme:
 Switch your Windows theme or app theme based on time.
 
-#### Automatic switching of theme
+#### Automatic theme switching
 
-You can configure DynaWin to automatically switch the theme at specified timings. For example, you can automatically switch Windows to Dark theme, so that it is easier on the eyes at night.
+DynaWin can automatically switch the Windows theme at specific timings. For example, you can automatically switch Windows to Dark theme at night, so that it is easier on the eyes.
 
 #### Choose which mode to switch
-You can configure DynaWin to switch only the app or system theme, or both. This allows DynaWin to better cater to your needs.
+You can configure DynaWin to switch only the app or system theme, or both. This gives you more control over DynaWin's behaviour and allows DynaWin to better cater to your needs.
 
 ![Dynamic Theme](https://imgur.com/Z8F3AtU.png)
 
@@ -32,10 +32,10 @@ You can configure DynaWin to switch only the app or system theme, or both. This 
 Switch your desktop wallpaper at certain triggers.
 
 #### Automatic switching of desktop wallpaper
-You can configure DynaWin to automatically switch your wallpaper at specific triggers. For example, you can configure DynaWin to switch your wallpaper at night, to make it easier on the eyes at night.
+DynaWin can automatically switch your wallpaper at specific triggers. For example, you can configure DynaWin to switch your wallpaper at night, to make it easier on the eyes.
 
 #### Choose when your wallpaper should be changed
-You can choose to change your wallpaper either based on the time, or based on your battery percentage. This can help to remind you when your battery is running low, or remind you to unplug your laptop charger when your laptop is fully charged.
+DynaWin can change your wallpaper either based on the time, or based on your battery percentage, to remind you when your battery is running low, or remind you to unplug your charger.
 
 ![Dynamic Wallpaper](https://imgur.com/G82mVtr.png)
 
