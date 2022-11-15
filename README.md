@@ -1,6 +1,6 @@
 # DynaWin
 
-### Project site: https://clickphase.weebly.com/dynawin.html
+### Project site: https://clickphase.vercel.app/dynawin
 ### Demo video: https://www.youtube.com/watch?v=J0iyzZG5tXc
 
 DynaWin - Dynamic Desktop for Windows 10 and Windows 11
