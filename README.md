@@ -51,4 +51,4 @@ DynaWin's privacy policy can be viewed here: [PRIVACYPOLICY.md](https://github.c
 ## Licensing
 DynaWin is licensed under the MIT License. To view the license, visit [LICENSE.TXT](https://github.com/Apollo199999999/DynaWin/blob/main/LICENSE.txt)
 
-Copyright © 2020-present ClickPhase 
+Copyright © 2020-present ClickPhase
