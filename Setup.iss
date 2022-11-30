@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "DynaWin"
-#define MyAppVersion "1.1.0"
+#define MyAppVersion "1.1.1"
 #define MyAppPublisher "ClickPhase"
 #define MyAppURL "https://clickphase.vercel.app/dynawin"
 #define MyAppExeName "DynaWin.exe"
@@ -26,12 +26,12 @@ LicenseFile=C:\Users\fligh\source\repos\DynaWin\COMBINED-LICENSES.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\fligh\source\repos\DynaWin
-OutputBaseFilename=DynaWin_1.1.0_Setup
+OutputBaseFilename=DynaWin_1.1.1_Setup
 SetupIconFile=C:\Users\fligh\source\repos\DynaWin\DynaWin\bin\Release\Resources\icon.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
-VersionInfoVersion = 1.1.0
+VersionInfoVersion = 1.1.1
 UninstallDisplayIcon={app}\DynaWin.exe
 UninstallDisplayName=DynaWin
 
