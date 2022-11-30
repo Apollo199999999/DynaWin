@@ -45,8 +45,10 @@ DynaWin also automatically notifies you when there is a new update. This is to e
 ## Compatibility
 DynaWin works with Windows 10 and Windows 11. I have not tested if DynaWin works with Windows 8.1 or Windows 7, so if you are on those versions of Windows, use at your own risk. DynaWin also requires .NET framework version 4.8 to function properly.
 
-## Licensing
+## Privacy Policy
+DynaWin's privacy policy can be viewed here: [PRIVACYPOLICY.md](https://github.com/Apollo199999999/DynaWin/blob/main/PRIVACYPOLICY.md)
 
+## Licensing
 DynaWin is licensed under the MIT License. To view the license, visit [LICENSE.TXT](https://github.com/Apollo199999999/DynaWin/blob/main/LICENSE.txt)
 
 Copyright © 2020-present ClickPhase 
