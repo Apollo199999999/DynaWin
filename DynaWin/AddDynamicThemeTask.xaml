@@ -1,51 +1,135 @@
-﻿<Window x:Class="DynaWin.AddDynamicThemeTask"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ui="http://schemas.modernwpf.com/2019"
-        xmlns:local="clr-namespace:DynaWin"
-        mc:Ignorable="d"
-        Title="New Dynamic Theme Task" Height="800" Width="600" ResizeMode="NoResize" 
-        ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterOwner" Closing="Window_Closing" Topmost="True" >
+﻿<Window
+    x:Class="DynaWin.AddDynamicThemeTask"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DynaWin"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    Title="New Dynamic Theme Task"
+    Width="600"
+    Height="800"
+    ui:WindowHelper.UseModernWindowStyle="True"
+    Closing="Window_Closing"
+    ResizeMode="NoResize"
+    Topmost="True"
+    WindowStartupLocation="CenterOwner"
+    mc:Ignorable="d">
     <Grid>
-        <Label x:Name="TitleLabel" Content="New Dynamic Theme task" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <Label Content="Name of Dynamic Theme task (the name cannot contain illegal characters)" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Height="32" Margin="10,93,10,0" VerticalAlignment="Top" Width="574" x:Name="TaskNameTextBox" TextWrapping="NoWrap" MaxLines="1" TextChanged="TaskNameTextBox_TextChanged"/>
-        <Label Content="Events:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBlock Text="Add or remove the events that you want this task to do. (e.g switching the system theme to light or dark at a specified time.)" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" TextWrapping="Wrap"/>
-        
-        <Button x:Name="SaveBtn" Content="Save and Exit" HorizontalAlignment="Right" Margin="0,715,10,0" VerticalAlignment="Top" Width="140" Height="37" Style="{StaticResource AccentButtonStyle}" Click="SaveBtn_Click"/>
-        
-        <Button x:Name="AddActionBtn" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Width="155" Height="37" 
-                Click="AddActionBtn_Click" ToolTipService.InitialShowDelay="0">
+        <Label
+            x:Name="TitleLabel"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="New Dynamic Theme task"
+            FontSize="20"
+            FontWeight="Bold" />
+        <Label
+            Margin="10,62,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Name of Dynamic Theme task (the name cannot contain illegal characters)"
+            FontWeight="Bold" />
+        <TextBox
+            x:Name="TaskNameTextBox"
+            Width="574"
+            Height="32"
+            Margin="10,93,10,0"
+            VerticalAlignment="Top"
+            MaxLines="1"
+            TextChanged="TaskNameTextBox_TextChanged"
+            TextWrapping="NoWrap" />
+        <Label
+            Margin="10,140,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Events:"
+            FontSize="16"
+            FontWeight="Bold" />
+        <TextBlock
+            Margin="10,177,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="Add or remove the events that you want this task to do. (e.g switching the system theme to light or dark at a specified time.)"
+            TextWrapping="Wrap" />
+
+        <Button
+            x:Name="SaveBtn"
+            Width="140"
+            Height="37"
+            Margin="0,715,10,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Click="SaveBtn_Click"
+            Content="Save and Exit"
+            Style="{StaticResource AccentButtonStyle}" />
+
+        <Button
+            x:Name="AddActionBtn"
+            Width="155"
+            Height="37"
+            Margin="10,224,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="AddActionBtn_Click"
+            ToolTipService.InitialShowDelay="0">
             <Button.Content>
                 <Grid Width="145">
-                    <Image Source="pack://siteoforigin:,,,/Resources/AddIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
-                    <Label Content="Add an Event" Margin="30,0,10,0" VerticalContentAlignment="Center"/>
+                    <Image
+                        Width="23"
+                        Height="23"
+                        HorizontalAlignment="Left"
+                        Source="pack://siteoforigin:,,,/Resources/AddIcon.png" />
+                    <Label
+                        Margin="30,0,10,0"
+                        VerticalContentAlignment="Center"
+                        Content="Add an Event" />
                 </Grid>
             </Button.Content>
-            
+
             <Button.ToolTip>
-                <ToolTip x:Name="AddActionBtnToolTip" Content="Add an Event"/>
+                <ToolTip x:Name="AddActionBtnToolTip" Content="Add an Event" />
             </Button.ToolTip>
         </Button>
 
-        <Button x:Name="RemoveActionBtn" HorizontalAlignment="Left" Margin="185,224,0,0" VerticalAlignment="Top" Width="170" 
-                Height="37" Click="RemoveActionBtn_Click" ToolTipService.InitialShowDelay="0" ToolTipService.ShowOnDisabled="True">
+        <Button
+            x:Name="RemoveActionBtn"
+            Width="170"
+            Height="37"
+            Margin="185,224,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="RemoveActionBtn_Click"
+            ToolTipService.InitialShowDelay="0"
+            ToolTipService.ShowOnDisabled="True">
             <Button.Content>
                 <Grid Width="160">
-                    <Image Source="pack://siteoforigin:,,,/Resources/DeleteIcon.png" HorizontalAlignment="Left" Width="23" Height="23" />
-                    <Label Content="Remove an Event" Margin="30,0,0,0" VerticalContentAlignment="Center"/>
+                    <Image
+                        Width="23"
+                        Height="23"
+                        HorizontalAlignment="Left"
+                        Source="pack://siteoforigin:,,,/Resources/DeleteIcon.png" />
+                    <Label
+                        Margin="30,0,0,0"
+                        VerticalContentAlignment="Center"
+                        Content="Remove an Event" />
                 </Grid>
             </Button.Content>
 
             <Button.ToolTip>
-                <ToolTip x:Name="RemoveActionBtnToolTip" Content="Remove an Event"/>
+                <ToolTip x:Name="RemoveActionBtnToolTip" Content="Remove an Event" />
             </Button.ToolTip>
         </Button>
 
-        <ListBox x:Name="ActionsListBox" Height="435" Margin="10,270,10,0" VerticalAlignment="Top" Width="574" SelectionChanged="ActionsListBox_SelectionChanged" Loaded="ActionsListBox_Loaded" ScrollViewer.CanContentScroll="False"/>
+        <ListBox
+            x:Name="ActionsListBox"
+            Width="574"
+            Height="435"
+            Margin="10,270,10,0"
+            VerticalAlignment="Top"
+            Loaded="ActionsListBox_Loaded"
+            ScrollViewer.CanContentScroll="False"
+            SelectionChanged="ActionsListBox_SelectionChanged" />
 
     </Grid>
 </Window>
